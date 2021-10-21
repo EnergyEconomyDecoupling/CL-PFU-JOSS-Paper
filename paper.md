@@ -6,10 +6,6 @@ tags:
 - R
 - matrix mathematics
 - energy efficiency
-date: "20 October 2021"
-output:
-  html_document:
-    df_print: paged
 authors:
 - name: Matthew Kuperus Heun
   orcid: 0000-0002-7438-214X
@@ -21,12 +17,13 @@ authors:
 - name: Matthew Kuperus Heun
   orcid: 0000-0002-7438-214X
   affiliation: 1
-bibliography: paper.bib
 affiliations:
 - name: Engineering Department, Calvin University
   index: 1
 - name: School of Earth and Environment, Leeds University
   index: 2
+date: "20 October 2021"
+bibliography: paper.bib
 ---
 
 # Summary
