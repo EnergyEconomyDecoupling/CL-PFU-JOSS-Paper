@@ -11,18 +11,20 @@ authors:
   orcid: 0000-0002-7438-214X
   affiliation: 1
 - name: Zeke Marshall
+  orcid: 0000-0001-9260-7827
   affiliation: 2
 - name: Paul E. Brockway
+  orcid: 0000-0001-6925-8040
   affiliation: 2
-- name: Matthew Kuperus Heun
-  orcid: 0000-0002-7438-214X
-  affiliation: 1
+- name: Emmanuel Aramendia
+  orcid: 0000-0002-5964-6776
+  affiliation: 2
 affiliations:
 - name: Engineering Department, Calvin University
   index: 1
 - name: School of Earth and Environment, Leeds University
   index: 2
-date: "20 October 2021"
+date: "23 May 2023"
 bibliography: paper.bib
 ---
 
