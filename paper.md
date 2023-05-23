@@ -28,8 +28,7 @@ date: "23 May 2023"
 bibliography: paper.bib
 ---
 
-Max length: unknown
-Another line.
+Max length: 250--1000 words
 
 # Summary
 
