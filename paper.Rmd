@@ -84,8 +84,7 @@ scientific explorations of forthcoming data releases from the *Gaia* mission
 
 # Example usage
 
-
-```r
+```{r}
 library(Recca)
 ```
 
