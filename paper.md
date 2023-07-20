@@ -32,6 +32,21 @@ Max length: 250--1000 words
 
 # Summary
 
+Energy flows through society enable economic activity and facilitate human flourishing.
+To understand economic growth and human well-being, 
+the field of energy analysis (SEA) evaluates energy flows
+from the primary stage 
+(coal, oil, natural gas) 
+to the final stage
+(energy purchased by consumers, such as refined petroleum and electricity)
+and ultimately to the useful stage
+(heat, mechanical drive, and light),
+the last energy before energy services
+(such as transport, thermal comfort, and illumination).
+Societal exergy analysis (SEA), a variant of energy analysis,
+quantifies energy flows as exergy, 
+the physical work potential of energy.
+
 The forces on stars, galaxies, and dark matter under external gravitational
 fields lead to the dynamical evolution of structures in the universe. The orbits
 of these bodies are therefore key to understanding the formation, history, and
@@ -63,6 +78,10 @@ visualizations of textbook material [@Binney:2008]. The combination of speed,
 design, and support for Astropy functionality in `Gala` will enable exciting
 scientific explorations of forthcoming data releases from the *Gaia* mission
 [@gaia] by students and experts alike.
+
+# Example usage
+
+
 
 # Mathematics
 
