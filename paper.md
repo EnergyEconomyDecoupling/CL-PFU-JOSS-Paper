@@ -37,7 +37,7 @@ Max length: 250--1000 words
 
 Energy flows through society enable economic activity and facilitate human flourishing.
 To understand economic growth and human well-being, 
-the field of energy analysis (SEA) evaluates energy flows
+the field of energy analysis evaluates energy flows
 from the primary stage 
 (coal, oil, natural gas) 
 to the final stage
@@ -45,8 +45,8 @@ to the final stage
 and ultimately to the useful stage
 (heat, mechanical drive, and light),
 the last energy before energy services
-(such as transport, thermal comfort, and illumination).
-Societal exergy analysis (SEA), a variant of energy analysis,
+(transport, thermal comfort, and illumination).
+Societal exergy analysis (SEA), an extension of energy analysis,
 quantifies energy flows as exergy, 
 the physical work potential of energy.
 
