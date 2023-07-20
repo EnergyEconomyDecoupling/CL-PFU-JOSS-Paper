@@ -49,10 +49,6 @@ the last energy before energy services
 Societal exergy analysis (SEA), an extension of energy analysis,
 quantifies energy flows as exergy, 
 the physical work potential of energy.
-Historically, SEA has analyzed energy flows through specific countries
-using Excel spreadsheets, 
-with data in varying and inconsistent formats 
-[@Ayres:2003ec; @Serrenho:2014aa; @Brockway:2014aa; @Brockway:2015aa].
 
 The forces on stars, galaxies, and dark matter under external gravitational
 fields lead to the dynamical evolution of structures in the universe. The orbits
@@ -66,6 +62,13 @@ performing numerical orbit integration).
 
 
 # Statement of need
+
+Historically, SEA has analyzed energy flows through specific countries
+using Excel spreadsheets, 
+with data in varying and inconsistent formats 
+[@Ayres:2003ec; @Serrenho:2014aa; @Brockway:2014aa; @Brockway:2015aa].
+
+
 
 
 `Gala` is an Astropy-affiliated Python package for galactic dynamics. Python
