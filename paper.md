@@ -64,9 +64,15 @@ the physical work potential of energy.
 # Statement of need
 
 Historically, SEA has analyzed energy flows through specific countries
-using Excel spreadsheets, 
+using spreadsheets, 
 with data in varying and inconsistent formats 
 [@Ayres:2003ec; @Serrenho:2014aa; @Brockway:2014aa; @Brockway:2015aa].
+Scientists in the field wanted to expand to cover all countries, but
+the spreadsheet approach to data analysis would not scale.
+We developed a series of `R` packages to enable 
+analyses for all countries, as described in the following table.
+
+
 
 
 
