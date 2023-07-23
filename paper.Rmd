@@ -78,19 +78,19 @@ extraction to
 processing stages and, ultimately, 
 to final demand [@Rocco:2016; @Guevara:2017; @Heun:2018].
 The PSUT framework succinctly describes the flow of energy carriers
-(products in PSUT terminology) 
+(``products'' in PSUT terminology) 
 among energy conversion machines 
-(industries in PSUT terminology)
+(``industries'' in PSUT terminology)
 in a set of four matrices as described in the following table.
 
-| Matrix | rows x columns     | Name            | Description                                              |
-|:-------|:-------------------|:----------------|:---------------------------------------------------------|
-| **R**  | industry x product | Resource matrix | Contains exogeneous energy inputs to an ECC              |
-| **U**  | product x industry | Use matrix      | Describes how each energy conversion device uses energy  |
-| **V**  | industry x product | Make matrix     | Describes how each energy conversion device makes energy |
-| **Y**  | product x industry | Final demand matrix | Describes how each energy carrier is consumed        |
+| Matrix      | rows x columns     | Name                           | Description                                              |
+|:------------|:-------------------|:-------------------------------|:---------------------------------------------------------|
+| **R**       | industry x product | Resource matrix                | Contains exogeneous energy inputs to an ECC              |
+| **U**       | product x industry | Use matrix                     | Describes how each energy conversion device uses energy  |
+| **U_EIOU**  | product x industry | Energy industry own use matrix | Describes how the energy industry uses energy            |
+| **V**       | industry x product | Make matrix                    | Describes how each energy conversion device makes energy |
+| **Y**       | product x industry | Final demand matrix            | Describes how each energy carrier is consumed            |
 
-energy flows through various 
 The matrix approach to data storage brings the challenge that 
 different countries, 
 and different years for a given country,
