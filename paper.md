@@ -54,7 +54,9 @@ the mechanical work potential of energy.
 
 # Statement of need
 
-Historically, SEA has analyzed the ECCs of individual countries
+Historically, SEA has analyzed the ECCs of individual countries, 
+starting with primary and final stage data from the [IEA](https://www.iea.org/data-and-statistics/data-product/world-energy-balances)'s
+world energy balances,
 using a large number of linked spreadsheets, 
 with data in varying and inconsistent formats 
 [@Ayres:2003ec; @Serrenho:2014aa; @Brockway:2014aa; @Brockway:2015aa].
@@ -78,15 +80,16 @@ extraction to
 processing stages and, ultimately, 
 to final demand [@Rocco:2016; @Guevara:2017; @Heun:2018].
 The PSUT framework succinctly describes the flow of energy carriers
-(``products'' in PSUT terminology) 
+("products" in PSUT terminology) 
 among energy conversion machines 
-(``industries'' in PSUT terminology)
-in a set of four matrices as described in the following table.
+("industries" in PSUT terminology)
+in a set of six matrices as described in the following table.
 
 | Matrix      | rows x columns     | Name                           | Description                                              |
 |:------------|:-------------------|:-------------------------------|:---------------------------------------------------------|
 | **R**       | industry x product | Resource matrix                | Contains exogeneous energy inputs to an ECC              |
 | **U**       | product x industry | Use matrix                     | Describes how each energy conversion device uses energy  |
+| **U_feed**  | product x industry | Feedstock use matrix           | Describes feedstock inputs to energy conversion devices  |
 | **U_EIOU**  | product x industry | Energy industry own use matrix | Describes how the energy industry uses energy            |
 | **V**       | industry x product | Make matrix                    | Describes how each energy conversion device makes energy |
 | **Y**       | product x industry | Final demand matrix            | Describes how each energy carrier is consumed            |
@@ -108,9 +111,9 @@ as easily as scalar mathematics in data frames with [tidyverse](https://www.tidy
 
 | Package | Function |
 |:--------|:---------|
-| [RCLabels](https://matthewheun.github.io/RCLabels/)      | Manipulate row and column names in [matsindf](https://matthewheun.github.io/matsindf/) data frames |
-| [matsbyname](https://matthewheun.github.io/matsbyname/)  | Perform matrix mathematics that respects row and column names |
-| [matsindf](https://matthewheun.github.io/matsindf/)      | Store matrices in cells of a data frame, thereby enabling [tidyverse](https://www.tidyverse.org) syntax |
+| [RCLabels](https://matthewheun.github.io/RCLabels/)      | Manipulates row and column names in [matsindf](https://matthewheun.github.io/matsindf/) data frames |
+| [matsbyname](https://matthewheun.github.io/matsbyname/)  | Performs matrix mathematics that respects row and column names |
+| [matsindf](https://matthewheun.github.io/matsindf/)      | Stores matrices in cells of a data frame, thereby enabling [tidyverse](https://www.tidyverse.org) syntax |
 
 The packages in the table above are applicable to many problem domains and
 are available on [CRAN](https://cran.r-project.org).
