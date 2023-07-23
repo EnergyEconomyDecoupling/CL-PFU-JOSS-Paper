@@ -120,7 +120,12 @@ and described in the following table.
 
 | Package | Function |
 |:--------|:---------|
-| [Recca](https://matthewheun.github.io/Recca/) | Functions to perform `R` energy conversion chain analysis |
+| [IEATools](https://matthewheun.github.io/IEATools/) | Converts IEA data to PSUT format |
+| [Recca](https://matthewheun.github.io/Recca/)       | Performs `R` energy conversion chain analysis |
+| [PFUDatabase](https://energyeconomydecoupling.github.io/PFUDatabase/) | The [targets](https://books.ropensci.org/targets/) pipeline to create a data frame of PSUT matrices |
+| [PFUAggDatabase](https://energyeconomydecoupling.github.io/PFUAggDatabase/) | The [targets](https://books.ropensci.org/targets/) pipeline to aggregate PSUT matrices created by the [PFUDatabase](https://energyeconomydecoupling.github.io/PFUDatabase/) pipeline |
+
+
 
 
 
