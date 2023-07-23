@@ -94,51 +94,60 @@ in a set of four matrices as described in the following table.
 The matrix approach to data storage brings the challenge that 
 different countries, 
 and different years for a given country,
-have varying energy products and varying energy processing machines.
+have varying energy energy carriers (products) and
+varying energy conversion machines (industries).
+To get around this challenge, a new `R` package 
+[matsbyname](https://matthewheun.github.io/matsbyname/)
+enables matrix mathematics that respects row and column names, 
+inserting `0` rows or columns where needed.
 
-Given the decision to use PSUT matrices to store ECC data,
-packages were created to enable manipulation of matrices
-within the tidyverse, as shown in the following table.
-
-
-
+Furthermore, 
+it would be convenient to perform matrix mathematics in `R` data frames
+as easily as scalar mathematics in data frames with [tidyverse](https://www.tidyverse.org) syntax. 
+[matsindf](https://matthewheun.github.io/matsindf/) enables this functionality.
 
 | Package | Function |
-|---------|----------|
-| [RCLabels](https://matthewheun.github.io/RCLabels/)      | Manipulate row and column matrices |
+|:--------|:---------|
+| [RCLabels](https://matthewheun.github.io/RCLabels/)      | Manipulate row and column names in [matsindf](https://matthewheun.github.io/matsindf/) data frames |
 | [matsbyname](https://matthewheun.github.io/matsbyname/)  | Perform matrix mathematics that respects row and column names |
+| [matsindf](https://matthewheun.github.io/matsindf/)      | Store matrices in cells of a data frame, thereby enabling [tidyverse](https://www.tidyverse.org) syntax |
 
+The packages in the table above are applicable to many problem domains and
+are available on [CRAN](https://cran.r-project.org).
 
+Additional packages specific to ECC analysis within SEA are available on GitHub
+and described in the following table.
 
-It would be convenient to perform matrix mathematics in `R` data frames
-as easily as scalar mathematics in data frames. 
-
-
-with the `dplyr` package from the `tidyverse`.
-To do that, a way to embed matrices in a cell of a data frame is required.
-
-Further, a means of manipulating row and column names 
-
-
-
-
-
-One problem is da
-
-that 
-
-To solve these problems and 
-to meet the need for the SEA community,
-we developed a suite of `R` packages. 
+| Package | Function |
+|:--------|:---------|
+| [Recca](https://matthewheun.github.io/Recca/) | Functions to perform `R` energy conversion chain analysis |
 
 
 
 
 
-to enable 
-analyses for all countries, as described in the following table.
+
+
+
+
+
+
+
 
 Reference for data repository [@Marshall:2023aa].
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 `Gala` is an Astropy-affiliated Python package for galactic dynamics. Python
