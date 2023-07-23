@@ -72,20 +72,41 @@ demonstrates briefly their use.
 
 Several decisions influenced the design and APIs for the packages.
 The decision involves data format. 
-We selected the Physical Supply-Use Table (PSUT) data structure,
+We selected the Physical Supply-Use Table (PSUT) framework,
 a matrix approach to describing energy flows from 
 extraction to
 processing stages and, ultimately, 
 to final demand [@Rocco:2016; @Guevara:2017; @Heun:2018].
+The PSUT framework succinctly describes the flow of energy carriers
+(products in PSUT terminology) 
+among energy conversion machines 
+(industries in PSUT terminology)
+in a set of four matrices as described in the following table.
+
+| Matrix | rows x columns     | Name            | Description                                              |
+|:-------|:-------------------|:----------------|:---------------------------------------------------------|
+| **R**  | industry x product | Resource matrix | Contains exogeneous energy inputs to an ECC              |
+| **U**  | product x industry | Use matrix      | Describes how each energy conversion device uses energy  |
+| **V**  | industry x product | Make matrix     | Describes how each energy conversion device makes energy |
+| **Y**  | product x industry | Final demand matrix | Describes how each energy carrier is consumed        |
+
+energy flows through various 
+The matrix approach to data storage brings the challenge that 
+different countries, 
+and different years for a given country,
+have varying energy products and varying energy processing machines.
+
 Given the decision to use PSUT matrices to store ECC data,
 packages were created to enable manipulation of matrices
 within the tidyverse, as shown in the following table.
 
 
 
+
 | Package | Function |
 |---------|----------|
-| [RCLabels](https://github.com/MatthewHeun/RCLabels) | Manipulate row and column matrices |
+| [RCLabels](https://matthewheun.github.io/RCLabels/)      | Manipulate row and column matrices |
+| [matsbyname](https://matthewheun.github.io/matsbyname/)  | Perform matrix mathematics that respects row and column names |
 
 
 
@@ -104,9 +125,7 @@ Further, a means of manipulating row and column names
 
 One problem is da
 
-that different countries, 
-and different years for a given country,
-will have varying energy products and 
+that 
 
 To solve these problems and 
 to meet the need for the SEA community,
