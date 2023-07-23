@@ -41,29 +41,69 @@ the field of energy analysis evaluates energy flows
 from the primary stage 
 (coal, oil, natural gas) 
 to the final stage
-(energy purchased by consumers, such as refined petroleum and electricity)
-and ultimately to the useful stage
+(energy purchased by consumers, such as refined petroleum and electricity),
+to the useful stage
 (heat, mechanical drive, and light),
-the last energy before energy services
+and sometimes to energy services
 (transport, thermal comfort, and illumination).
 Societal exergy analysis (SEA), an extension of energy analysis,
 quantifies energy flows as exergy, 
-the physical work potential of energy.
+the mechanical work potential of energy.
 
 
 # Statement of need
 
-Historically, SEA has analyzed energy flows through specific countries
+Historically, SEA has analyzed energy flows through individual countries
 using spreadsheets, 
 with data in varying and inconsistent formats 
 [@Ayres:2003ec; @Serrenho:2014aa; @Brockway:2014aa; @Brockway:2015aa].
-The authors and others in the field
-wanted to expand to cover all countries, but
-the spreadsheet approach to data analysis would not scale.
-We developed a series of `R` packages to enable 
+The authors of this paper and others in the field
+wanted to expand SEA to cover all countries, but
+the spreadsheet approach to data analysis is not scalable.
+
+To achieve scalable societal energy and exergy analysis, 
+several sub-problems needed to be solved.
+The first problem is the format for data storage. 
+We use the Physical Supply-Use Table (PSUT) data structure,
+a matrix approach to describing energy flows from 
+extraction to
+processing stages and, ultimately, 
+to final demand [@Rocco:2016; @Guevara:2017; @Heun:2018].
+A second problem is that `R` data fames. 
+
+
+It would be convenient to perform matrix mathematics in `R` data frames
+as easily as scalar mathematics with the `dplyr` package from the `tidyverse`.
+To do that, a way to embed matrices in a cell of a data frame is required.
+
+Further, a means of manipulating row and column names 
+
+
+
+
+
+One problem is da
+
+that different countries, 
+and different years for a given country,
+will have varying energy products and 
+
+To solve these problems and 
+to meet the need for the SEA community,
+we developed a suite of `R` packages. 
+
+
+
+
+# Design of `R` packages
+
+
+
+
+
+
+to enable 
 analyses for all countries, as described in the following table.
-
-
 
 Reference for data repository [@Marshall:2023aa].
 
@@ -88,12 +128,31 @@ design, and support for Astropy functionality in `Gala` will enable exciting
 scientific explorations of forthcoming data releases from the *Gaia* mission
 [@gaia] by students and experts alike.
 
-# Example usage
+
+# Example
 
 
 ```r
 library(Recca)
 ```
+
+
+# Conclusion
+
+
+
+
+
+
+
+# Acknowledgements
+
+
+
+
+
+
+
 
 # Mathematics
 
