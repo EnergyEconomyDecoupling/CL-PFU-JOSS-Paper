@@ -35,9 +35,10 @@ Max length: 250--1000 words
 
 # Summary
 
-Energy flows through society enable economic activity and facilitate human flourishing.
+Energy flows through societal energy conversion chains (ECCs)
+enable economic activity and facilitate human flourishing.
 To understand economic growth and human well-being, 
-the field of energy analysis evaluates energy flows
+the field of energy analysis evaluates ECCs
 from the primary stage 
 (coal, oil, natural gas) 
 to the final stage
@@ -47,33 +48,52 @@ to the useful stage
 and sometimes to energy services
 (transport, thermal comfort, and illumination).
 Societal exergy analysis (SEA), an extension of energy analysis,
-quantifies energy flows as exergy, 
+quantifies ECCs as exergy, 
 the mechanical work potential of energy.
 
 
 # Statement of need
 
-Historically, SEA has analyzed energy flows through individual countries
-using spreadsheets, 
+Historically, SEA has analyzed the ECCs of individual countries
+using a large number of linked spreadsheets, 
 with data in varying and inconsistent formats 
 [@Ayres:2003ec; @Serrenho:2014aa; @Brockway:2014aa; @Brockway:2015aa].
 The authors of this paper and others in the field
 wanted to expand SEA to cover all countries, but
-the spreadsheet approach to data analysis is not scalable.
+the spreadsheet approach to data analysis was
+deemed not scalable.
+We created a suite of `R` packages to provide scalable SEA 
+for every country in the world.
+This paper describes the design of those packages and
+demonstrates briefly their use.
 
-To achieve scalable societal energy and exergy analysis, 
-several sub-problems needed to be solved.
-The first problem is the format for data storage. 
-We use the Physical Supply-Use Table (PSUT) data structure,
+
+# Design of `R` packages
+
+Several decisions influenced the design and APIs for the packages.
+The decision involves data format. 
+We selected the Physical Supply-Use Table (PSUT) data structure,
 a matrix approach to describing energy flows from 
 extraction to
 processing stages and, ultimately, 
 to final demand [@Rocco:2016; @Guevara:2017; @Heun:2018].
-A second problem is that `R` data fames. 
+Given the decision to use PSUT matrices to store ECC data,
+packages were created to enable manipulation of matrices
+within the tidyverse, as shown in the following table.
+
+
+
+| Package | Function |
+|---------|----------|
+| [RCLabels](https://github.com/MatthewHeun/RCLabels) | Manipulate row and column matrices |
+
 
 
 It would be convenient to perform matrix mathematics in `R` data frames
-as easily as scalar mathematics with the `dplyr` package from the `tidyverse`.
+as easily as scalar mathematics in data frames. 
+
+
+with the `dplyr` package from the `tidyverse`.
 To do that, a way to embed matrices in a cell of a data frame is required.
 
 Further, a means of manipulating row and column names 
@@ -91,12 +111,6 @@ will have varying energy products and
 To solve these problems and 
 to meet the need for the SEA community,
 we developed a suite of `R` packages. 
-
-
-
-
-# Design of `R` packages
-
 
 
 
