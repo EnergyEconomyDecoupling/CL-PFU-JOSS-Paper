@@ -103,7 +103,7 @@ estimated technical energy efficiencies
 of end-use machines by economic status in a country,
 thereby precluding the use of the database for energy-economy studies [@De-Stercke:2014].
 
-The authors of this paper and others in the field
+The authors of the current paper and others in the field
 wanted to expand SEA to cover all countries, but
 the spreadsheet approach to SEA was
 deemed not scalable.
