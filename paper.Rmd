@@ -36,7 +36,7 @@ Max length: 250--1000 words
 # Summary
 
 Energy flows through societal energy conversion chains (ECCs)
-enable economic activity and facilitate human flourishing.
+to enable economic activity and facilitate human flourishing.
 To understand economic growth and human well-being, 
 the field of energy analysis evaluates ECCs
 from the primary stage 
@@ -54,18 +54,21 @@ the mechanical work potential of energy.
 
 # Statement of need
 
-Historically, SEA has analyzed the ECCs of individual countries, 
+Historically, societal exergy analysts have
+analyzed the ECCs of individual countries
+using a large number of linked spreadsheets,
 starting with primary and final stage data from the [IEA](https://www.iea.org/data-and-statistics/data-product/world-energy-balances)'s
-world energy balances,
-using a large number of linked spreadsheets, 
-with data in varying and inconsistent formats 
-[@Ayres:2003ec; @Serrenho:2014aa; @Brockway:2014aa; @Brockway:2015aa].
+world energy balances
+[@Ayres:2003ec; @Serrenho:2014aa; @Brockway:2014aa; @Brockway:2015aa]. 
+Data were in varying and inconsistent formats.
 The authors of this paper and others in the field
 wanted to expand SEA to cover all countries, but
 the spreadsheet approach to data analysis was
 deemed not scalable.
-We created a suite of `R` packages to provide scalable SEA 
-for every country in the world.
+We created a suite of `R` packages to create a database 
+of PFU data (the PFU Database)
+for all countries in the world from 1960--2020.
+The packages enable, for the first time, scalable SEA.
 This paper describes the design of those packages and
 demonstrates briefly their use.
 
@@ -95,18 +98,20 @@ with a set of six matrices as described in the following table.
 | **Y**       | product x industry | Final demand matrix            | Describes how each energy carrier is consumed            |
 
 Further development followed from selection of the PSUT data format.
-First, the PSUT framework (a matrix-based data format) brought the challenge that 
+First, the matrix-based PSUT framework brought the challenge that 
 different countries and years 
 have varying energy energy carriers (products) and
-varying energy conversion machines (industries).
-I.e., matrices for different countries and years have differing row and column names.
-To get around this challenge, we created an `R` package 
-([matsbyname](https://github.com/MatthewHeun/matsbyname/)) which
-enables matrix mathematics that respects matrix row and column names, 
-inserting `0` rows or columns where needed.
+varying energy conversion machines (industries),
+meaning that PSUT matrices for different countries and years 
+have differing row and column names.
+To get around this challenge, we created the
+([matsbyname](https://github.com/MatthewHeun/matsbyname/)) 
+package which enables matrix mathematics 
+that respects matrix row and column names, 
+inserting rows or columns of `0`s when needed.
 Second,
 we knew it would be convenient to perform _matrix_ mathematics 
-as easily as  _scalar_ mathematics
+as easily as _scalar_ mathematics
 in `R` data frames
 using the [tidyverse](https://www.tidyverse.org) syntax. 
 We developed the [matsindf](https://matthewheun.github.io/matsindf/) package 
