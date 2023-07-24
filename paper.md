@@ -65,7 +65,8 @@ The authors of this paper and others in the field
 wanted to expand SEA to cover all countries, but
 the spreadsheet approach to data analysis was
 deemed not scalable.
-We created a suite of `R` packages to create a database 
+We created a suite of `R` packages to create a database^[Strictly speaking, we create data frames of matrices, 
+not a structured database.]
 of PFU data (the PFU Database)
 for all countries in the world from 1960--2020.
 The packages enable, for the first time, scalable SEA.
@@ -103,7 +104,7 @@ different countries and years
 have varying energy energy carriers (products) and
 varying energy conversion machines (industries),
 meaning that PSUT matrices for different countries and years 
-have differing row and column names.
+have differing sizes and differing row and column names.
 To get around this challenge, we created the
 ([matsbyname](https://github.com/MatthewHeun/matsbyname/)) 
 package which enables matrix mathematics 
