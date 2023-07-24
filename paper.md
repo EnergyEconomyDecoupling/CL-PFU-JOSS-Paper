@@ -53,7 +53,8 @@ Max length: 250--1000 words
 Energy flowing through societal energy conversion chains (ECCs)
 enables economic activity and facilitates human flourishing.
 To understand economic growth and human well-being, 
-the field of societal energy analysis evaluates ECCs
+the field of societal energy analysis (among other activities)
+evaluates ECCs
 from the primary stage 
 (resources extracted from the environment, 
 such as coal, oil, and natural gas) 
@@ -79,10 +80,10 @@ energy movement through society.
 The new packages enable analysis of any country in the world
 across timespans of decades or longer.
 In short, the packages enable, for the first time, scalable SEA.
-We used the new packages to create the "PFU Database," 
-a new resource for the SEA community^[Strictly speaking, 
+We used the new packages to create the "PFU Database,"^[Strictly speaking, 
 we create data frames of matrices, 
-not an SQL or similar database.]. 
+not an SQL or similar database.] 
+a new resource for the SEA community [@Marshall:2023aa]. 
 
 This paper describes the design of the new packages and
 demonstrates briefly their use.
@@ -90,18 +91,18 @@ demonstrates briefly their use.
 
 # Statement of need
 
-Historically, societal exergy analysts have
+Historically, SEA practitioners have
 analyzed the ECCs of individual countries
-using a large number of linked spreadsheets,
+using linked spreadsheets,
 often starting with primary- and final-stage data 
 from the [IEA][link-ieaweeb]'s
 world energy balances
 [@Ayres:2003ec; @Serrenho:2014aa; @Brockway:2014aa; @Brockway:2015aa]. 
 Data were stored in varying and inconsistent formats.
-A different attempt to create an SEA database
+An early attempt to create a worldwide SEA database [@De-Stercke:2014]
 estimated technical energy efficiencies 
 of end-use machines by economic status in a country,
-thereby precluding the use of the database for energy-economy studies [@De-Stercke:2014].
+thereby precluding the use of the database for energy-economy studies.
 
 The authors of the current paper and others in the field
 wanted to expand SEA to cover all countries, but
@@ -123,11 +124,12 @@ a matrix approach to describing energy flows from
 resource extraction to
 processing stages and, ultimately, 
 to final demand [@Rocco:2016; @Guevara:2017; @Heun:2018].
-The PSUT framework succinctly describes the flow of energy carriers
+We chose the PSUT framework as the data format for the `R` packages, 
+because it succinctly describes the flow of energy carriers
 ("products" in PSUT terminology) 
 among energy conversion machines 
 ("industries" in PSUT terminology)
-with a set of six matrices described in the following table.
+via a set of six matrices described in the following table.
 
 | Matrix      | rows x columns     | Name                           | Description                                              |
 |:------------|:-------------------|:-------------------------------|:---------------------------------------------------------|
@@ -146,8 +148,8 @@ varying energy conversion machines (industries),
 meaning that PSUT matrices for different countries and years 
 have differing sizes and differing row and column names.
 To get around this challenge, we created the
-[matsbyname][link-matsbyname] [@Heun-matsbyname:2023]
-package which enables matrix mathematics 
+[matsbyname][link-matsbyname] package [@Heun-matsbyname:2023]
+which enables matrix mathematics 
 that respects matrix row and column names, 
 inserting rows or columns of `0`s when needed.
 Second,
@@ -173,12 +175,14 @@ all of which are generally useful and available on
 
 
 Several calculation steps are required to create the PFU database. 
-Each step is assisted by an `R` package that we created.
+Each step is assisted by a new `R` package.
 First, the IEA's primary- and final-stage WEEB data must be converted
 to the PSUT format, 
 a task completed by the [IEATools][link-ieatools] package [@Heun-IEATools:2023]. 
 Second, human and animal muscle work must be calculated from 
-labor and FAO data following the methodology of @Steenwyk:2022ww
+[International Labor Organization](https://www.ilo.org/) (ILO) and
+[Food and Agriculture Organization](https://www.fao.org/) (FAO) data,
+following the methodology of @Steenwyk:2022ww, 
 using the [MWTools][link-mwtools] package [@Marshall:2023ab]. 
 Third, the IEA's primary- and final-stage ECC data 
 are extended to the useful stage by
@@ -190,8 +194,8 @@ This task is accomplished by the
 and 
 [PFUDatabase](https://github.com/energyeconomydecoupling/PFUDatabase/) [@Heun-PFUDatabase:2023]
 packages.
-The pipeline is modular, such that data for an country can be added at a later date
-to improve the database. 
+The pipeline is modular, such that allocation and efficiency data
+for a country can be added at any time to improve the database. 
 Finally, ECCs must be converted from energy terms to exergy terms. 
 This step is assisted by the [Recca][link-recca] package.
 The steps to create the PSUT matrices for each country and each year
@@ -210,21 +214,21 @@ in the [PFUAggDatabase][link-pfuaggdatabase] package [@Heun-PFUAggDatabase:2023]
 aggregates ECCs
 by region 
 (continents and world),
-by product category 
+by energy carrier (product) category 
 (e.g., Coal and coal products, 
 Low-, Medium-, and High-temperature heat, etc.), 
-by end use sectors
+by energy conversion machines (industries) and end use sectors
 (e.g., Residential, Transport, etc.), and
 to primary, final, and useful (PFU) stages.
 Furthermore, 
-[PFUAggDatabase][link-pfuaggdatabase]
-calculates aggregated efficiencies across 
+[PFUAggDatabase][link-pfuaggdatabase] functions
+calculate aggregated efficiencies across 
 the primary, final, and useful stages of all ECCs in the database.
 The [Recca][link-recca] package is used extensively by the
 [PFUAggDatabase][link-pfuaggdatabase]
 pipeline.
 
-The packages in the following table are specific to creating the PFU database 
+The packages in the following table are specific to SEA analyses
 and are available on GitHub.
 
 | Package | Function |
@@ -237,8 +241,8 @@ and are available on GitHub.
 
 Input data for the PFU Database can be found in @Marshall:2023aa.
 Access to the PFU Database can be obtained by correspondence 
-with author [PEB](mailto:P.E.Brockway@leeds.ac.uk) data^[Access to the PFU Database
-is restricted to those who have access to the [IEA WEEB data][link-ieaweeb].].
+with author [PEB](mailto:P.E.Brockway@leeds.ac.uk)^[Access to the PFU Database
+is restricted to those who have access to [IEA WEEB data][link-ieaweeb].].
 
 
 # Example
