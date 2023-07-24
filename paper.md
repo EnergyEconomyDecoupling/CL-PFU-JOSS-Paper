@@ -242,9 +242,11 @@ and are available on GitHub.
 | [PFUAggDatabase][link-pfuaggdatabase] | A [targets][link-targets] pipeline to aggregate PSUT matrices |
 
 Input data for the PFU Database can be found in @Marshall:2023aa.
-Access to the PFU Database can be obtained by correspondence 
-with author [PEB](mailto:P.E.Brockway@leeds.ac.uk)^[Access to the PFU Database
-is restricted to those who have access to [IEA WEEB data][link-ieaweeb].].
+Access to the PFU Database can be obtained via correspondence 
+with author [PEB](mailto:P.E.Brockway@leeds.ac.uk)^[Because the PFU Database contains
+primary and final energy [IEA WEEB][link-ieaweeb] data, 
+access to the PFU Database
+is restricted to those who have access to [IEA WEEB][link-ieaweeb] data.].
 
 
 # Example
