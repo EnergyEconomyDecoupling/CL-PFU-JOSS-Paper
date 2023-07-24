@@ -72,58 +72,93 @@ demonstrates briefly their use.
 
 # Design of `R` packages
 
-Several decisions influenced the design and APIs for the packages.
-The decision involves data format. 
+The most important decision for the design of SEA packages
+involves data format.
 We selected the Physical Supply-Use Table (PSUT) framework,
 a matrix approach to describing energy flows from 
-extraction to
+resource extraction to
 processing stages and, ultimately, 
 to final demand [@Rocco:2016; @Guevara:2017; @Heun:2018].
 The PSUT framework succinctly describes the flow of energy carriers
 ("products" in PSUT terminology) 
 among energy conversion machines 
 ("industries" in PSUT terminology)
-in a set of six matrices as described in the following table.
+with a set of six matrices as described in the following table.
 
 | Matrix      | rows x columns     | Name                           | Description                                              |
 |:------------|:-------------------|:-------------------------------|:---------------------------------------------------------|
 | **R**       | industry x product | Resource matrix                | Contains exogeneous energy inputs to an ECC              |
-| **U**       | product x industry | Use matrix                     | Describes how each energy conversion device uses energy  |
+| **U**       | product x industry | Use matrix                     | Describes how each energy conversion device uses energy; the sum of **U_feed** and **U_EIOU** |
 | **U_feed**  | product x industry | Feedstock use matrix           | Describes feedstock inputs to energy conversion devices  |
 | **U_EIOU**  | product x industry | Energy industry own use matrix | Describes how the energy industry uses energy            |
 | **V**       | industry x product | Make matrix                    | Describes how each energy conversion device makes energy |
 | **Y**       | product x industry | Final demand matrix            | Describes how each energy carrier is consumed            |
 
-The matrix approach to data storage brings the challenge that 
-different countries, 
-and different years for a given country,
+Further development followed from selection of the PSUT data format.
+First, the PSUT framework (a matrix-based data format) brought the challenge that 
+different countries and years 
 have varying energy energy carriers (products) and
 varying energy conversion machines (industries).
-To get around this challenge, a new `R` package 
-[matsbyname](https://matthewheun.github.io/matsbyname/)
-enables matrix mathematics that respects row and column names, 
+I.e., matrices for different countries and years have differing row and column names.
+To get around this challenge, we created an `R` package 
+([matsbyname](https://github.com/MatthewHeun/matsbyname/)) which
+enables matrix mathematics that respects matrix row and column names, 
 inserting `0` rows or columns where needed.
-
-Furthermore, 
-it would be convenient to perform matrix mathematics in `R` data frames
-as easily as scalar mathematics in data frames with [tidyverse](https://www.tidyverse.org) syntax. 
-[matsindf](https://matthewheun.github.io/matsindf/) enables this functionality.
-
-| Package | Function |
-|:--------|:---------|
-| [RCLabels](https://matthewheun.github.io/RCLabels/)      | Manipulates row and column names in [matsindf](https://matthewheun.github.io/matsindf/) data frames |
-| [matsbyname](https://matthewheun.github.io/matsbyname/)  | Performs matrix mathematics that respects row and column names |
-| [matsindf](https://matthewheun.github.io/matsindf/)      | Stores matrices in cells of a data frame, thereby enabling [tidyverse](https://www.tidyverse.org) syntax |
-
-The packages in the table above are applicable to many problem domains and
-are available on [CRAN](https://cran.r-project.org).
-
-Additional packages specific to ECC analysis within SEA are available on GitHub
-and described in the following table.
+Second,
+we knew it would be convenient to perform _matrix_ mathematics 
+as easily as  _scalar_ mathematics
+in `R` data frames
+using the [tidyverse](https://www.tidyverse.org) syntax. 
+We developed the [matsindf](https://matthewheun.github.io/matsindf/) package 
+to enable this functionality.
+Finally, manipulating row and column names proved to be a challenge, 
+especially for matrices in PSUT data frames, so 
+we developed the [RCLabels](https://matthewheun.github.io/RCLabels/) package
+for that purpose.
+The table below summarizes these packages, 
+all of which are generally useful and available on 
+[CRAN](https://cran.r-project.org).
 
 | Package | Function |
 |:--------|:---------|
-| [IEATools](https://matthewheun.github.io/IEATools/) | Converts IEA data to PSUT format |
+| [RCLabels](https://github.com/MatthewHeun/RCLabels/)      | Manipulates row and column names in [matsindf](https://github.com/MatthewHeun/matsindf/) data frames |
+| [matsbyname](https://github.com/MatthewHeun/matsbyname/)  | Performs matrix mathematics that respects row and column names |
+| [matsindf](https://github.com/MatthewHeun/matsindf/)      | Stores matrices in cells of a data frame, thereby enabling [tidyverse](https://www.tidyverse.org) syntax |
+
+
+Several calculation steps are required to create the PFU database. 
+Each step is assisted by an `R` package that we created.
+First, the IEA's primary- and final-stage WEEB data must be converted
+to the PSUT format, 
+a task completed by the [IEATools](https://github.com/MatthewHeun/IEATools/) package. 
+Second, human and animal muscle work must be calculated from 
+labor and FAO data following the methodology of @Steenwyk:2022ww
+using the [MWTools](https://github.com/EnergyEconomyDecoupling/MWTools) package. 
+Third, the IEA's primary- and final-stage ECC data 
+are extended to the useful stage by
+(a) allocating final stage energy to end-use machines and
+(b) multiplying allocated final energy by the 
+final-to-useful efficiency of each machine.
+This task is accomplished by the
+[PFUDatabase](https://github.com/energyeconomydecoupling/PFUDatabase/) 
+and 
+[Recca](https://github.com/MatthewHeun/Recca) 
+packages.
+Finally, ECCs must be converted from energy terms to exergy terms. 
+This step is assisted by the [Recca](https://github.com/MatthewHeun/Recca) package.
+The steps to create the PSUT matrices for each country and each year
+are accomplished by a
+[targets](https://docs.ropensci.org/targets/)
+computation pipeline
+available in the [PFUDatabase](https://github.com/energyeconomydecoupling/PFUDatabase/)
+package.
+These packages are specific to creating the PFU database 
+and are summarized in the table below. 
+
+| Package | Function |
+|:--------|:---------|
+| [IEATools](https://github.com/MatthewHeun/IEATools/) | Converts IEA data to [matsindf](https://github.com/MatthewHeun/matsindf/) format |
+| [MWTools](https://github.com/energyeconomydecoupling/MWTools) | Converts ILO and FAO data to human and animal muscle work information in [matsindf](https://github.com/MatthewHeun/matsindf/) format |
 | [Recca](https://matthewheun.github.io/Recca/)       | Performs `R` energy conversion chain analysis |
 | [PFUDatabase](https://energyeconomydecoupling.github.io/PFUDatabase/) | A [targets](https://docs.ropensci.org/targets/) pipeline to create a data frame of PSUT matrices |
 | [PFUAggDatabase](https://energyeconomydecoupling.github.io/PFUAggDatabase/) | A [targets](https://docs.ropensci.org/targets/) pipeline to aggregate PSUT matrices |
