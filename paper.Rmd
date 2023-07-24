@@ -33,15 +33,30 @@ output:
 
 Max length: 250--1000 words
 
+<!-- Define some macros to use later -->
+[link-cran]:           https://cran.r-project.org
+[link-ieatools]:       https://github.com/MatthewHeun/IEATools
+[link-ieaweeb]:        https://www.iea.org/data-and-statistics/data-product/world-energy-balances
+[link-matsbyname]:     https://github.com/MatthewHeun/matsbyname
+[link-matsindf]:       https://github.com/MatthewHeun/matsindf
+[link-mwtools]:        https://github.com/EnergyEconomyDecoupling/MWTools
+[link-pfudatabase]:    https://github.com/energyeconomydecoupling/PFUDatabase
+[link-pfuaggdatabase]: https://github.com/EnergyEconomyDecoupling/PFUAggDatabase
+[link-rclabels]:       https://github.com/MatthewHeun/RCLabels
+[link-recca]:          https://github.com/MatthewHeun/Recca
+[link-targets]:        https://docs.ropensci.org/targets
+[link-tidyverse]:      https://www.tidyverse.org
+
+
 # Summary
 
-Energy flows through societal energy conversion chains (ECCs)
-to enable economic activity and facilitate human flourishing.
+Energy flowing through societal energy conversion chains (ECCs)
+enables economic activity and facilitates human flourishing.
 To understand economic growth and human well-being, 
-the field of energy analysis evaluates ECCs
+the field of societal energy analysis evaluates ECCs
 from the primary stage 
 (resources extracted from the environment, 
-such as coal, oil, natural gas) 
+such as coal, oil, and natural gas) 
 to the final stage
 (energy purchased by consumers, 
 such as refined petroleum and electricity),
@@ -55,14 +70,26 @@ an extension of energy analysis,
 quantifies ECCs in exergy terms^[Exergy is 
 the mechanical work potential of energy.].
 
+We created a suite of `R` packages 
+(some of which are generally useful and available through 
+[CRAN][link-cran],
+others of which are focused on SEA and available on GitHub)
+to assist SEA practitioners as they analyze 
+energy movement through society. 
+These new packages enable analysis of every country in the world
+across timespans of decades or longer.
+The new packages were used to create the "PFU Database," 
+a new resource for the SEA community. 
+The packages can be used for specific SEA analyses, too.
+
 
 # Statement of need
 
 Historically, societal exergy analysts have
 analyzed the ECCs of individual countries
 using a large number of linked spreadsheets,
-starting with primary- and final-stage data 
-from the [IEA](https://www.iea.org/data-and-statistics/data-product/world-energy-balances)'s
+often starting with primary- and final-stage data 
+from the [IEA][link-ieaweeb]'s
 world energy balances
 [@Ayres:2003ec; @Serrenho:2014aa; @Brockway:2014aa; @Brockway:2015aa]. 
 Data were in varying and inconsistent formats.
@@ -112,7 +139,7 @@ varying energy conversion machines (industries),
 meaning that PSUT matrices for different countries and years 
 have differing sizes and differing row and column names.
 To get around this challenge, we created the
-[matsbyname](https://github.com/MatthewHeun/matsbyname/) [@Heun-matsbyname:2023]
+[matsbyname][link-matsbyname] [@Heun-matsbyname:2023]
 package which enables matrix mathematics 
 that respects matrix row and column names, 
 inserting rows or columns of `0`s when needed.
@@ -120,66 +147,74 @@ Second,
 we knew it would be convenient to perform _matrix_ mathematics 
 as easily as _scalar_ mathematics
 in `R` data frames
-using the [tidyverse](https://www.tidyverse.org) syntax [@Wickham:2019]. 
-We developed the [matsindf](https://matthewheun.github.io/matsindf/) package [@Heun-matsindf:2023]
+using the [tidyverse][link-tidyverse] syntax [@Wickham:2019]. 
+We developed the [matsindf][link-matsindf] package [@Heun-matsindf:2023]
 to enable this functionality.
 Finally, manipulating row and column names proved to be a challenge, 
 especially for matrices in PSUT data frames, so 
-we developed the [RCLabels](https://matthewheun.github.io/RCLabels/) package [@Heun-RCLabels:2023]
+we developed the [RCLabels][link-rclabels] package [@Heun-RCLabels:2023]
 for that purpose.
 The table below summarizes these packages, 
 all of which are generally useful and available on 
-[CRAN](https://cran.r-project.org).
+[CRAN][link-cran].
 
 | Package | Function |
 |:--------|:---------|
-| [RCLabels](https://github.com/MatthewHeun/RCLabels/)      | Manipulates row and column names in [matsindf](https://github.com/MatthewHeun/matsindf/) data frames |
-| [matsbyname](https://github.com/MatthewHeun/matsbyname/)  | Performs matrix mathematics that respects row and column names |
-| [matsindf](https://github.com/MatthewHeun/matsindf/)      | Stores matrices in cells of a data frame, thereby enabling [tidyverse](https://www.tidyverse.org) syntax |
+| [RCLabels][link-rclabels]     | Manipulates row and column names in [matsindf][link-matsindf] data frames |
+| [matsbyname][link-matsbyname] | Performs matrix mathematics that respects row and column names |
+| [matsindf][link-matsindf]     | Stores matrices in cells of a data frame, thereby enabling [tidyverse][link-tidyverse] syntax |
 
 
 Several calculation steps are required to create the PFU database. 
 Each step is assisted by an `R` package that we created.
 First, the IEA's primary- and final-stage WEEB data must be converted
 to the PSUT format, 
-a task completed by the [IEATools](https://github.com/MatthewHeun/IEATools/) package [@Heun-IEATools:2023]. 
+a task completed by the [IEATools][link-ieatools] package [@Heun-IEATools:2023]. 
 Second, human and animal muscle work must be calculated from 
 labor and FAO data following the methodology of @Steenwyk:2022ww
-using the [MWTools](https://github.com/EnergyEconomyDecoupling/MWTools) package [@Marshall:2023ab]. 
+using the [MWTools][link-mwtools] package [@Marshall:2023ab]. 
 Third, the IEA's primary- and final-stage ECC data 
 are extended to the useful stage by
 (a) allocating final stage energy to end-use machines and
 (b) multiplying allocated final energy by the 
 final-to-useful efficiency of each machine.
 This task is accomplished by the
-[Recca](https://github.com/MatthewHeun/Recca) [@Heun-Recca:2023]
+[Recca][link-recca] [@Heun-Recca:2023]
 and 
 [PFUDatabase](https://github.com/energyeconomydecoupling/PFUDatabase/) [@Heun-PFUDatabase:2023]
 packages.
+The pipeline is modular, such that data for an country can be added at a later date
+to improve the database. 
 Finally, ECCs must be converted from energy terms to exergy terms. 
-This step is assisted by the [Recca](https://github.com/MatthewHeun/Recca) package.
+This step is assisted by the [Recca][link-recca] package.
 The steps to create the PSUT matrices for each country and each year
 are accomplished by a
-[targets](https://docs.ropensci.org/targets/) [@Landau:2021aa]
+[targets][link-targets] [@Landau:2021aa]
 computation pipeline
-available in the [PFUDatabase](https://github.com/energyeconomydecoupling/PFUDatabase/)
+available in the [PFUDatabase][link-pfudatabase]
 package.
+A unique feature of the
+[PFUDatabase][link-pfudatabase]
+pipeline is an exemplar system that allows
+analyses to proceed when allocation or efficiency data for a country are unavailable.
 
-A second [targets](https://docs.ropensci.org/targets/) pipeline 
-in the [PFUAggDatabase](https://github.com/EnergyEconomyDecoupling/PFUAggDatabase) package [@Heun-PFUAggDatabase:2023]
+A second [targets][link-targets] pipeline 
+in the [PFUAggDatabase][link-pfuaggdatabase] package [@Heun-PFUAggDatabase:2023]
 aggregates ECCs
 by region 
 (continents and world),
 by product category 
-(e.g., Coal and coal products, Oil and oil products, Low-temperature heat, etc.), 
-by end use categories
+(e.g., Coal and coal products, 
+Low-, Medium-, and High-temperature heat, etc.), 
+by end use sectors
 (e.g., Residential, Transport, etc.), and
-to primary, final, and useful stages.
+to primary, final, and useful (PFU) stages.
 Furthermore, 
-[PFUAggDatabase](https://github.com/EnergyEconomyDecoupling/PFUAggDatabase)
-calculates aggregated efficiencies.
-The [Recca](https://github.com/MatthewHeun/Recca) package is used extensively by the
-[PFUAggDatabase](https://github.com/EnergyEconomyDecoupling/PFUAggDatabase) 
+[PFUAggDatabase][link-pfuaggdatabase]
+calculates aggregated efficiencies across 
+the primary, final, and useful stages of all ECCs in the database.
+The [Recca][link-recca] package is used extensively by the
+[PFUAggDatabase][link-pfuaggdatabase]
 pipeline.
 
 The packages in the following table are specific to creating the PFU database 
@@ -187,61 +222,16 @@ and are available on GitHub.
 
 | Package | Function |
 |:--------|:---------|
-| [IEATools](https://github.com/MatthewHeun/IEATools/) | Converts IEA data to [matsindf](https://github.com/MatthewHeun/matsindf/) format |
-| [MWTools](https://github.com/energyeconomydecoupling/MWTools) | Converts ILO and FAO data to human and animal muscle work information in [matsindf](https://github.com/MatthewHeun/matsindf/) format |
-| [Recca](https://matthewheun.github.io/Recca/)       | Performs `R` energy conversion chain analysis |
-| [PFUDatabase](https://energyeconomydecoupling.github.io/PFUDatabase/) | A [targets](https://docs.ropensci.org/targets/) pipeline to create a data frame of PSUT matrices |
-| [PFUAggDatabase](https://energyeconomydecoupling.github.io/PFUAggDatabase/) | A [targets](https://docs.ropensci.org/targets/) pipeline to aggregate PSUT matrices |
+| [IEATools][link-idatools]             | Converts IEA data to [matsindf][link-matsindf] format |
+| [MWTools][link-mwtools]               | Converts ILO and FAO data to human and animal muscle work information in [matsindf][link-matsindf] format |
+| [Recca][link-recca]                   | Performs `R` energy conversion chain analysis |
+| [PFUDatabase][link-pfudatabase]       | A [targets][link-targets] pipeline to create a data frame of PSUT matrices |
+| [PFUAggDatabase][link-pfuaggdatabase] | A [targets][link-targets] pipeline to aggregate PSUT matrices |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Reference for data repository [@Marshall:2023aa].
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-`Gala` is an Astropy-affiliated Python package for galactic dynamics. Python
-enables wrapping low-level languages (e.g., C) for speed without losing
-flexibility or ease-of-use in the user-interface. The API for `Gala` was
-designed to provide a class-based and user-friendly interface to fast (C or
-Cython-optimized) implementations of common operations such as gravitational
-potential and force evaluation, orbit integration, dynamical transformations,
-and chaos indicators for nonlinear dynamics. `Gala` also relies heavily on and
-interfaces well with the implementations of physical units and astronomical
-coordinate systems in the `Astropy` package [@astropy] (`astropy.units` and
-`astropy.coordinates`).
-
-`Gala` was designed to be used by both astronomical researchers and by
-students in courses on gravitational dynamics or astronomy. It has already been
-used in a number of scientific publications [@Pearson:2017] and has also been
-used in graduate courses on Galactic dynamics to, e.g., provide interactive
-visualizations of textbook material [@Binney:2008]. The combination of speed,
-design, and support for Astropy functionality in `Gala` will enable exciting
-scientific explorations of forthcoming data releases from the *Gaia* mission
-[@gaia] by students and experts alike.
+Input data for the PFU Database can be found in @Marshall:2023aa.
+Access to the PFU Database can be obtained by correspondence 
+with author [PEB](mailto:P.E.Brockway@leeds.ac.uk) data^[Access to the PFU Database
+is restricted to those who have access to the [IEA WEEB data][link-ieaweeb].].
 
 
 # Example
@@ -253,6 +243,11 @@ library(Recca)
 
 # Conclusion
 
+The new `R` packages 
+
+
+
+enables 
 
 
 
