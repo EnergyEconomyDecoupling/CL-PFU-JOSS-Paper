@@ -37,6 +37,8 @@ Max length: 250--1000 words
 [link-cran]:           https://cran.r-project.org
 [link-ieatools]:       https://github.com/MatthewHeun/IEATools
 [link-ieaweeb]:        https://www.iea.org/data-and-statistics/data-product/world-energy-balances
+[link-ilo]:            https://www.ilo.org/
+[link-fao]:            https://www.fao.org/
 [link-matsbyname]:     https://github.com/MatthewHeun/matsbyname
 [link-matsindf]:       https://github.com/MatthewHeun/matsindf
 [link-mwtools]:        https://github.com/EnergyEconomyDecoupling/MWTools
@@ -180,8 +182,8 @@ First, the IEA's primary- and final-stage WEEB data must be converted
 to the PSUT format, 
 a task completed by the [IEATools][link-ieatools] package [@Heun-IEATools:2023]. 
 Second, human and animal muscle work must be calculated from 
-[International Labor Organization](https://www.ilo.org/) (ILO) and
-[Food and Agriculture Organization](https://www.fao.org/) (FAO) data,
+[International Labor Organization][link-ilo] (ILO) and
+[Food and Agriculture Organization][link-fao] (FAO) data,
 following the methodology of @Steenwyk:2022ww, 
 using the [MWTools][link-mwtools] package [@Marshall:2023ab]. 
 Third, the IEA's primary- and final-stage ECC data 
@@ -233,8 +235,8 @@ and are available on GitHub.
 
 | Package | Function |
 |:--------|:---------|
-| [IEATools][link-idatools]             | Converts IEA data to [matsindf][link-matsindf] format |
-| [MWTools][link-mwtools]               | Converts ILO and FAO data to human and animal muscle work information in [matsindf][link-matsindf] format |
+| [IEATools][link-ieatools]             | Converts IEA data to [matsindf][link-matsindf] format |
+| [MWTools][link-mwtools]               | Converts [ILO][link-ilo] and [FAO][link-fao] data to human and animal muscle work in [matsindf][link-matsindf] format |
 | [Recca][link-recca]                   | Performs `R` energy conversion chain analysis |
 | [PFUDatabase][link-pfudatabase]       | A [targets][link-targets] pipeline to create a data frame of PSUT matrices |
 | [PFUAggDatabase][link-pfuaggdatabase] | A [targets][link-targets] pipeline to aggregate PSUT matrices |
