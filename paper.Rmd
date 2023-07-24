@@ -76,11 +76,16 @@ We created a suite of `R` packages
 others of which are focused on SEA and available on GitHub)
 to assist SEA practitioners as they analyze 
 energy movement through society. 
-These new packages enable analysis of every country in the world
+The new packages enable analysis of any country in the world
 across timespans of decades or longer.
-The new packages were used to create the "PFU Database," 
-a new resource for the SEA community. 
-The packages can be used for specific SEA analyses, too.
+In short, the packages enable, for the first time, scalable SEA.
+We used the new packages to create the "PFU Database," 
+a new resource for the SEA community^[Strictly speaking, 
+we create data frames of matrices, 
+not an SQL or similar database.]. 
+
+This paper describes the design of the new packages and
+demonstrates briefly their use.
 
 
 # Statement of need
@@ -92,18 +97,20 @@ often starting with primary- and final-stage data
 from the [IEA][link-ieaweeb]'s
 world energy balances
 [@Ayres:2003ec; @Serrenho:2014aa; @Brockway:2014aa; @Brockway:2015aa]. 
-Data were in varying and inconsistent formats.
+Data were stored in varying and inconsistent formats.
+A different attempt to create an SEA database
+estimated technical energy efficiencies 
+of end-use machines by economic status in a country,
+thereby precluding the use of the database for energy-economy studies [@De-Stercke:2014].
+
 The authors of this paper and others in the field
 wanted to expand SEA to cover all countries, but
 the spreadsheet approach to SEA was
 deemed not scalable.
-We created a suite of `R` packages to create a database^[Strictly speaking, we create data frames of matrices, 
-not a structured database.]
-of PFU data (the PFU Database)
-for all countries in the world from 1960--2020.
-The packages enable, for the first time, scalable SEA.
-This paper describes the design of those packages and
-demonstrates briefly their use.
+A new approach to SEA was needed, 
+one that scaled across all countries 
+for many years without relying on economic data
+to estimate technical efficiencies. 
 
 
 # Design of `R` packages
