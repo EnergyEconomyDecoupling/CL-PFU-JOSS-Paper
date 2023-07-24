@@ -40,16 +40,20 @@ to enable economic activity and facilitate human flourishing.
 To understand economic growth and human well-being, 
 the field of energy analysis evaluates ECCs
 from the primary stage 
-(coal, oil, natural gas) 
+(resources extracted from the environment, 
+such as coal, oil, natural gas) 
 to the final stage
-(energy purchased by consumers, such as refined petroleum and electricity),
+(energy purchased by consumers, 
+such as refined petroleum and electricity),
 to the useful stage
-(heat, mechanical drive, and light),
+(energy desired by the end user, 
+such as heat, motion, and light),
 and sometimes to energy services
-(transport, thermal comfort, and illumination).
-Societal exergy analysis (SEA), an extension of energy analysis,
-quantifies ECCs as exergy, 
-the mechanical work potential of energy.
+(such as thermal comfort, transport, and illumination).
+Societal exergy analysis (SEA), 
+an extension of energy analysis,
+quantifies ECCs in exergy terms^[Exergy is 
+the mechanical work potential of energy.].
 
 
 # Statement of need
@@ -57,13 +61,14 @@ the mechanical work potential of energy.
 Historically, societal exergy analysts have
 analyzed the ECCs of individual countries
 using a large number of linked spreadsheets,
-starting with primary and final stage data from the [IEA](https://www.iea.org/data-and-statistics/data-product/world-energy-balances)'s
+starting with primary- and final-stage data 
+from the [IEA](https://www.iea.org/data-and-statistics/data-product/world-energy-balances)'s
 world energy balances
 [@Ayres:2003ec; @Serrenho:2014aa; @Brockway:2014aa; @Brockway:2015aa]. 
 Data were in varying and inconsistent formats.
 The authors of this paper and others in the field
 wanted to expand SEA to cover all countries, but
-the spreadsheet approach to data analysis was
+the spreadsheet approach to SEA was
 deemed not scalable.
 We created a suite of `R` packages to create a database^[Strictly speaking, we create data frames of matrices, 
 not a structured database.]
@@ -76,9 +81,10 @@ demonstrates briefly their use.
 
 # Design of `R` packages
 
-The most important decision for the design of SEA packages
+The most important decision for the suite of SEA packages
 involves data format.
-We selected the Physical Supply-Use Table (PSUT) framework,
+We authors are among those who
+developed the Physical Supply-Use Table (PSUT) framework,
 a matrix approach to describing energy flows from 
 resource extraction to
 processing stages and, ultimately, 
@@ -87,7 +93,7 @@ The PSUT framework succinctly describes the flow of energy carriers
 ("products" in PSUT terminology) 
 among energy conversion machines 
 ("industries" in PSUT terminology)
-with a set of six matrices as described in the following table.
+with a set of six matrices described in the following table.
 
 | Matrix      | rows x columns     | Name                           | Description                                              |
 |:------------|:-------------------|:-------------------------------|:---------------------------------------------------------|
@@ -98,15 +104,15 @@ with a set of six matrices as described in the following table.
 | **V**       | industry x product | Make matrix                    | Describes how each energy conversion device makes energy |
 | **Y**       | product x industry | Final demand matrix            | Describes how each energy carrier is consumed            |
 
-Further development followed from selection of the PSUT data format.
-First, the matrix-based PSUT framework brought the challenge that 
+Further development followed from selection of the PSUT framework.
+First, the matrices of the PSUT framework carry the challenge that 
 different countries and years 
-have varying energy energy carriers (products) and
+have varying energy carriers (products) and
 varying energy conversion machines (industries),
 meaning that PSUT matrices for different countries and years 
 have differing sizes and differing row and column names.
 To get around this challenge, we created the
-([matsbyname](https://github.com/MatthewHeun/matsbyname/)) 
+[matsbyname](https://github.com/MatthewHeun/matsbyname/) [@Heun-matsbyname:2023]
 package which enables matrix mathematics 
 that respects matrix row and column names, 
 inserting rows or columns of `0`s when needed.
@@ -114,12 +120,12 @@ Second,
 we knew it would be convenient to perform _matrix_ mathematics 
 as easily as _scalar_ mathematics
 in `R` data frames
-using the [tidyverse](https://www.tidyverse.org) syntax. 
-We developed the [matsindf](https://matthewheun.github.io/matsindf/) package 
+using the [tidyverse](https://www.tidyverse.org) syntax [@Wickham:2019]. 
+We developed the [matsindf](https://matthewheun.github.io/matsindf/) package [@Heun-matsindf:2023]
 to enable this functionality.
 Finally, manipulating row and column names proved to be a challenge, 
 especially for matrices in PSUT data frames, so 
-we developed the [RCLabels](https://matthewheun.github.io/RCLabels/) package
+we developed the [RCLabels](https://matthewheun.github.io/RCLabels/) package [@Heun-RCLabels:2023]
 for that purpose.
 The table below summarizes these packages, 
 all of which are generally useful and available on 
@@ -136,30 +142,48 @@ Several calculation steps are required to create the PFU database.
 Each step is assisted by an `R` package that we created.
 First, the IEA's primary- and final-stage WEEB data must be converted
 to the PSUT format, 
-a task completed by the [IEATools](https://github.com/MatthewHeun/IEATools/) package. 
+a task completed by the [IEATools](https://github.com/MatthewHeun/IEATools/) package [@Heun-IEATools:2023]. 
 Second, human and animal muscle work must be calculated from 
 labor and FAO data following the methodology of @Steenwyk:2022ww
-using the [MWTools](https://github.com/EnergyEconomyDecoupling/MWTools) package. 
+using the [MWTools](https://github.com/EnergyEconomyDecoupling/MWTools) package [@Marshall:2023ab]. 
 Third, the IEA's primary- and final-stage ECC data 
 are extended to the useful stage by
 (a) allocating final stage energy to end-use machines and
 (b) multiplying allocated final energy by the 
 final-to-useful efficiency of each machine.
 This task is accomplished by the
-[PFUDatabase](https://github.com/energyeconomydecoupling/PFUDatabase/) 
+[Recca](https://github.com/MatthewHeun/Recca) [@Heun-Recca:2023]
 and 
-[Recca](https://github.com/MatthewHeun/Recca) 
+[PFUDatabase](https://github.com/energyeconomydecoupling/PFUDatabase/) [@Heun-PFUDatabase:2023]
 packages.
 Finally, ECCs must be converted from energy terms to exergy terms. 
 This step is assisted by the [Recca](https://github.com/MatthewHeun/Recca) package.
 The steps to create the PSUT matrices for each country and each year
 are accomplished by a
-[targets](https://docs.ropensci.org/targets/)
+[targets](https://docs.ropensci.org/targets/) [@Landau:2021aa]
 computation pipeline
 available in the [PFUDatabase](https://github.com/energyeconomydecoupling/PFUDatabase/)
 package.
-These packages are specific to creating the PFU database 
-and are summarized in the table below. 
+
+A second [targets](https://docs.ropensci.org/targets/) pipeline 
+in the [PFUAggDatabase](https://github.com/EnergyEconomyDecoupling/PFUAggDatabase) package [@Heun-PFUAggDatabase:2023]
+aggregates ECCs
+by region 
+(continents and world),
+by product category 
+(e.g., Coal and coal products, Oil and oil products, Low-temperature heat, etc.), 
+by end use categories
+(e.g., Residential, Transport, etc.), and
+to primary, final, and useful stages.
+Furthermore, 
+[PFUAggDatabase](https://github.com/EnergyEconomyDecoupling/PFUAggDatabase)
+calculates aggregated efficiencies.
+The [Recca](https://github.com/MatthewHeun/Recca) package is used extensively by the
+[PFUAggDatabase](https://github.com/EnergyEconomyDecoupling/PFUAggDatabase) 
+pipeline.
+
+The packages in the following table are specific to creating the PFU database 
+and are available on GitHub.
 
 | Package | Function |
 |:--------|:---------|
