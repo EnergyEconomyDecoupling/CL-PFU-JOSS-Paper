@@ -232,8 +232,7 @@ Both [targets][link-targets] pipelines
 [PFUAggDatabase][link-pfuaggdatabase] packages)
 benefit from the 
 [PFUSetup][link-pfusetup] package [@Heun-pfusetup:2023], which
-identifies a root directory and storage locations
-for input and output data.
+identifies storage locations for input and output data.
 
 The packages in the following table are specific to SEA analyses
 and are available on GitHub.
