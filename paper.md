@@ -84,7 +84,7 @@ The new packages enable analysis of any country in the world
 across timespans of decades or longer.
 In short, the packages enable, for the first time, scalable SEA.
 We used the new packages to create the "PFU Database,"^[Technically speaking, 
-we create data frames of matrices, 
+we create [matsindf][link-matsindf]-style data frames, 
 not an SQL or similar database.] 
 a new resource for the SEA community [@Marshall:2023aa]. 
 
