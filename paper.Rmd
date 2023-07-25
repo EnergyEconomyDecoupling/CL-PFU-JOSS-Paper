@@ -231,7 +231,7 @@ Both [targets][link-targets] pipelines
 (in the [PFUDatabase][link-pfudatabase] and
 [PFUAggDatabase][link-pfuaggdatabase] packages)
 benefit from the 
-[PFUSetup][link-pfusetup] package, which
+[PFUSetup][link-pfusetup] package [@Heun-pfusetup:2023], which
 identifies a root directory and storage locations
 for input and output data.
 
