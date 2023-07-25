@@ -42,6 +42,7 @@ Max length: 250--1000 words
 [link-matsbyname]:     https://CRAN.R-project.org/package=matsbyname
 [link-matsindf]:       https://CRAN.R-project.org/package=matsindf
 [link-mwtools]:        https://github.com/EnergyEconomyDecoupling/MWTools
+[link-pfusetup]:       https://github.com/energyeconomydecoupling/PFUSetup
 [link-pfudatabase]:    https://github.com/energyeconomydecoupling/PFUDatabase
 [link-pfuaggdatabase]: https://github.com/EnergyEconomyDecoupling/PFUAggDatabase
 [link-rclabels]:       https://CRAN.R-project.org/package=RCLabels
@@ -196,12 +197,9 @@ This task is accomplished by the
 and 
 [PFUDatabase][link-pfudatabase] [@Heun-PFUDatabase:2023]
 packages.
-
-The [PFUDatabase][link-pfudatabase] pipeline is modular, 
-such that allocation and efficiency data
-for a country can be added at any time to improve the database. 
-Finally, ECCs must be converted from energy terms to exergy terms. 
+Fourth, ECCs must be converted from energy terms to exergy terms. 
 This step is assisted by the [Recca][link-recca] package.
+
 The steps to create the PSUT matrices for each country and each year
 are accomplished by a
 [targets][link-targets] [@Landau:2021aa]
@@ -212,25 +210,30 @@ A unique feature of the
 [PFUDatabase][link-pfudatabase]
 pipeline is an exemplar system that allows
 analyses to proceed when allocation or efficiency data for a country are unavailable.
+The calculation pipeline in the [PFUDatabase][link-pfudatabase] packge 
+also allows allocation and efficiency data
+for any country to be added at any time to improve the database. 
 
 A second [targets][link-targets] pipeline 
 in the [PFUAggDatabase][link-pfuaggdatabase] package [@Heun-PFUAggDatabase:2023]
 aggregates ECCs
-by region 
+(a) by region 
 (continents and world),
-by energy carrier (product) category 
+(b) by energy carrier (product) category 
 (e.g., Coal and coal products, 
 Low-, Medium-, and High-temperature heat, etc.), 
-by energy conversion machines (industries) and end use sectors
+(c) by energy conversion machines (industries) and end use sectors
 (e.g., Residential, Transport, etc.), and
-to primary, final, and useful (PFU) stages.
-Furthermore, 
-[PFUAggDatabase][link-pfuaggdatabase] functions
-calculate aggregated efficiencies across 
-the primary, final, and useful stages of all ECCs in the database.
-The [Recca][link-recca] package is used extensively by the
-[PFUAggDatabase][link-pfuaggdatabase]
-pipeline.
+(d) to primary, final, and useful (PFU) stages.
+The [PFUAggDatabase][link-pfuaggdatabase]
+pipeline uses the [Recca][link-recca] package extensively.
+Both [targets][link-targets] pipelines 
+(in the [PFUDatabase][link-pfudatabase] and
+[PFUAggDatabase][link-pfuaggdatabase] packages)
+benefit from the 
+[PFUSetup][link-pfusetup] package, which
+identifies a root directory and storage locations
+for input and output data.
 
 The packages in the following table are specific to SEA analyses
 and are available on GitHub.
@@ -240,6 +243,7 @@ and are available on GitHub.
 | [IEATools][link-ieatools]             | Converts IEA data to [matsindf][link-matsindf] format |
 | [MWTools][link-mwtools]               | Converts [ILO][link-ilo] and [FAO][link-fao] data to human and animal muscle work in [matsindf][link-matsindf] format |
 | [Recca][link-recca]                   | Performs `R` energy conversion chain analysis |
+| [PFUSetup][link-pfusetup]             | Setup for the [PFUDatabase][link-pfudatabase] and [PFUAggDatabase][link-pfuaggdatabase] pipelines |
 | [PFUDatabase][link-pfudatabase]       | A [targets][link-targets] pipeline to create a data frame of PSUT matrices |
 | [PFUAggDatabase][link-pfuaggdatabase] | A [targets][link-targets] pipeline to aggregate PSUT matrices |
 
