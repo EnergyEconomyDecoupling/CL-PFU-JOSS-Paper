@@ -242,7 +242,7 @@ and are available on GitHub.
 | [IEATools][link-ieatools]             | Converts IEA data to [matsindf][link-matsindf] format |
 | [MWTools][link-mwtools]               | Converts [ILO][link-ilo] and [FAO][link-fao] data to human and animal muscle work in [matsindf][link-matsindf] format |
 | [Recca][link-recca]                   | Performs `R` energy conversion chain analysis |
-| [PFUSetup][link-pfusetup]             | Setup for the [PFUDatabase][link-pfudatabase] and [PFUAggDatabase][link-pfuaggdatabase] pipelines |
+| [PFUSetup][link-pfusetup]             | Establishes input and output locations for the [PFUDatabase][link-pfudatabase] and [PFUAggDatabase][link-pfuaggdatabase] pipelines |
 | [PFUDatabase][link-pfudatabase]       | A [targets][link-targets] pipeline to create a data frame of PSUT matrices |
 | [PFUAggDatabase][link-pfuaggdatabase] | A [targets][link-targets] pipeline to aggregate PSUT matrices |
 
