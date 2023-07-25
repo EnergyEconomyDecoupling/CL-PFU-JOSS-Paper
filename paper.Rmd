@@ -118,19 +118,19 @@ to estimate technical efficiencies.
 
 # Design of `R` packages
 
-The most important decision for the suite of SEA packages
+The most important decision for the design of the suite of SEA packages
 involves data format.
 We authors are among those who
 developed the Physical Supply-Use Table (PSUT) framework,
-a matrix approach to describing energy flows from 
-resource extraction to
-processing stages and, ultimately, 
-to final demand [@Rocco:2016; @Guevara:2017; @Heun:2018].
-We chose the PSUT framework as the data format for the `R` packages, 
-because it succinctly describes the flow of energy carriers
+a matrix-based approach to describing energy flows 
 ("products" in PSUT terminology) 
-among energy conversion machines 
+from resource extraction to
+processing stages
 ("industries" in PSUT terminology)
+and, ultimately, 
+to final demand [@Rocco:2016; @Guevara:2017; @Heun:2018; @Aramendia:2022tv].
+We chose the PSUT framework as the data format for the `R` packages, 
+because it succinctly describes an entire ECC
 via a set of six matrices described in the following table.
 
 | Matrix      | rows x columns     | Name                           | Description                                              |
@@ -152,7 +152,7 @@ have differing sizes and differing row and column names.
 To get around this challenge, we created the
 [matsbyname][link-matsbyname] package [@Heun-matsbyname:2023]
 which enables matrix mathematics 
-that respects matrix row and column names, 
+that respects row and column names, 
 inserting rows or columns of `0`s when needed.
 Second,
 we knew it would be convenient to perform _matrix_ mathematics 
@@ -164,19 +164,19 @@ to enable this functionality.
 Finally, manipulating row and column names proved to be a challenge, 
 especially for matrices in PSUT data frames, so 
 we developed the [RCLabels][link-rclabels] package [@Heun-RCLabels:2023]
-for that purpose.
+to assist.
 The table below summarizes these packages, 
 all of which are generally useful and available on 
 [CRAN][link-cran].
 
-| Package | Function |
-|:--------|:---------|
+| Package | Purpose |
+|:--------|:--------|
 | [RCLabels][link-rclabels]     | Manipulates row and column names in [matsindf][link-matsindf] data frames |
 | [matsbyname][link-matsbyname] | Performs matrix mathematics that respects row and column names |
 | [matsindf][link-matsindf]     | Stores matrices in cells of a data frame, thereby enabling [tidyverse][link-tidyverse] syntax |
 
 
-Several calculation steps are required to create the PFU database. 
+Four calculation steps are required to create a PFU database. 
 Each step is assisted by a new `R` package.
 First, the IEA's primary- and final-stage WEEB data must be converted
 to the PSUT format, 
@@ -194,9 +194,11 @@ final-to-useful efficiency of each machine.
 This task is accomplished by the
 [Recca][link-recca] [@Heun-Recca:2023]
 and 
-[PFUDatabase](https://github.com/energyeconomydecoupling/PFUDatabase/) [@Heun-PFUDatabase:2023]
+[PFUDatabase][link-pfudatabase] [@Heun-PFUDatabase:2023]
 packages.
-The pipeline is modular, such that allocation and efficiency data
+
+The [PFUDatabase][link-pfudatabase] pipeline is modular, 
+such that allocation and efficiency data
 for a country can be added at any time to improve the database. 
 Finally, ECCs must be converted from energy terms to exergy terms. 
 This step is assisted by the [Recca][link-recca] package.
@@ -233,8 +235,8 @@ pipeline.
 The packages in the following table are specific to SEA analyses
 and are available on GitHub.
 
-| Package | Function |
-|:--------|:---------|
+| Package | Purpose |
+|:--------|:--------|
 | [IEATools][link-ieatools]             | Converts IEA data to [matsindf][link-matsindf] format |
 | [MWTools][link-mwtools]               | Converts [ILO][link-ilo] and [FAO][link-fao] data to human and animal muscle work in [matsindf][link-matsindf] format |
 | [Recca][link-recca]                   | Performs `R` energy conversion chain analysis |
