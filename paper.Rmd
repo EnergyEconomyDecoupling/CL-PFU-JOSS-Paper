@@ -119,7 +119,7 @@ to estimate technical efficiencies.
 
 # Design of `R` packages
 
-The most important decision for the design of the suite of SEA packages
+The most important decision for the design of the suite of `R` packages
 involves data format.
 We authors are among those who
 developed the Physical Supply-Use Table (PSUT) framework,
