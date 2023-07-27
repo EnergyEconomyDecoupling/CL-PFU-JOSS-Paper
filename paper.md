@@ -72,7 +72,9 @@ and sometimes to energy services
 Societal exergy analysis (SEA), 
 an extension of energy analysis,
 quantifies ECCs in exergy terms^[Exergy is 
-the mechanical work potential of energy.].
+the mechanical work potential of energy.
+See any number of web references for an exergy primer,
+including @SciDirect:2023].
 
 We created a suite of `R` packages 
 (some of which are generally useful and available through 
