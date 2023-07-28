@@ -2,20 +2,21 @@ Package enhancements
 
 (1) Add to NEWS.md: 
 
-Cite all releases with doi [10.5281/zenodo.5819143](https://doi.org/10.5281/zenodo.5819143), 
+Cite all releases with doi [10.5281/zenodo.xxxxxxx](https://doi.org/10.5281/zenodo.xxxxxxx), 
 which always resolves to the latest release.
 
 
 (2) Add Zenodo general DOI URL to CITATION
 
-  url         = "https://doi.org/10.5281/zenodo.5819143",
+  url         = "https://doi.org/10.5281/zenodo.xxxxxxx",
 
+(3) Build the package
 
-(3) Copy from the CITATION file to the paper.bib file.
+(4) Copy from the CITATION file to the paper.bib file.  Use citation("pkgname")
 
-(4) Check that all links work.
+(5) Check that all links work in paper.
 
-(5) Push changes in package and paper.
+(6) Push changes in package and paper.
 
 
 
@@ -23,7 +24,7 @@ Status:
 
 x RCLabels
 x matsbyname
-matsindf
+x matsindf
 
 IEATools
 MWTools
