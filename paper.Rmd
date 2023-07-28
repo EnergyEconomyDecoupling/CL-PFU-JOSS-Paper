@@ -279,10 +279,13 @@ albeit for only two countries and two years.
 
 # Conclusion
 
-The new `R` packages enable the creation of databases of primary, final, and useful stage
-energy and exergy energy conversion chains.
-Such databases will enable advances in societal exergy analysis community
-and lead to greater insights on economic growth and human well-being.
+The new `R` packages described in this paper
+enable the creation of databases of primary, final, and useful
+energy and exergy conversion chains.
+Such databases will enable advances in the societal exergy analysis community
+and lead to greater insights 
+about the role of energy 
+in economic growth and human well-being.
 
 
 
@@ -326,9 +329,6 @@ described in this paper.
 ZM acknowledges ******. 
 EA acknowledges ******.
 PEB acknowledges ******.
-
-
-Do we have any acknowledgements? 
 
 
 # References
