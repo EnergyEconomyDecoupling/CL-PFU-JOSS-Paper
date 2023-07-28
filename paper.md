@@ -46,14 +46,14 @@ two papers upon the editor's advice.
 [link-ieaweeb]:          https://www.iea.org/data-and-statistics/data-product/world-energy-balances
 [link-ilo]:              https://www.ilo.org/
 [link-fao]:              https://www.fao.org/
-[link-matsbyname]:       https://CRAN.R-project.org/package=matsbyname
-[link-matsindf]:         https://CRAN.R-project.org/package=matsindf
+[link-matsbyname]:       https://github.com/MatthewHeun/matsbyname
+[link-matsindf]:         https://github.com/MatthewHeun/matsindf
 [link-mwtools]:          https://github.com/EnergyEconomyDecoupling/MWTools
 [link-pfusetup]:         https://github.com/energyeconomydecoupling/PFUSetup
 [link-pfudatabase]:      https://github.com/energyeconomydecoupling/PFUDatabase
 [link-pfuaggdatabase]:   https://github.com/EnergyEconomyDecoupling/PFUAggDatabase
 [link-pfupipelinetools]: https://github.com/EnergyEconomyDecoupling/PFUPipelineTools
-[link-rclabels]:         https://CRAN.R-project.org/package=RCLabels
+[link-rclabels]:         https://github.com/MatthewHeun/RCLabels
 [link-recca]:            https://github.com/MatthewHeun/Recca
 [link-targets]:          https://docs.ropensci.org/targets
 [link-tidyverse]:        https://www.tidyverse.org
