@@ -49,8 +49,8 @@ two papers upon the editor's advice.
 [link-matsbyname]:       https://github.com/MatthewHeun/matsbyname
 [link-matsindf]:         https://github.com/MatthewHeun/matsindf
 [link-mwtools]:          https://github.com/EnergyEconomyDecoupling/MWTools
-[link-pfusetup]:         https://github.com/energyeconomydecoupling/PFUSetup
-[link-pfudatabase]:      https://github.com/energyeconomydecoupling/PFUDatabase
+[link-pfusetup]:         https://github.com/EnergyEconomyDecoupling/PFUSetup
+[link-pfudatabase]:      https://github.com/EnergyEconomyDecoupling/PFUDatabase
 [link-pfuaggdatabase]:   https://github.com/EnergyEconomyDecoupling/PFUAggDatabase
 [link-pfupipelinetools]: https://github.com/EnergyEconomyDecoupling/PFUPipelineTools
 [link-rclabels]:         https://github.com/MatthewHeun/RCLabels

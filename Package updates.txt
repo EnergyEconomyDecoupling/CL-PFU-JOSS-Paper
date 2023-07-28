@@ -1,0 +1,30 @@
+Package enhancements
+
+Add to NEWS.md
+
+Cite all releases with doi [10.5281/zenodo.5819143](https://doi.org/10.5281/zenodo.5819143), 
+which always resolves to the latest release.
+
+
+Add Zenodo general DOI URL to CITATION
+
+  url         = "https://doi.org/10.5281/zenodo.5819143",
+
+
+Copy from the CITATION file to the paper.bib file.
+
+
+Status:
+
+RCLabels
+matsbyname
+matsindf
+
+IEATools
+MWTools
+Recca
+PFUSetup
+PFUPipelineTools
+PFUDatabase
+PFUAggDatabase
+
