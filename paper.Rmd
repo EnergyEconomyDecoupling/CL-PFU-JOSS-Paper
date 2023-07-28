@@ -333,9 +333,10 @@ MKH acknowledges the support of Calvin University for
 a sabbatical during which he developed the PSUT framework
 and course releases during which he wrote many of the `R` packages
 described in this paper.
-ZM acknowledges ******. 
-EA acknowledges ******.
-PEB acknowledges ******.
+ZM's and PEB's time was funded by 
+the UK Research Council under EPSRC Fellowship award EP/R024254/1.
+EA's time was funded by 
+the University of Leeds (School of Earth and Environment).
 
 
 # References
