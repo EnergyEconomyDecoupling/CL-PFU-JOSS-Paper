@@ -31,7 +31,14 @@ output:
     keep_md: yes
 ---
 
-Max length: 250--1000 words
+Max length: 250--1000 words. At the moment, we are at 1444 words.
+But I saw many JOSS papers are longer than 1000 words. 
+And our paper is describing many packages, whereas
+most JOSS papers describe only a single package.
+So I think we are going to be OK.
+I think we can own the issue in the cover letter, 
+saying that we are willing to consider splitting into
+two papers upon the editor's advice. 
 
 <!-- Define some macros to use later -->
 [link-cran]:           https://cran.r-project.org
@@ -136,7 +143,7 @@ processing stages
 ("industries" in PSUT terminology)
 and, ultimately, 
 to final demand [@Rocco:2016; @Guevara:2017; @Heun:2018; @Aramendia:2022tv].
-We chose the PSUT framework as the data format for the `R` packages, 
+We chose the PSUT framework as the data format for the new `R` packages, 
 because it succinctly describes an entire ECC
 for one country and one year
 via a set of six matrices
@@ -187,8 +194,8 @@ all of which are generally useful and available on
 
 
 Broadly speaking, 
-four calculation steps are required to create a PFU database. 
-Each step is completed by one or more new `R` packages.
+four calculation steps are required to create a MR-PFU database. 
+Each step is assisted by functions in one or more new `R` packages.
 First, the IEA's primary- and final-stage WEEB data must be converted
 to RUVY matrices for each country and year, 
 a task accomplished by functions in the [IEATools][link-ieatools] package [@Heun-IEATools:2023]. 
