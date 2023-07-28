@@ -94,7 +94,7 @@ In short, the packages enable, for the first time, scalable SEA.
 We used the new packages to create the MR-PFU database,^["MR-PFU" 
 is an initialism for "Multi-Region
 Primary, Final, Useful."
-The MR-PFU database is multi-regional in the sense that
+The MR-PFU database is "multi-regional" in the sense that
 it contains many countries as well as 
 continental and world aggregations.
 Technically speaking, 
