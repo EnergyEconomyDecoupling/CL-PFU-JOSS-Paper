@@ -270,9 +270,9 @@ is restricted to those who have access to [IEA WEEB][link-ieaweeb] data.].
 library(Recca)
 ```
 
-Create a MR-PFU database from the GHA and ZAF data contained in the IEATools package.
-Create the expectd folder structure that we use on the database.
-Store all necessary data in this repository.
+Create a MR-PFU database from the GHA and ZAF data contained in the IEATools package.   
+Create the folder structure for the MR-PFU database.   
+Store all necessary data in this repository.   
 Execute the commands to produce the database, 
 albeit for only two countries and two years.
 
