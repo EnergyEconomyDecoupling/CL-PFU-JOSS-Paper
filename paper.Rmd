@@ -60,7 +60,7 @@ the field of societal energy analysis (among other activities)
 evaluates ECCs
 from the primary stage 
 (resources extracted from the environment, 
-such as coal, oil, and natural gas) 
+such as coal, oil, natural gas, wind, and solar) 
 to the final stage
 (energy purchased by consumers, 
 such as refined petroleum and electricity),
@@ -69,25 +69,29 @@ to the useful stage
 such as heat, motion, and light),
 and sometimes to energy services
 (such as thermal comfort, transport, and illumination).
-Societal exergy analysis (SEA), 
-an extension of energy analysis,
+Societal _exergy_ analysis (SEA), 
+an extension of societal _energy_ analysis,
 quantifies ECCs in exergy terms^[Exergy is 
 the mechanical work potential of energy.
 See any number of web references for an exergy primer,
-including @SciDirect:2023].
+including @SciDirect:2023. 
+**** Do we have a better primer? ****].
 
 We created a suite of `R` packages 
-(some of which are generally useful and available through 
-[CRAN][link-cran],
-others of which are focused on SEA and available on GitHub)
-to assist SEA practitioners as they analyze 
+to assist SEA practitioners to analyze 
 energy movement through society. 
 The new packages enable analysis of any country in the world
 across timespans of decades or longer.
 In short, the packages enable, for the first time, scalable SEA.
-We used the new packages to create the "PFU Database,"^[Technically speaking, 
-we create [matsindf][link-matsindf]-style data frames, 
-not an SQL or similar database.] 
+We used the new packages to create the MR-PFU database,^["MR-PFU" 
+is an initialism for "Multi-Region
+Primary, Final, Useful."
+The MR-PFU database is multi-regional in the sense that
+it contains many countries as well as 
+continental and world aggregations.
+Technically speaking, 
+we create [matsindf][link-matsindf] data frames, 
+not SQL or similar databases.] 
 a new resource for the SEA community [@Marshall:2023aa]. 
 
 This paper describes the design of the new packages and
@@ -104,10 +108,10 @@ from the [IEA][link-ieaweeb]'s
 world energy balances
 [@Ayres:2003ec; @Serrenho:2014aa; @Brockway:2014aa; @Brockway:2015aa]. 
 Data were stored in varying and inconsistent formats.
-An early attempt to create a worldwide SEA database [@De-Stercke:2014]
-estimated technical energy efficiencies 
-of end-use machines by economic status in a country,
-thereby precluding the use of the database for energy-economy studies.
+An early SEA database [@De-Stercke:2014]
+estimated energy efficiencies 
+of end-use machines by the economic status of countries,
+thereby precluding its use for energy-economy studies.
 
 The authors of the current paper and others in the field
 wanted to expand SEA to cover all countries, but
@@ -116,13 +120,13 @@ deemed not scalable.
 A new approach to SEA was needed, 
 one that scaled across all countries 
 for many years without relying on economic data
-to estimate technical efficiencies. 
+to estimate machine efficiencies. 
 
 
 # Design of `R` packages
 
-The most important decision for the design of the suite of `R` packages
-involves data format.
+The most important design decision for the suite of `R` packages
+involved data format.
 We authors are among those who
 developed the Physical Supply-Use Table (PSUT) framework,
 a matrix-based approach to describing energy flows 
@@ -134,7 +138,10 @@ and, ultimately,
 to final demand [@Rocco:2016; @Guevara:2017; @Heun:2018; @Aramendia:2022tv].
 We chose the PSUT framework as the data format for the `R` packages, 
 because it succinctly describes an entire ECC
-via a set of six matrices described in the following table.
+for one country and one year
+via a set of six matrices
+(the "RUVY" matrices).
+See the following table.
 
 | Matrix      | rows x columns     | Name                           | Description                                              |
 |:------------|:-------------------|:-------------------------------|:---------------------------------------------------------|
@@ -145,27 +152,27 @@ via a set of six matrices described in the following table.
 | **V**       | industry x product | Make matrix                    | Describes how each energy conversion device makes energy |
 | **Y**       | product x industry | Final demand matrix            | Describes how each energy carrier is consumed            |
 
-Further development followed from selection of the PSUT framework.
-First, the matrices of the PSUT framework carry the challenge that 
+Further development followed from selecting the PSUT framework.
+First, the RUVY matrices carry the challenge that 
 different countries and years 
 have varying energy carriers (products) and
 varying energy conversion machines (industries),
-meaning that PSUT matrices for different countries and years 
-have differing sizes and differing row and column names.
+meaning that RUVY matrices 
+have differing row names, differing column names, and differing sizes.
 To get around this challenge, we created the
 [matsbyname][link-matsbyname] package [@Heun-matsbyname:2023]
 which enables matrix mathematics 
 that respects row and column names, 
-inserting rows or columns of `0`s when needed.
+inserting **0** vectors when needed.
 Second,
-we knew it would be convenient to perform _matrix_ mathematics 
+wanted to be able to perform _matrix_ mathematics 
 as easily as _scalar_ mathematics
 in `R` data frames
 using the [tidyverse][link-tidyverse] syntax [@Wickham:2019]. 
 We developed the [matsindf][link-matsindf] package [@Heun-matsindf:2023]
 to enable this functionality.
 Finally, manipulating row and column names proved to be a challenge, 
-especially for matrices in PSUT data frames, so 
+especially for RUVY matrices in [matsindf][link-matsindf] data frames, so 
 we developed the [RCLabels][link-rclabels] package [@Heun-RCLabels:2023]
 to assist.
 The table below summarizes these packages, 
@@ -174,33 +181,34 @@ all of which are generally useful and available on
 
 | Package | Purpose |
 |:--------|:--------|
-| [RCLabels][link-rclabels]     | Manipulates row and column names in [matsindf][link-matsindf] data frames |
+| [RCLabels][link-rclabels]     | Manipulates matrix row and column names in [matsindf][link-matsindf] data frames |
 | [matsbyname][link-matsbyname] | Performs matrix mathematics that respects row and column names |
-| [matsindf][link-matsindf]     | Stores matrices in cells of a data frame, thereby enabling [tidyverse][link-tidyverse] syntax |
+| [matsindf][link-matsindf]     | Stores matrices in cells of data frames, thereby enabling analysis with [tidyverse][link-tidyverse] syntax |
 
 
-Four calculation steps are required to create a PFU database. 
-Each step is assisted by a new `R` package.
+Broadly speaking, 
+four calculation steps are required to create a PFU database. 
+Each step is completed by one or more new `R` packages.
 First, the IEA's primary- and final-stage WEEB data must be converted
-to the PSUT format, 
-a task completed by the [IEATools][link-ieatools] package [@Heun-IEATools:2023]. 
+to RUVY matrices for each country and year, 
+a task accomplished by functions in the [IEATools][link-ieatools] package [@Heun-IEATools:2023]. 
 Second, human and animal muscle work must be calculated from 
 [International Labor Organization][link-ilo] (ILO) and
 [Food and Agriculture Organization][link-fao] (FAO) data,
 following the methodology of @Steenwyk:2022ww, 
-using the [MWTools][link-mwtools] package [@Marshall:2023ab]. 
+using functions in the [MWTools][link-mwtools] package [@Marshall:2023ab]. 
 Third, the IEA's primary- and final-stage ECC data 
-are extended to the useful stage by
+must be extended to the useful stage by
 (a) allocating final stage energy to end-use machines and
 (b) multiplying allocated final energy by the 
 final-to-useful efficiency of each machine.
-This task is accomplished by the
+This task is accomplished by functions in the
 [Recca][link-recca] [@Heun-Recca:2023]
 and 
 [PFUDatabase][link-pfudatabase] [@Heun-PFUDatabase:2023]
 packages.
 Fourth, ECCs must be converted from energy terms to exergy terms. 
-This step is assisted by the [Recca][link-recca] package.
+This step is performed by functions in the [Recca][link-recca] package.
 
 The steps to create the PSUT matrices for each country and each year
 are accomplished by a
@@ -213,8 +221,8 @@ A unique feature of the
 pipeline is an exemplar system that allows
 analyses to proceed when allocation or efficiency data for a country are unavailable.
 The calculation pipeline in the [PFUDatabase][link-pfudatabase] packge 
-also allows allocation and efficiency data
-for any country to be added at any time to improve the database. 
+allows allocation and efficiency data
+for any country and year to be added at any time to improve the database. 
 
 A second [targets][link-targets] pipeline 
 in the [PFUAggDatabase][link-pfuaggdatabase] package [@Heun-PFUAggDatabase:2023]
@@ -241,15 +249,15 @@ and are available on GitHub.
 
 | Package | Purpose |
 |:--------|:--------|
-| [IEATools][link-ieatools]             | Converts IEA data to [matsindf][link-matsindf] format |
-| [MWTools][link-mwtools]               | Converts [ILO][link-ilo] and [FAO][link-fao] data to human and animal muscle work in [matsindf][link-matsindf] format |
+| [IEATools][link-ieatools]             | Converts [IEA WEEB][link-ieaweeb] data to RUVY matrices in [matsindf][link-matsindf] data frames |
+| [MWTools][link-mwtools]               | Converts [ILO][link-ilo] and [FAO][link-fao] data to RUVY matrices of human and animal muscle work in [matsindf][link-matsindf] data frames |
 | [Recca][link-recca]                   | Performs `R` energy conversion chain analysis |
 | [PFUSetup][link-pfusetup]             | Identifies input and output locations for the [PFUDatabase][link-pfudatabase] and [PFUAggDatabase][link-pfuaggdatabase] pipelines |
-| [PFUDatabase][link-pfudatabase]       | A [targets][link-targets] pipeline to create a data frame of PSUT matrices |
-| [PFUAggDatabase][link-pfuaggdatabase] | A [targets][link-targets] pipeline to aggregate PSUT matrices |
+| [PFUDatabase][link-pfudatabase]       | Provides a [targets][link-targets] pipeline to create a data frame of RUVY matrices |
+| [PFUAggDatabase][link-pfuaggdatabase] | Provides a [targets][link-targets] pipeline to aggregate RUVY matrices |
 
-Input data for the PFU Database can be found in @Marshall:2023aa.
-Access to the PFU Database can be obtained via correspondence 
+Input data for the PFU database can be found in @Marshall:2023aa.
+Access to the PFU database can be obtained via correspondence 
 with author [PEB](mailto:P.E.Brockway@leeds.ac.uk)^[Because the PFU Database contains
 primary and final energy [IEA WEEB][link-ieaweeb] data, 
 access to the PFU Database
