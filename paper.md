@@ -271,59 +271,63 @@ is restricted to those who have access to [IEA WEEB][link-ieaweeb] data.].
 library(Recca)
 ```
 
+Create a MR-PFU database from the GHA and ZAF data contained in the IEATools package.
+Create the expectd folder structure that we use on the database.
+Store all necessary data in this repository.
+Execute the commands to produce the database, 
+albeit for only two countries and two years.
+
 
 # Conclusion
 
-The new `R` packages 
-
-
-
-enables 
-
-
-
-
-
-
-# Acknowledgements
+The new `R` packages enable the creation of databases of primary, final, and useful stage
+energy and exergy energy conversion chains.
+Such databases will enable advances in societal exergy analysis community
+and lead to greater insights on economic growth and human well-being.
 
 
 
 
 
+<!-- # Mathematics -->
 
+<!-- Single dollars ($) are required for inline mathematics e.g. $f(x) = e^{\pi/x}$ -->
 
+<!-- Double dollars make self-standing equations: -->
 
-# Mathematics
+<!-- $$\Theta(x) = \left\{\begin{array}{l} -->
+<!-- 0\textrm{ if } x < 0\cr -->
+<!-- 1\textrm{ else} -->
+<!-- \end{array}\right.$$ -->
 
-Single dollars ($) are required for inline mathematics e.g. $f(x) = e^{\pi/x}$
+<!-- You can also use plain \LaTeX for equations -->
+<!-- \begin{equation}\label{eq:fourier} -->
+<!-- \hat{f}(\omega) = \int_{-\infty}^{\infty} f(x) e^{i\omega x} dx -->
+<!-- \end{equation} -->
+<!-- and refer to \autoref{eq:fourier} from text. -->
 
-Double dollars make self-standing equations:
+<!-- # Figures -->
 
-$$\Theta(x) = \left\{\begin{array}{l}
-0\textrm{ if } x < 0\cr
-1\textrm{ else}
-\end{array}\right.$$
+<!-- Figures can be included like this: -->
 
-You can also use plain \LaTeX for equations
-\begin{equation}\label{eq:fourier}
-\hat{f}(\omega) = \int_{-\infty}^{\infty} f(x) e^{i\omega x} dx
-\end{equation}
-and refer to \autoref{eq:fourier} from text.
+<!-- ![Caption for example figure.\label{fig:example}](figure.png) -->
+<!-- and referenced from text using \autoref{fig:example}. -->
 
-# Figures
+<!-- Figure sizes can be customized by adding an optional second parameter: -->
 
-Figures can be included like this:
-
-![Caption for example figure.\label{fig:example}](figure.png)
-and referenced from text using \autoref{fig:example}.
-
-Figure sizes can be customized by adding an optional second parameter:
-
-![Caption for example figure.](figure.png){ width=20% }
+<!-- ![Caption for example figure.](figure.png){ width=20% } -->
 
 
 # Acknowledgements
+
+MKH acknowledges the support of Calvin University for 
+a sabbatical during which he developed the PSUT framework
+and course releases during which he wrote many of the `R` packages
+described in this paper.
+ZM acknowledges ******. 
+EA acknowledges ******.
+PEB acknowledges ******.
+
 
 Do we have any acknowledgements? 
 
