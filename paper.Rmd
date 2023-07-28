@@ -41,21 +41,22 @@ saying that we are willing to consider splitting into
 two papers upon the editor's advice. 
 
 <!-- Define some macros to use later -->
-[link-cran]:           https://cran.r-project.org
-[link-ieatools]:       https://github.com/MatthewHeun/IEATools
-[link-ieaweeb]:        https://www.iea.org/data-and-statistics/data-product/world-energy-balances
-[link-ilo]:            https://www.ilo.org/
-[link-fao]:            https://www.fao.org/
-[link-matsbyname]:     https://CRAN.R-project.org/package=matsbyname
-[link-matsindf]:       https://CRAN.R-project.org/package=matsindf
-[link-mwtools]:        https://github.com/EnergyEconomyDecoupling/MWTools
-[link-pfusetup]:       https://github.com/energyeconomydecoupling/PFUSetup
-[link-pfudatabase]:    https://github.com/energyeconomydecoupling/PFUDatabase
-[link-pfuaggdatabase]: https://github.com/EnergyEconomyDecoupling/PFUAggDatabase
-[link-rclabels]:       https://CRAN.R-project.org/package=RCLabels
-[link-recca]:          https://github.com/MatthewHeun/Recca
-[link-targets]:        https://docs.ropensci.org/targets
-[link-tidyverse]:      https://www.tidyverse.org
+[link-cran]:             https://cran.r-project.org
+[link-ieatools]:         https://github.com/MatthewHeun/IEATools
+[link-ieaweeb]:          https://www.iea.org/data-and-statistics/data-product/world-energy-balances
+[link-ilo]:              https://www.ilo.org/
+[link-fao]:              https://www.fao.org/
+[link-matsbyname]:       https://CRAN.R-project.org/package=matsbyname
+[link-matsindf]:         https://CRAN.R-project.org/package=matsindf
+[link-mwtools]:          https://github.com/EnergyEconomyDecoupling/MWTools
+[link-pfusetup]:         https://github.com/energyeconomydecoupling/PFUSetup
+[link-pfudatabase]:      https://github.com/energyeconomydecoupling/PFUDatabase
+[link-pfuaggdatabase]:   https://github.com/EnergyEconomyDecoupling/PFUAggDatabase
+[link-pfupipelinetools]: https://github.com/EnergyEconomyDecoupling/PFUPipelineTools
+[link-rclabels]:         https://CRAN.R-project.org/package=RCLabels
+[link-recca]:            https://github.com/MatthewHeun/Recca
+[link-targets]:          https://docs.ropensci.org/targets
+[link-tidyverse]:        https://www.tidyverse.org
 
 
 # Summary
@@ -244,12 +245,18 @@ Low-, Medium-, and High-temperature heat, etc.),
 (d) to primary, final, and useful (PFU) stages.
 The [PFUAggDatabase][link-pfuaggdatabase]
 pipeline uses the [Recca][link-recca] package extensively.
+
 Both [targets][link-targets] pipelines 
 (in the [PFUDatabase][link-pfudatabase] and
 [PFUAggDatabase][link-pfuaggdatabase] packages)
 benefit from the 
-[PFUSetup][link-pfusetup] package [@Heun-pfusetup:2023], which
-identifies storage locations for input and output data.
+[PFUSetup][link-pfusetup] [@Heun-PFUSetup:2023] and
+[PFUPipelineTools][link-pfupipelinetools] [@Heun-PFUPipelineTools:2023]
+packages. 
+[PFUSetup][link-pfusetup] identifies storage locations 
+for pipeline input and output data.
+[PFUPipelineTools][link-pfupipelinetools] provides functions and constants
+common to both pipelines. 
 
 The packages in the following table are specific to SEA analyses
 and are available on GitHub.
@@ -260,6 +267,7 @@ and are available on GitHub.
 | [MWTools][link-mwtools]               | Converts [ILO][link-ilo] and [FAO][link-fao] data to RUVY matrices of human and animal muscle work in [matsindf][link-matsindf] data frames |
 | [Recca][link-recca]                   | Performs `R` energy conversion chain analysis |
 | [PFUSetup][link-pfusetup]             | Identifies input and output locations for the [PFUDatabase][link-pfudatabase] and [PFUAggDatabase][link-pfuaggdatabase] pipelines |
+| [PFUPipelineTools][link-pfupipelinetools] | Provides basic functionality for all PFU pipelines |
 | [PFUDatabase][link-pfudatabase]       | Provides a [targets][link-targets] pipeline to create a data frame of RUVY matrices |
 | [PFUAggDatabase][link-pfuaggdatabase] | Provides a [targets][link-targets] pipeline to aggregate RUVY matrices |
 
@@ -340,3 +348,5 @@ the University of Leeds (School of Earth and Environment).
 
 
 # References
+
+**** Change to Zenodo DOIs for all package references?. ****
