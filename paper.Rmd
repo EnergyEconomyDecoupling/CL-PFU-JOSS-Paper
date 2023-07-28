@@ -159,7 +159,7 @@ See the following table.
 | **V**       | industry x product | Make matrix                    | Describes how each energy conversion device makes energy |
 | **Y**       | product x industry | Final demand matrix            | Describes how each energy carrier is consumed            |
 
-Further development followed from selecting the PSUT framework.
+Further development followed selection of the PSUT framework.
 First, the RUVY matrices carry the challenge that 
 different countries and years 
 have varying energy carriers (products) and
