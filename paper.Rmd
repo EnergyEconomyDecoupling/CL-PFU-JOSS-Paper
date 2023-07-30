@@ -275,7 +275,7 @@ Input data for the PFU database can be found in @Marshall:2023aa.
 Access to the PFU database can be obtained via correspondence 
 with author [PEB](mailto:P.E.Brockway@leeds.ac.uk)^[Because the PFU Database contains
 primary and final energy [IEA WEEB][link-ieaweeb] data, 
-access to the PFU Database
+use of the PFU Database
 is restricted to those who have access to [IEA WEEB][link-ieaweeb] data.].
 
 
