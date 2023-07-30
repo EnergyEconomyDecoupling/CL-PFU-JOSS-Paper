@@ -275,7 +275,7 @@ Input data for the PFU database can be found in @Marshall:2023aa.
 Access to the PFU database can be obtained via correspondence 
 with author [PEB](mailto:P.E.Brockway@leeds.ac.uk)^[Because the PFU Database contains
 primary and final energy [IEA WEEB][link-ieaweeb] data, 
-access to the PFU Database
+use of the PFU Database
 is restricted to those who have access to [IEA WEEB][link-ieaweeb] data.].
 
 
@@ -283,7 +283,31 @@ is restricted to those who have access to [IEA WEEB][link-ieaweeb] data.].
 
 
 ```r
-library(Recca)
+# Available on CRAN
+# library(matsbyname)
+# library(matsindf)
+# library(RCLabels)
+
+# Available from MatthewHeun on GitHub
+# with devtools::install_github("MatthewHeun/xxxxxx")
+# library(IEATools)
+
+# Available from EnergyEconomyDecoupling on GitHub
+# with devtools::install_github("EnergyEconomyDecoupling/xxxxxx")
+# library(PFUPipelineTools)
+library(PFUSetup)
+
+# Use the PFUSetup package to establish paths for the example
+home_path <- "ExampleFolder"
+iea_folder_path <- file.path(home_path, "IEA extended energy balance data")
+iea_data_path <- file.path("IEA extended energy balance data",
+                           "GH-ZA-TJ-Extended-Energy-Balances-sample-2022.csv")
+setup <- PFUSetup::get_abs_paths(home_path = file.path("ExampleFolder"), 
+                                 dropbox_path = "",
+                                 project_path = "",
+                                 iea_folder_path = iea_folder_path,
+                                 iea_data_path = iea_data_path,
+                                 version = "v_example")
 ```
 
 Create a MR-PFU database from the GHA and ZAF data contained in the IEATools package.   
