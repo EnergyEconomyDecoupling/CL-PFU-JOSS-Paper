@@ -282,7 +282,17 @@ is restricted to those who have access to [IEA WEEB][link-ieaweeb] data.].
 # Example
 
 ```{r}
-library(Recca)
+library(IEATools)
+library(PFUSetup)
+home_path <- "ExampleFolder"
+iea_folder_path <- file.path(home_path, "IEA extended energy balance data")
+iea_data_path <- file.path("IEA extended energy balance data", "GH-ZA-TJ-Extended-Energy-Balances-sample-2022.csv")
+setup <- PFUSetup::get_abs_paths(home_path = file.path("ExampleFolder"), 
+                                 dropbox_path = "",
+                                 project_path = "",
+                                 iea_folder_path = iea_folder_path,
+                                 iea_data_path = iea_data_path,
+                                 version = "v_example")
 ```
 
 Create a MR-PFU database from the GHA and ZAF data contained in the IEATools package.   
