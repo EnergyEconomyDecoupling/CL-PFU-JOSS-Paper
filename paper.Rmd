@@ -1,5 +1,5 @@
 ---
-title: 'MR-PFU: A suite of R packages for energy conversion chain analysis'
+title: 'CL-PFU: A suite of R packages for energy conversion chain analysis'
 tags:
 - energy
 - exergy
@@ -91,10 +91,10 @@ energy movement through society.
 The new packages enable analysis of any country in the world
 across timespans of decades or longer.
 In short, the packages enable, for the first time, scalable SEA.
-We used the new packages to create the MR-PFU database,^["MR-PFU" 
-is an initialism for "Multi-Region
+We used the new packages to create the CL-PFU database,^["CL-PFU" 
+is an initialism for "Country-Level
 Primary, Final, Useful."
-The MR-PFU database is "multi-regional" in the sense that
+The CL-PFU database is "multi-regional" in the sense that
 it contains many countries as well as 
 continental and world aggregations.
 Technically speaking, 
@@ -201,7 +201,7 @@ all of which are generally useful and available on
 
 
 Broadly speaking, 
-four calculation steps are required to create a MR-PFU database. 
+four calculation steps are required to create a CL-PFU database. 
 Each step is assisted by functions in one or more new `R` packages.
 First, the IEA's primary- and final-stage WEEB data must be converted
 to RUVY matrices for each country and year, 
@@ -319,8 +319,8 @@ setup <- PFUSetup::get_abs_paths(home_path = file.path("ExampleFolder"),
                                  version = "v_example")
 ```
 
-Create a MR-PFU database from the GHA and ZAF data contained in the IEATools package.   
-Create the folder structure for the MR-PFU database.   
+Create a CL-PFU database from the GHA and ZAF data contained in the IEATools package.   
+Create the folder structure for the CL-PFU database.   
 Store all necessary data in this repository.   
 Execute the commands to produce the database, 
 albeit for only two countries and two years.
@@ -335,6 +335,17 @@ Such databases will enable advances in the societal exergy analysis community
 and lead to greater insights 
 about the role of energy 
 in economic growth and human well-being.
+An example of early work using the CL-PFU database
+is the calculation of useful stage Energy Return On Investment for fossil fuels [a], 
+for which the ECCTools [b] and EROITools [c] packages were developed, 
+expanding the software capabilities introduced here."
+
+***** Add Emmanuel references *****
+
+[a]: Aramendia E., Brockway P., Taylor P., Norman J., Heun M., Marshall Z. (2023), “Chapter 4: Estimation of fossil fuels useful stage energy return on investment and implications for
+renewable energy systems” in Exploring the useful energy implications of the global energy transition: a net energy perspective, PhD thesis, University of Leeds.
+[b]: Emmanuel Aramendia and Matthew K. Heun. ECCTools: Tools for modifying the Energy Conversion Chain. R package version 0.1.5. 2022. doi: 10.5281/zenodo.7692105.
+[c]: Emmanuel Aramendia and Matthew K. Heun. EROITools: Tools for calculating and aggregating Energy Return On Investment values. Package version: v0.1.1. 2023. doi: 10 . 5281 / zenodo .7696869.
 
 
 
