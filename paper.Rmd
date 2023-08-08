@@ -295,9 +295,7 @@ is restricted to those who have access to [IEA WEEB][link-ieaweeb] data.].
 
 ```{r}
 # Available on CRAN
-# library(matsbyname)
-# library(matsindf)
-# library(RCLabels)
+library(targets)
 
 # Available from MatthewHeun on GitHub
 # with devtools::install_github("MatthewHeun/xxxxxx")
@@ -319,6 +317,12 @@ setup <- PFUSetup::get_abs_paths(home_path = file.path("ExampleFolder"),
                                  iea_folder_path = iea_folder_path,
                                  iea_data_path = iea_data_path,
                                  version = "v_example")
+
+# Run the PFUDatabase pipeline
+targets::tar_make(script = file.path("ExampleFolder", "_targets_pfudatabase.R"))
+
+# Run the PFUAggDatabase pipeline
+targets::tar_make(script = file.path("ExampleFolder", "_targets_pfuaggdatabase.R"))
 ```
 
 Create a CL-PFU database from the GHA and ZAF data contained in the IEATools package.   
