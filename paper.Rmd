@@ -296,7 +296,7 @@ is restricted to those who have access to [IEA WEEB][link-ieaweeb] data.].
 ```{r}
 library(targets)
 # Run the PFUDatabase pipeline
-targets::tar_make(script = file.path("ExampleFolder", "_targets_pfudatabase.R"))
+# targets::tar_make(script = file.path("ExampleFolder", "_targets_pfudatabase.R"))
 
 # Run the PFUAggDatabase pipeline
 # targets::tar_make(script = file.path("ExampleFolder", "_targets_pfuaggdatabase.R"))
