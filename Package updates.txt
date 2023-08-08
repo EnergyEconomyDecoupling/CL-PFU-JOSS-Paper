@@ -28,9 +28,10 @@ x matsindf
 x IEATools
 x Recca
 x MWTools
+x PFUSetup
+x PFUPipelineTools
 
-PFUSetup
-PFUPipelineTools
+
 PFUDatabase
 PFUAggDatabase
 
