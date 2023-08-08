@@ -95,7 +95,7 @@ across timespans of decades or longer.
 In short, the packages enable, for the first time, scalable SEA.
 We used the new packages to create the CL-PFU database,^["CL-PFU" 
 is an initialism for "Country-Level
-Primary, Final, Useful."
+Primary, Final, and Useful."
 The CL-PFU database is "multi-regional" in the sense that
 it contains many countries as well as 
 continental and world aggregations.
@@ -120,7 +120,7 @@ world energy balances
 Data were stored in varying and inconsistent formats.
 An early SEA database [@De-Stercke:2014]
 estimated energy efficiencies 
-of end-use machines by the economic status of countries,
+of end-use machines using the economic status of countries,
 thereby precluding its use for energy-economy studies.
 
 The authors of the current paper and others in the field
@@ -175,7 +175,7 @@ have varying energy carriers (products) and
 varying energy conversion machines (industries),
 meaning that RUVY matrices 
 have differing row names, differing column names, and differing sizes.
-To get around this challenge, we created the
+To circumvent this challenge, we created the
 [matsbyname][link-matsbyname] package [@Heun-matsbyname:2023]
 which enables matrix mathematics 
 that respects row and column names, 
@@ -237,18 +237,19 @@ A unique feature of the
 pipeline is an innovative exemplar system that allows
 analyses to proceed when allocation or efficiency data for a country are unavailable.
 When allocations or efficiencies are missing,
-a string of exemplar countries are queried for similar information.
+a string of exemplar countries are queried for the required information.
 For example, exemplars for Belgium are
-France, Europe, and ultimately, the world, in that order.
-The calculation pipeline in the [PFUDatabase][link-pfudatabase] package 
+France, Europe, and ultimately, the World, in that order.
+The design of the calculation pipeline in the [PFUDatabase][link-pfudatabase] package 
 allows allocation and efficiency data
-for any country and year to be added at any time to improve the database. 
+for any country or year to be added at a later date 
+to improve the database. 
 
 A second [targets][link-targets] pipeline 
 in the [PFUAggDatabase][link-pfuaggdatabase] package [@Heun-PFUAggDatabase:2023]
 aggregates ECCs
 (a) by region 
-(continents and world),
+(e.g., continents and world),
 (b) by energy carrier (product) category 
 (e.g., Coal and coal products, 
 Low-, Medium-, and High-temperature heat, etc.), 
@@ -270,8 +271,7 @@ for pipeline input and output data.
 [PFUPipelineTools][link-pfupipelinetools] provides functions and constants
 common to both pipelines. 
 
-The packages in the following table are specific to SEA analyses
-and are available on GitHub.
+The packages in the following table are available on GitHub.
 
 | Package | Purpose |
 |:--------|:--------|
@@ -344,8 +344,8 @@ Energy Return On Investment for fossil fuels [@Aramendia:2023aa],
 for which the [ECCTools][link-ecctools] [@Aramendia:2022aa] and
 [EROITools][link-eroitools] [@Aramendia:2022ab] packages were developed, 
 expanding the software capabilities introduced here.^[Note
-that the [ECCTools][link-ecctools] and [EROITools][link-eroitools] packages are
-not part of this paper.]
+that the [ECCTools][link-ecctools] and [EROITools][link-eroitools] packages were
+not reviewed for this paper.]
 
 
 
