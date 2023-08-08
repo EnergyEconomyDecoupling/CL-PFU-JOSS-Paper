@@ -306,20 +306,8 @@ library(targets)
 # library(PFUPipelineTools)
 library(PFUSetup)
 
-# Use the PFUSetup package to establish paths for the example
-home_path <- "ExampleFolder"
-iea_folder_path <- file.path(home_path, "IEA extended energy balance data")
-iea_data_path <- file.path("IEA extended energy balance data",
-                           "GH-ZA-TJ-Extended-Energy-Balances-sample-2022.csv")
-setup <- PFUSetup::get_abs_paths(home_path = file.path("ExampleFolder"), 
-                                 dropbox_path = "",
-                                 project_path = "",
-                                 iea_folder_path = iea_folder_path,
-                                 iea_data_path = iea_data_path,
-                                 version = "v_example")
-
 # Run the PFUDatabase pipeline
-# targets::tar_make(script = file.path("ExampleFolder", "_targets_pfudatabase.R"))
+targets::tar_make(script = file.path("ExampleFolder", "_targets_pfudatabase.R"))
 
 # Run the PFUAggDatabase pipeline
 # targets::tar_make(script = file.path("ExampleFolder", "_targets_pfuaggdatabase.R"))
