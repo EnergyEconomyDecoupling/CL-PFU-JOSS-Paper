@@ -136,14 +136,20 @@ to estimate machine efficiencies.
 The most important design decision for the suite of `R` packages
 involved data format.
 We authors are among those who
-developed the Physical Supply-Use Table (PSUT) framework,
-a matrix-based approach to describing energy flows 
+developed the Physical Supply-Use Table (PSUT) framework
+[@Rocco:2016; @Guevara:2017; @Heun:2018; @Aramendia:2022tv],
+an adaptation of economic Input-Output (IO) analysis [@Miller:2009]
+to describe energy flows through society.
+The Physical Supply-Use Table (PSUT) framework 
+is a matrix-based approach that tracks energy flows 
 ("products" in PSUT terminology) 
 from resource extraction to
 processing stages
 ("industries" in PSUT terminology)
 and, ultimately, 
-to final demand [@Rocco:2016; @Guevara:2017; @Heun:2018; @Aramendia:2022tv].
+to final demand
+in a way that is compatible with the IEA's world extended energy balances 
+[@International-Energy-Agency:2023aa].
 We chose the PSUT framework as the data format for the new `R` packages, 
 because it succinctly describes an entire ECC
 for one country and one year
@@ -173,7 +179,7 @@ which enables matrix mathematics
 that respects row and column names, 
 inserting **0** vectors when needed.
 Second,
-wanted to be able to perform _matrix_ mathematics 
+we wanted to be able to perform _matrix_ mathematics 
 as easily as _scalar_ mathematics
 in `R` data frames
 using the [tidyverse][link-tidyverse] syntax [@Wickham:2019]. 
@@ -226,9 +232,13 @@ available in the [PFUDatabase][link-pfudatabase]
 package.
 A unique feature of the
 [PFUDatabase][link-pfudatabase]
-pipeline is an exemplar system that allows
+pipeline is an innovative exemplar system that allows
 analyses to proceed when allocation or efficiency data for a country are unavailable.
-The calculation pipeline in the [PFUDatabase][link-pfudatabase] packge 
+When allocations or efficiencies are missing,
+a string of exemplar countries are queried for similar information.
+For example, exemplars for Belguim are
+France, Europe, and ultimately, the world.
+The calculation pipeline in the [PFUDatabase][link-pfudatabase] package 
 allows allocation and efficiency data
 for any country and year to be added at any time to improve the database. 
 
