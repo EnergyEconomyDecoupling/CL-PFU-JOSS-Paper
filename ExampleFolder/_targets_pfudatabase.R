@@ -2,6 +2,7 @@
 
 # Available from EnergyEconomyDecoupling on GitHub
 # with devtools::install_github("EnergyEconomyDecoupling/xxxxxx")
+library(PFUDatabase)
 library(PFUSetup)
 
 # targets::tar_make() to run the pipeline
