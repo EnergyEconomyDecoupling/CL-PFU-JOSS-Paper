@@ -397,5 +397,3 @@ the University of Leeds (School of Earth and Environment).
 
 
 # References
-
-**** Change to Zenodo DOIs for all package references?. ****
