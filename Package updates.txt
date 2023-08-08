@@ -30,8 +30,6 @@ x Recca
 x MWTools
 x PFUSetup
 x PFUPipelineTools
-
-
-PFUDatabase
-PFUAggDatabase
+x PFUDatabase
+x PFUAggDatabase
 
