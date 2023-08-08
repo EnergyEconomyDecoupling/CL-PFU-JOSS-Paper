@@ -1,6 +1,9 @@
-library(magrittr)
-library(PFUDatabase)
+# Available on CRAN
+
+# Available from EnergyEconomyDecoupling on GitHub
+# with devtools::install_github("EnergyEconomyDecoupling/xxxxxx")
 library(PFUSetup)
+
 # targets::tar_make() to run the pipeline
 # targets::tar_make_future(workers = 8) to execute across multiple cores.
 # targets::tar_read(<<target_name>>) to view the results.

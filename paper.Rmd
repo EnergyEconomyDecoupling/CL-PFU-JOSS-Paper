@@ -294,18 +294,7 @@ is restricted to those who have access to [IEA WEEB][link-ieaweeb] data.].
 # Example
 
 ```{r}
-# Available on CRAN
 library(targets)
-
-# Available from MatthewHeun on GitHub
-# with devtools::install_github("MatthewHeun/xxxxxx")
-# library(IEATools)
-
-# Available from EnergyEconomyDecoupling on GitHub
-# with devtools::install_github("EnergyEconomyDecoupling/xxxxxx")
-# library(PFUPipelineTools)
-library(PFUSetup)
-
 # Run the PFUDatabase pipeline
 targets::tar_make(script = file.path("ExampleFolder", "_targets_pfudatabase.R"))
 
