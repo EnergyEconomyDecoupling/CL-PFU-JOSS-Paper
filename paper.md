@@ -151,14 +151,14 @@ via a set of six matrices
 (the "RUVY" matrices).
 See the following table.
 
-| Matrix      | rows x columns     | Name                           | Description                                              |
-|:------------|:-------------------|:-------------------------------|:---------------------------------------------------------|
-| **R**       | industry x product | Resource matrix                | Contains exogeneous energy inputs to an ECC              |
-| **U**       | product x industry | Use matrix                     | Describes how each energy conversion device uses energy; the sum of **U_feed** and **U_EIOU** |
-| **U_feed**  | product x industry | Feedstock use matrix           | Describes feedstock inputs to energy conversion devices  |
-| **U_EIOU**  | product x industry | Energy industry own use matrix | Describes how the energy industry uses energy            |
-| **V**       | industry x product | Make matrix                    | Describes how each energy conversion device makes energy |
-| **Y**       | product x industry | Final demand matrix            | Describes how each energy carrier is consumed            |
+| Matrix        | rows x columns     | Name                           | Description                                              |
+|:--------------|:-------------------|:-------------------------------|:---------------------------------------------------------|
+| **R**         | industry x product | Resource matrix                | Contains exogeneous energy inputs to an ECC              |
+| **U**         | product x industry | Use matrix                     | Describes how each energy conversion device uses energy; the sum of **U**~feed~ and **U**~EIOU~ |
+| **U**~feed~   | product x industry | Feedstock use matrix           | Describes feedstock inputs to energy conversion devices  |
+| **U**~EOIU~   | product x industry | Energy industry own use matrix | Describes how the energy industry uses energy            |
+| **V**         | industry x product | Make matrix                    | Describes how each energy conversion device makes energy |
+| **Y**         | product x industry | Final demand matrix            | Describes how each energy carrier is consumed            |
 
 Further development followed selection of the PSUT framework.
 First, the RUVY matrices carry the challenge that 
