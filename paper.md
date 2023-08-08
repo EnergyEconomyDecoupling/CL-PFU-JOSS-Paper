@@ -42,6 +42,8 @@ two papers upon the editor's advice.
 
 <!-- Define some macros to use later -->
 [link-cran]:             https://cran.r-project.org
+[link-ecctools]:         https://github.com/earamendia/ECCTools
+[link-eroitools]:        https://github.com/earamendia/EROITools
 [link-ieatools]:         https://github.com/MatthewHeun/IEATools
 [link-ieaweeb]:          https://www.iea.org/data-and-statistics/data-product/world-energy-balances
 [link-ilo]:              https://www.ilo.org/
@@ -337,16 +339,13 @@ and lead to greater insights
 about the role of energy 
 in economic growth and human well-being.
 An example of early work using the CL-PFU database
-is the calculation of useful stage Energy Return On Investment for fossil fuels [a], 
-for which the ECCTools [b] and EROITools [c] packages were developed, 
-expanding the software capabilities introduced here."
-
-***** Add Emmanuel references *****
-
-[a]: Aramendia E., Brockway P., Taylor P., Norman J., Heun M., Marshall Z. (2023), “Chapter 4: Estimation of fossil fuels useful stage energy return on investment and implications for
-renewable energy systems” in Exploring the useful energy implications of the global energy transition: a net energy perspective, PhD thesis, University of Leeds.
-[b]: Emmanuel Aramendia and Matthew K. Heun. ECCTools: Tools for modifying the Energy Conversion Chain. R package version 0.1.5. 2022. doi: 10.5281/zenodo.7692105.
-[c]: Emmanuel Aramendia and Matthew K. Heun. EROITools: Tools for calculating and aggregating Energy Return On Investment values. Package version: v0.1.1. 2023. doi: 10 . 5281 / zenodo .7696869.
+is the calculation of useful stage 
+Energy Return On Investment for fossil fuels [@Aramendia:2023aa], 
+for which the [ECCTools][link-ecctools] [@Aramendia:2022aa] and
+[EROITools][link-eroitools] [@Aramendia:2022ab] packages were developed, 
+expanding the software capabilities introduced here.^[Note
+that the [ECCTools][link-ecctools] and [EROITools][link-eroitools] packages are
+not part of this paper.]
 
 
 
