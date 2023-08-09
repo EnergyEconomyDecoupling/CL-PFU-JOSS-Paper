@@ -5,22 +5,12 @@
 library(PFUDatabase)
 library(PFUSetup)
 
-# targets::tar_make() to run the pipeline
-# targets::tar_make_future(workers = 8) to execute across multiple cores.
-# targets::tar_read(<<target_name>>) to view the results.
-# targets::tar_destroy() to start over with everything.
-# targets::tar_make(callr_function = NULL) to debug.
-
-# Use the PFUSetup package to establish paths for the example
-home_path <- "ExampleFolder"
-iea_folder_path <- file.path(home_path, "IEA extended energy balance data")
-iea_data_path <- file.path("IEA extended energy balance data",
-                           "GHA-ZAF-TJ-Extended-Energy-Balances-sample-2022.csv")
-# Create the pfu_setup object used in the targets scripts 
-# _targets_pfudatabase.R and _targets_pfuaggdatabase.R.
-pfu_setup <- PFUSetup::get_abs_paths(home_path = file.path("ExampleFolder"), 
+# Create the pfu_setup object for file paths.
+# Setting home_path and cloud_storage_path to "" (empty string)
+# gives relative paths.
+pfu_setup <- PFUSetup::get_abs_paths(home_path = "", 
                                      cloud_storage_path = "",
-                                     project_path = "",
+                                     project_path = "ExampleFolder",
                                      iea_folder_path = iea_folder_path,
                                      iea_data_path = iea_data_path,
                                      version = "v_example")
