@@ -19,7 +19,7 @@ iea_data_path <- file.path("IEA extended energy balance data",
 # Create the pfu_setup object used in the targets scripts 
 # _targets_pfudatabase.R and _targets_pfuaggdatabase.R.
 pfu_setup <- PFUSetup::get_abs_paths(home_path = file.path("ExampleFolder"), 
-                                     dropbox_path = "",
+                                     cloud_storage_path = "",
                                      project_path = "",
                                      iea_folder_path = iea_folder_path,
                                      iea_data_path = iea_data_path,
