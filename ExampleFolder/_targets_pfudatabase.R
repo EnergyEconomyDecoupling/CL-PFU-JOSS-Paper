@@ -8,12 +8,14 @@ library(PFUSetup)
 # Create the pfu_setup object for file paths.
 # Setting home_path and cloud_storage_path to "" (empty string)
 # gives relative paths.
-pfu_setup <- PFUSetup::get_abs_paths(home_path = "", 
-                                     cloud_storage_path = "",
-                                     project_path = "ExampleFolder",
-                                     iea_folder_path = iea_folder_path,
-                                     iea_data_path = iea_data_path,
-                                     version = "v_example")
+pfu_setup <- PFUSetup::get_abs_paths(
+  home_path = "", 
+  cloud_storage_path = "",
+  project_path = "ExampleFolder", 
+  iea_data_path = file.path("ExampleFolder",
+                            "IEA extended energy balance data",
+                            "GHA-ZAF-TJ-Extended-Energy-Balances-sample-2022.csv"),
+  version = "v_example")
 
 # Custom parameters
 years <- c(1971, 2000)      # The years to be analyzed
