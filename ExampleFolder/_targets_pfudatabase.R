@@ -12,18 +12,12 @@ library(PFUSetup)
 # targets::tar_make(callr_function = NULL) to debug.
 
 # Use the PFUSetup package to establish paths for the example
-home_path <- "ExampleFolder"
-iea_folder_path <- file.path(home_path, "IEA extended energy balance data")
-iea_data_path <- file.path("IEA extended energy balance data",
-                           "GHA-ZAF-TJ-Extended-Energy-Balances-sample-2022.csv")
 # Create the pfu_setup object used in the targets scripts 
 # _targets_pfudatabase.R and _targets_pfuaggdatabase.R.
-pfu_setup <- PFUSetup::get_abs_paths(home_path = file.path("ExampleFolder"), 
-                                     dropbox_path = "",
-                                     project_path = "",
-                                     iea_folder_path = iea_folder_path,
-                                     iea_data_path = iea_data_path,
-                                     version = "v_example")
+pfu_setup <- PFUSetup::get_abs_paths(home_path = "", cloud_storage_path = "",
+                                     project_path = "ExampleFolder",
+                                     version = "v_example", 
+                                     iea_year = "2022")
 
 # Custom parameters
 years <- c(1971, 2000)      # The years to be analyzed
