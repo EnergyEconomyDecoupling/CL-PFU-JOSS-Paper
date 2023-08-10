@@ -295,13 +295,13 @@ is restricted to those who have access to [IEA WEEB][link-ieaweeb] data.].
 # Example
 
 ```{r}
-# Download FAO data for animal muscle work
+# (1) Purchase, download, and store IEA data in correct location.
+# (2) Download FAO and ILO data for muscle work calculations.
 source(file.path("ExampleFolder", "DownloadScripts", "download_amw_data.R"))
-library(targets)
-# Run the PFUDatabase pipeline
+# (3) Run the PFUDatabase pipeline
 targets::tar_make(script = file.path("ExampleFolder", "_targets_pfudatabase.R"))
 
- # Run the PFUAggDatabase pipeline
+# (4) Run the PFUAggDatabase pipeline
 # targets::tar_make(script = file.path("ExampleFolder", "_targets_pfuaggdatabase.R"))
 ```
 

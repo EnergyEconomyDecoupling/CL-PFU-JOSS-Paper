@@ -15,9 +15,7 @@ pfu_setup <- PFUSetup::get_abs_paths(home_path = "", cloud_storage_path = "",
 
 # Custom parameters
 years <- c(1971, 2000)      # The years to be analyzed
-
 countries <- c("GHA", "ZAF")
-
 
 # Additional exemplar countries are countries which aren't included in the workflow
 # as individual countries, but from which allocation or efficiency data may be 
@@ -85,7 +83,8 @@ PFUDatabase::get_pipeline(countries = countries,
                           # Temperature data not required for V1, argument set to NULL.
                           ceda_data_folder = NULL,
                           fao_data_path = pfu_setup[["fao_data_path"]],
-                          ilo_data_path = pfu_setup[["ilo_data_path"]],
+                          ilo_employment_data_path = pfu_setup[["ilo_employment_data_path"]],
+                          ilo_working_hours_data_path = pfu_setup[["ilo_working_hours_data_path"]],
                           machine_data_path = pfu_setup[["machine_data_folder"]],
                           exemplar_table_path = pfu_setup[["exemplar_table_path"]],
                           fu_analysis_folder = pfu_setup[["fu_analysis_folder"]],
