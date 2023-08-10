@@ -235,9 +235,10 @@ package.
 A unique feature of the
 [PFUDatabase][link-pfudatabase]
 pipeline is an innovative exemplar system that allows
-analyses to proceed when allocation or efficiency data for a country are unavailable.
+analyses to proceed when allocation or efficiency data are unavailable for a country.
 When allocations or efficiencies are missing,
-a string of exemplar countries are queried for the required information.
+a string of exemplar countries or regions
+are queried for the required information.
 For example, exemplars for Belgium are
 France, Europe, and ultimately, the World, in that order.
 The design of the calculation pipeline in the [PFUDatabase][link-pfudatabase] package 
@@ -294,11 +295,13 @@ is restricted to those who have access to [IEA WEEB][link-ieaweeb] data.].
 # Example
 
 ```{r}
+# Download FAO data for animal muscle work
+source(file.path("ExampleFolder", "DownloadScripts", "download_amw_data.R"))
 library(targets)
 # Run the PFUDatabase pipeline
-# targets::tar_make(script = file.path("ExampleFolder", "_targets_pfudatabase.R"))
+targets::tar_make(script = file.path("ExampleFolder", "_targets_pfudatabase.R"))
 
-# Run the PFUAggDatabase pipeline
+ # Run the PFUAggDatabase pipeline
 # targets::tar_make(script = file.path("ExampleFolder", "_targets_pfuaggdatabase.R"))
 ```
 
