@@ -304,6 +304,13 @@ targets::tar_make(script = file.path("ExampleFolder", "_targets_pfudatabase.R"),
 
 # (4) Run the PFUAggDatabase pipeline
 # targets::tar_make(script = file.path("ExampleFolder", "_targets_pfuaggdatabase.R"))
+
+
+# Look at the PSUT data frame
+psut <- targets::tar_read(PSUT)
+head(psut)
+# Each column of the psut data frame contains matrices
+psut$R[[1]]
 ```
 
 Create a CL-PFU database from the GHA and ZAF data contained in the IEATools package.   
