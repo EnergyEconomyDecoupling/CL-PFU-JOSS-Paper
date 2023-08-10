@@ -297,7 +297,7 @@ is restricted to those who have access to [IEA WEEB][link-ieaweeb] data.].
 ```{r}
 # (1) Purchase, download, and store IEA data in correct location.
 # (2) Download FAO and ILO data for muscle work calculations.
-source(file.path("ExampleFolder", "DownloadScripts", "download_amw_data.R"))
+source(file.path("ExampleFolder", "DownloadScripts", "download_mw_data.R"))
 # (3) Run the PFUDatabase pipeline
 targets::tar_make(script = file.path("ExampleFolder", "_targets_pfudatabase.R"), 
                   reporter = "summary")
