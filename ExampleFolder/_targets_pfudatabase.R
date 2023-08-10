@@ -5,12 +5,6 @@
 library(PFUDatabase)
 library(PFUSetup)
 
-# targets::tar_make() to run the pipeline
-# targets::tar_make_future(workers = 8) to execute across multiple cores.
-# targets::tar_read(<<target_name>>) to view the results.
-# targets::tar_destroy() to start over with everything.
-# targets::tar_make(callr_function = NULL) to debug.
-
 # Use the PFUSetup package to establish paths for the example
 # Create the pfu_setup object used in the targets scripts 
 # _targets_pfudatabase.R and _targets_pfuaggdatabase.R.
