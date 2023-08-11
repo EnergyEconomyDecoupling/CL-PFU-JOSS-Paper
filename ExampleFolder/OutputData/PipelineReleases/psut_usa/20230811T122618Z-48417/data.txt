@@ -1,0 +1,9 @@
+file: psut_usa.rds
+file_size: 210
+pin_hash: 48417e6425b6a332
+type: rds
+title: 'psut_usa: a pinned 0 x 14 data frame'
+description: ~
+tags: ~
+created: 20230811T122618Z
+api_version: 1
