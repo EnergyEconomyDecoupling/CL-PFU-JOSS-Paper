@@ -18,7 +18,7 @@ years <- c(1971, 2000)
 do_chops <- FALSE
 
 # Set the release to be used for input.
-psut_release <- "20230618T131003Z-4c70f"    # v1.1 (with Matrix objects)
+psut_release <- "20230811T122618Z-3b7b3"
 
 # Should we release the results?
 release <- FALSE
