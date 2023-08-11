@@ -303,7 +303,7 @@ targets::tar_make(script = file.path("ExampleFolder", "_targets_pfudatabase.R"),
                   reporter = "summary")
 
 # (4) Run the PFUAggDatabase pipeline
-# targets::tar_make(script = file.path("ExampleFolder", "_targets_pfuaggdatabase.R"))
+targets::tar_make(script = file.path("ExampleFolder", "_targets_pfuaggdatabase.R"))
 
 
 # Look at the PSUT data frame

@@ -14,8 +14,8 @@ pfu_setup <- PFUSetup::get_abs_paths(home_path = "", cloud_storage_path = "",
                                      iea_year = "2022")
 
 # Custom parameters
-years <- c(1971, 2000)      # The years to be analyzed
 countries <- c("GHA", "ZAF")
+years <- c(1971, 2000)  
 
 # Additional exemplar countries are countries which aren't included in the workflow
 # as individual countries, but from which allocation or efficiency data may be 
