@@ -346,84 +346,76 @@ head(psut)
 ```
 
 ```r
-# Each column of the psut data frame contains matrices.
-# The data are stored as sparse matrices,
-# but easier to see as regular matrices.
-psut$R[[1]] |> 
-  as.matrix()
+# Each column of the psut data frame contains sparse matrices.
+colnames(psut$R[[1]])
 ```
 
 ```
-##                                                    Aviation gasoline  Crude oil
-## Imports [of Aviation gasoline]                               44.7988     0.0000
-## Imports [of Crude oil]                                        0.0000 38359.8007
-## Imports [of Kerosene type jet fuel excl. biofuels]            0.0000     0.0000
-## Imports [of Lubricants]                                       0.0000     0.0000
-## Imports [of Other kerosene]                                   0.0000     0.0000
-## Resources [of Hydro]                                          0.0000     0.0000
-## Resources [of Primary solid biofuels]                         0.0000     0.0000
-## Statistical differences                                       0.0000     0.0001
-## Stock changes [of Gas/diesel oil excl. biofuels]              0.0000     0.0000
-##                                                    Electricity Fuel oil
-## Imports [of Aviation gasoline]                          0.0000    0e+00
-## Imports [of Crude oil]                                  0.0000    0e+00
-## Imports [of Kerosene type jet fuel excl. biofuels]      0.0000    0e+00
-## Imports [of Lubricants]                                 0.0000    0e+00
-## Imports [of Other kerosene]                             0.0000    0e+00
-## Resources [of Hydro]                                    0.0000    0e+00
-## Resources [of Primary solid biofuels]                   0.0000    0e+00
-## Statistical differences                                 0.0084    1e-04
-## Stock changes [of Gas/diesel oil excl. biofuels]        0.0000    0e+00
-##                                                    Gas/diesel oil excl. biofuels
-## Imports [of Aviation gasoline]                                            0.0000
-## Imports [of Crude oil]                                                    0.0000
-## Imports [of Kerosene type jet fuel excl. biofuels]                        0.0000
-## Imports [of Lubricants]                                                   0.0000
-## Imports [of Other kerosene]                                               0.0000
-## Resources [of Hydro]                                                      0.0000
-## Resources [of Primary solid biofuels]                                     0.0000
-## Statistical differences                                                 822.6979
-## Stock changes [of Gas/diesel oil excl. biofuels]                        476.2987
-##                                                    Hydro [from Resources]
-## Imports [of Aviation gasoline]                                        0.0
-## Imports [of Crude oil]                                                0.0
-## Imports [of Kerosene type jet fuel excl. biofuels]                    0.0
-## Imports [of Lubricants]                                               0.0
-## Imports [of Other kerosene]                                           0.0
-## Resources [of Hydro]                                              10472.4
-## Resources [of Primary solid biofuels]                                 0.0
-## Statistical differences                                               0.0
-## Stock changes [of Gas/diesel oil excl. biofuels]                      0.0
-##                                                    Kerosene type jet fuel excl. biofuels
-## Imports [of Aviation gasoline]                                                    0.0000
-## Imports [of Crude oil]                                                            0.0000
-## Imports [of Kerosene type jet fuel excl. biofuels]                              892.0019
-## Imports [of Lubricants]                                                           0.0000
-## Imports [of Other kerosene]                                                       0.0000
-## Resources [of Hydro]                                                              0.0000
-## Resources [of Primary solid biofuels]                                             0.0000
-## Statistical differences                                                           0.0000
-## Stock changes [of Gas/diesel oil excl. biofuels]                                  0.0000
-##                                                    Lubricants Other kerosene
-## Imports [of Aviation gasoline]                         0.0000         0.0000
-## Imports [of Crude oil]                                 0.0000         0.0000
-## Imports [of Kerosene type jet fuel excl. biofuels]     0.0000         0.0000
-## Imports [of Lubricants]                              755.9979         0.0000
-## Imports [of Other kerosene]                            0.0000        43.7981
-## Resources [of Hydro]                                   0.0000         0.0000
-## Resources [of Primary solid biofuels]                  0.0000         0.0000
-## Statistical differences                                0.0000         0.0042
-## Stock changes [of Gas/diesel oil excl. biofuels]       0.0000         0.0000
-##                                                    Primary solid biofuels [from Resources]
-## Imports [of Aviation gasoline]                                                           0
-## Imports [of Crude oil]                                                                   0
-## Imports [of Kerosene type jet fuel excl. biofuels]                                       0
-## Imports [of Lubricants]                                                                  0
-## Imports [of Other kerosene]                                                              0
-## Resources [of Hydro]                                                                     0
-## Resources [of Primary solid biofuels]                                                87400
-## Statistical differences                                                                  0
-## Stock changes [of Gas/diesel oil excl. biofuels]                                         0
+##  [1] "Aviation gasoline"                      
+##  [2] "Crude oil"                              
+##  [3] "Electricity"                            
+##  [4] "Fuel oil"                               
+##  [5] "Gas/diesel oil excl. biofuels"          
+##  [6] "Hydro [from Resources]"                 
+##  [7] "Kerosene type jet fuel excl. biofuels"  
+##  [8] "Lubricants"                             
+##  [9] "Other kerosene"                         
+## [10] "Primary solid biofuels [from Resources]"
+```
+
+```r
+psut$R[[1]]
+```
+
+```
+## 9 x 10 sparse Matrix of class "dgCMatrix"
+```
+
+```
+##   [[ suppressing 10 column names 'Aviation gasoline', 'Crude oil', 'Electricity' ... ]]
+```
+
+```
+##                                                                             
+## Imports [of Aviation gasoline]                     44.7988     .      .     
+## Imports [of Crude oil]                              .      38359.8007 .     
+## Imports [of Kerosene type jet fuel excl. biofuels]  .          .      .     
+## Imports [of Lubricants]                             .          .      .     
+## Imports [of Other kerosene]                         .          .      .     
+## Resources [of Hydro]                                .          .      .     
+## Resources [of Primary solid biofuels]               .          .      .     
+## Statistical differences                             .          0.0001 0.0084
+## Stock changes [of Gas/diesel oil excl. biofuels]    .          .      .     
+##                                                                           
+## Imports [of Aviation gasoline]                     .        .          .  
+## Imports [of Crude oil]                             .        .          .  
+## Imports [of Kerosene type jet fuel excl. biofuels] .        .          .  
+## Imports [of Lubricants]                            .        .          .  
+## Imports [of Other kerosene]                        .        .          .  
+## Resources [of Hydro]                               .        .      10472.4
+## Resources [of Primary solid biofuels]              .        .          .  
+## Statistical differences                             1e-04 822.6979     .  
+## Stock changes [of Gas/diesel oil excl. biofuels]   .      476.2987     .  
+##                                                                             
+## Imports [of Aviation gasoline]                       .        .       .     
+## Imports [of Crude oil]                               .        .       .     
+## Imports [of Kerosene type jet fuel excl. biofuels] 892.0019   .       .     
+## Imports [of Lubricants]                              .      755.9979  .     
+## Imports [of Other kerosene]                          .        .      43.7981
+## Resources [of Hydro]                                 .        .       .     
+## Resources [of Primary solid biofuels]                .        .       .     
+## Statistical differences                              .        .       0.0042
+## Stock changes [of Gas/diesel oil excl. biofuels]     .        .       .     
+##                                                         
+## Imports [of Aviation gasoline]                         .
+## Imports [of Crude oil]                                 .
+## Imports [of Kerosene type jet fuel excl. biofuels]     .
+## Imports [of Lubricants]                                .
+## Imports [of Other kerosene]                            .
+## Resources [of Hydro]                                   .
+## Resources [of Primary solid biofuels]              87400
+## Statistical differences                                .
+## Stock changes [of Gas/diesel oil excl. biofuels]       .
 ```
 
 ```r

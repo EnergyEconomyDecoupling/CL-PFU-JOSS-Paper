@@ -322,11 +322,9 @@ pinboard <- file.path("ExampleFolder", "OutputData", "PipelineReleases") |>
 psut <- pinboard |>
   pins::pin_read("psut", version = "20230811T122618Z-3b7b3")
 head(psut)
-# Each column of the psut data frame contains matrices.
-# The data are stored as sparse matrices,
-# but easier to see as regular matrices.
-psut$R[[1]] |> 
-  as.matrix()
+# Each column of the psut data frame contains sparse matrices.
+colnames(psut$R[[1]])
+psut$R[[1]]
 
 # Look at the aggregate PFU efficiency data frame
 # created by the PFUAggDatabase pipeline
