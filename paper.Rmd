@@ -57,6 +57,8 @@ output:
 <!-- It is our desire that the Environmental Research: Energy -->
 <!-- paper will reference this JOSS paper. -->
 
+<!-- Thank you for considering our paper. -->
+
 <!-- ---Matthew Kuperus Heun, 17 August 2023 -->
 
 
@@ -114,7 +116,7 @@ energy movement through society.
 The new packages enable analysis of any country in the world
 across timespans of decades or longer.
 In short, the packages enable, for the first time, scalable SEA.
-We used the new packages to create the CL-PFU database,^["CL-PFU" 
+We used the new packages to create the CL-PFU database^["CL-PFU" 
 is an initialism for "Country-Level
 Primary, Final, and Useful."
 The CL-PFU database contains many countries as well as 
@@ -122,7 +124,7 @@ continental and world aggregations.
 Technically speaking, 
 we create [matsindf][link-matsindf] data frames
 stored as [pins][link-pins] on a pinboard, 
-not SQL or similar databases.] 
+not SQL or similar databases.],
 a new resource for the SEA community [@Marshall:2023aa]. 
 
 This paper describes the design of the new packages and

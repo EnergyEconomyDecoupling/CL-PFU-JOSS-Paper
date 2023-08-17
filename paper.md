@@ -34,23 +34,23 @@ output:
 <!-- Message to editors: -->
 
 <!-- This paper describes a suite of packages -->
-<!-- to assist Societal Exergy Analysis practitioners to analyze  -->
-<!-- energy movement through society.  -->
+<!-- to assist Societal Exergy Analysis practitioners to analyze -->
+<!-- energy movement through society. -->
 <!-- The new packages enable analysis of any country in the world -->
 <!-- across timespans of decades or longer. -->
 <!-- In short, the packages enable, for the first time, scalable SEA. -->
 
-<!-- In an email exchange in late July 2021,  -->
-<!-- editor Afron Smith recommended that we  -->
-<!-- create a separate repository for the paper,  -->
+<!-- In an email exchange in late July 2021, -->
+<!-- editor Afron Smith recommended that we -->
+<!-- create a separate repository for the paper, -->
 <!-- mentioning all of the individual packages in the manuscript. -->
 <!-- Thus, the paper is slightly longer than 1000 words. -->
 <!-- That said, we are willing to consider splitting into -->
 <!-- two papers upon the editor's advice. -->
 
 <!-- No portion of this paper has been submitted or published -->
-<!-- in another peer-reviewed journal.  -->
-<!-- A paper with a very different focus  -->
+<!-- in another peer-reviewed journal. -->
+<!-- A paper with a very different focus -->
 <!-- (efficiency results from the full CL-PFU database) -->
 <!-- is in preparation for the IOP journal -->
 <!-- Environmental Research: Energy. -->
@@ -114,7 +114,7 @@ energy movement through society.
 The new packages enable analysis of any country in the world
 across timespans of decades or longer.
 In short, the packages enable, for the first time, scalable SEA.
-We used the new packages to create the CL-PFU database,^["CL-PFU" 
+We used the new packages to create the CL-PFU database^["CL-PFU" 
 is an initialism for "Country-Level
 Primary, Final, and Useful."
 The CL-PFU database contains many countries as well as 
@@ -122,7 +122,7 @@ continental and world aggregations.
 Technically speaking, 
 we create [matsindf][link-matsindf] data frames
 stored as [pins][link-pins] on a pinboard, 
-not SQL or similar databases.] 
+not SQL or similar databases.],
 a new resource for the SEA community [@Marshall:2023aa]. 
 
 This paper describes the design of the new packages and
