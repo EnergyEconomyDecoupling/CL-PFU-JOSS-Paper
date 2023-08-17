@@ -1,0 +1,9 @@
+file: psut_re_all_chop_all_ds_all_gr_all.rds
+file_size: 571527
+pin_hash: a78e99e69c9bc60f
+type: rds
+title: 'psut_re_all_chop_all_ds_all_gr_all: a pinned 480 x 19 data frame'
+description: ~
+tags: ~
+created: 20230817T151739Z
+api_version: 1

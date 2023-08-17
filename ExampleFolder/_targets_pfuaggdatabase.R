@@ -18,10 +18,11 @@ years <- c(1971, 2000)
 do_chops <- FALSE
 
 # Set the release to be used for input.
+# This is a pre-made pins release available in the repository.
 psut_release <- "20230811T122618Z-3b7b3"
 
 # Should we release the results?
-release <- FALSE
+release <- TRUE
 
 
 # End user-adjustable parameters.

@@ -40,7 +40,8 @@ specify_non_energy_flows <- TRUE
 # Should we apply fixes to the IEA data?
 apply_fixes <- TRUE
 
-# Should we do a release of the results?
+# Should we do a release of the results to a pinboard?
+# A release has already been made and is available in the repository.
 release <- FALSE
 
 # End user-adjustable parameters.

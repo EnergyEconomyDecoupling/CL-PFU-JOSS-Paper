@@ -1,0 +1,9 @@
+file: sector_agg_eta_fu_csv.csv
+file_size: 664044
+pin_hash: a1b08b3b42d3fb09
+type: csv
+title: 'sector_agg_eta_fu_csv: a pinned 5106 x 13 data frame'
+description: ~
+tags: ~
+created: 20230817T180345Z
+api_version: 1

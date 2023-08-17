@@ -55,6 +55,7 @@ two papers upon the editor's advice.
 [link-pfudatabase]:      https://github.com/EnergyEconomyDecoupling/PFUDatabase
 [link-pfuaggdatabase]:   https://github.com/EnergyEconomyDecoupling/PFUAggDatabase
 [link-pfupipelinetools]: https://github.com/EnergyEconomyDecoupling/PFUPipelineTools
+[link-pins]:             https://pins.rstudio.com
 [link-rclabels]:         https://github.com/MatthewHeun/RCLabels
 [link-recca]:            https://github.com/MatthewHeun/Recca
 [link-targets]:          https://docs.ropensci.org/targets
@@ -96,11 +97,11 @@ In short, the packages enable, for the first time, scalable SEA.
 We used the new packages to create the CL-PFU database,^["CL-PFU" 
 is an initialism for "Country-Level
 Primary, Final, and Useful."
-The CL-PFU database is "multi-regional" in the sense that
-it contains many countries as well as 
+The CL-PFU database contains many countries as well as 
 continental and world aggregations.
 Technically speaking, 
-we create [matsindf][link-matsindf] data frames, 
+we create [matsindf][link-matsindf] data frames
+stored as `[pins][link-pins]` on a pinboard, 
 not SQL or similar databases.] 
 a new resource for the SEA community [@Marshall:2023aa]. 
 
@@ -201,7 +202,6 @@ all of which are generally useful and available on
 | [matsbyname][link-matsbyname] | Performs matrix mathematics that respects row and column names |
 | [matsindf][link-matsindf]     | Stores matrices in cells of data frames, thereby enabling analysis with [tidyverse][link-tidyverse] syntax |
 
-
 Broadly speaking, 
 four calculation steps are required to create a CL-PFU database. 
 Each step is assisted by functions in one or more new `R` packages.
@@ -294,30 +294,46 @@ is restricted to those who have access to [IEA WEEB][link-ieaweeb] data.].
 
 # Example
 
-```{r}
+```{r, eval=FALSE}
 # (1) Purchase, download, and store IEA data in correct location.
-# (2) Download FAO and ILO data for muscle work calculations.
+# (2) Download FAO and ILO data for muscle work calculations
+# via the included script.
+# This download is needed only once and
+# the results are now stored in the repository. 
 source(file.path("ExampleFolder", "DownloadScripts", "download_mw_data.R"))
-# (3) Run the PFUDatabase pipeline
-targets::tar_make(script = file.path("ExampleFolder", "_targets_pfudatabase.R"), 
-                  reporter = "summary")
-
-# (4) Run the PFUAggDatabase pipeline
-targets::tar_make(script = file.path("ExampleFolder", "_targets_pfuaggdatabase.R"))
-
-
-# Look at the PSUT data frame
-psut <- targets::tar_read(PSUT)
-head(psut)
-# Each column of the psut data frame contains matrices
-psut$R[[1]]
 ```
 
-Create a CL-PFU database from the GHA and ZAF data contained in the IEATools package.   
-Create the folder structure for the CL-PFU database.   
-Store all necessary data in this repository.   
-Execute the commands to produce the database, 
-albeit for only two countries and two years.
+```{r, eval=FALSE}
+# (3) Run the PFUDatabase pipeline
+targets::tar_make(script = file.path("ExampleFolder", "_targets_pfudatabase.R"))
+# (4) Run the PFUAggDatabase pipeline
+# targets::tar_make(script = file.path("ExampleFolder", "_targets_pfuaggdatabase.R"), callr_function = NULL)
+targets::tar_make_future(script = file.path("ExampleFolder", "_targets_pfuaggdatabase.R"),
+                         workers = 4)
+```
+
+```{r}
+# (5) Review results using the saved pins
+# Establish the pinboard
+pinboard <- file.path("ExampleFolder", "OutputData", "PipelineReleases") |> 
+  pins::board_folder(versioned = TRUE)
+# Look at the psut data frame
+# created by the PFUDatabase pipeline
+psut <- pinboard |>
+  pins::pin_read("psut", version = "20230811T122618Z-3b7b3")
+head(psut)
+# Each column of the psut data frame contains matrices.
+# The data are stored as sparse matrices,
+# but easier to see as regular matrices.
+psut$R[[1]] |> 
+  as.matrix()
+
+# Look at the aggregate PFU efficiency data frame
+# created by the PFUAggDatabase pipeline
+agg_eta_pfu <- pinboard |> 
+  pins::pin_read("agg_eta_pfu", version = "")
+head(agg_eta_pfu)
+```
 
 
 # Conclusion

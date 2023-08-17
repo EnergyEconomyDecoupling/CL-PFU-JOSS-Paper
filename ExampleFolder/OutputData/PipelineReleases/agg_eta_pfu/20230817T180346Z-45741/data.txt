@@ -1,0 +1,9 @@
+file: agg_eta_pfu.rds
+file_size: 4566
+pin_hash: 4574180503185e50
+type: rds
+title: 'agg_eta_pfu: a pinned 480 x 16 data frame'
+description: ~
+tags: ~
+created: 20230817T180346Z
+api_version: 1

@@ -1,0 +1,9 @@
+file: agg_eta_pfu_world.rds
+file_size: 135138
+pin_hash: dd24877a4a8c46ef
+type: rds
+title: 'agg_eta_pfu_world: a pinned 22424 x 16 data frame'
+description: ~
+tags: ~
+created: 20230817T182725Z
+api_version: 1
