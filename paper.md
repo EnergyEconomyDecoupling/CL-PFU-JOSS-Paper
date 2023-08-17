@@ -298,32 +298,34 @@ is restricted to those who have access to [IEA WEEB][link-ieaweeb] data.].
 
 ```r
 # (1) Purchase, download, and store IEA data in correct location.
+#     Sample data are provided at the correct location in the repository.
 # (2) Download FAO and ILO data for muscle work calculations
-# via the included script.
-# This download is needed only once and
-# the results are now stored in the repository. 
+#     via the included script.
+#     This download step is needed only once and
+#     the data are stored in the repository.
 source(file.path("ExampleFolder", "DownloadScripts", "download_mw_data.R"))
 ```
 
 
 ```r
-# (3) Run the PFUDatabase pipeline
+# (3) Run the PFUDatabase pipeline to create RUVY matrices.
 targets::tar_make(script = file.path("ExampleFolder", "_targets_pfudatabase.R"))
-# (4) Run the PFUAggDatabase pipeline
+# (4) Run the PFUAggDatabase pipeline to aggregate 
+#     energy and calculate efficiencies..
 targets::tar_make_future(script = file.path("ExampleFolder", "_targets_pfuaggdatabase.R"),
                          workers = 4)
 ```
 
 
 ```r
-# (5) Review results using the saved pins
-# Establish the pinboard
+# (5) Review results using saved pins, which are stored in the repository.
+#     Establish the pinboard.
 pinboard <- file.path("ExampleFolder", "OutputData", "PipelineReleases") |> 
   pins::board_folder(versioned = TRUE)
-# Look at the psut data frame
-# created by the PFUDatabase pipeline
+#     Look at the psut data frame
+#     created by the PFUDatabase pipeline.
 psut <- pinboard |>
-  pins::pin_read("psut", version = "20230811T122618Z-3b7b3")
+  pins::pin_read(name = "psut", version = "20230811T122618Z-3b7b3")
 head(psut)
 ```
 
@@ -346,7 +348,9 @@ head(psut)
 ```
 
 ```r
-# Each column of the psut data frame contains sparse matrices.
+#     Each column of the psut data frame contains sparse matrices, 
+#     the columns of which are suppressed on display.
+#     Show the column names here.
 colnames(psut$R[[1]])
 ```
 
@@ -364,6 +368,7 @@ colnames(psut$R[[1]])
 ```
 
 ```r
+#     Show an example resource matrix.
 psut$R[[1]]
 ```
 
@@ -419,13 +424,18 @@ psut$R[[1]]
 ```
 
 ```r
-# Look at the aggregate PFU efficiency data frame
-# created by the PFUAggDatabase pipeline
+#     Review the aggregate PFU efficiency data frame
+#     created by the PFUAggDatabase pipeline.
 agg_eta_pfu <- pinboard |> 
-  pins::pin_read("agg_eta_pfu", version = "20230817T180346Z-45741")
+  pins::pin_read(name = "agg_eta_pfu", version = "20230817T180346Z-45741")
 agg_eta_pfu |> 
-  # Filter and delete columns 
-  # to present a subset of exergy results in a data frame
+#     Filter and delete columns 
+#     to present a subset of exergy results in a data frame.
+#     The EX.p, EX.f, and EX.u columns contain aggregate exergy at
+#     primary, final, and useful stages, respectively, in TJ.
+#     The eta_pf, eta_fu, and eta_pu columns contain aggregate
+#     primary-to-final, final-to-useful, and 
+#     primary-to-useful efficiencies.
   dplyr::filter(Energy.type == "X", IEAMW == "Both", 
                 Product.aggregation == "Specified", 
                 Industry.aggregation == "Specified", 
