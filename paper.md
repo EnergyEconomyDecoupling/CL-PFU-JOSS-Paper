@@ -31,14 +31,14 @@ output:
     keep_md: yes
 ---
 
-Max length: 250--1000 words. At the moment, we are at 1444 words.
-But I saw many JOSS papers are longer than 1000 words. 
-And our paper is describing many packages, whereas
-most JOSS papers describe only a single package.
-So I think we are going to be OK.
-I think we can own the issue in the cover letter, 
-saying that we are willing to consider splitting into
-two papers upon the editor's advice. 
+<!-- Max length: 250--1000 words. At the moment, we are at 1444 words. -->
+<!-- But I saw many JOSS papers are longer than 1000 words.  -->
+<!-- And our paper is describing many packages, whereas -->
+<!-- most JOSS papers describe only a single package. -->
+<!-- So I think we are going to be OK. -->
+<!-- I think we can own the issue in the cover letter,  -->
+<!-- saying that we are willing to consider splitting into -->
+<!-- two papers upon the editor's advice.  -->
 
 <!-- Define some macros to use later -->
 [link-cran]:             https://cran.r-project.org
@@ -55,6 +55,7 @@ two papers upon the editor's advice.
 [link-pfudatabase]:      https://github.com/EnergyEconomyDecoupling/PFUDatabase
 [link-pfuaggdatabase]:   https://github.com/EnergyEconomyDecoupling/PFUAggDatabase
 [link-pfupipelinetools]: https://github.com/EnergyEconomyDecoupling/PFUPipelineTools
+[link-pins]:             https://pins.rstudio.com
 [link-rclabels]:         https://github.com/MatthewHeun/RCLabels
 [link-recca]:            https://github.com/MatthewHeun/Recca
 [link-targets]:          https://docs.ropensci.org/targets
@@ -96,11 +97,11 @@ In short, the packages enable, for the first time, scalable SEA.
 We used the new packages to create the CL-PFU database,^["CL-PFU" 
 is an initialism for "Country-Level
 Primary, Final, and Useful."
-The CL-PFU database is "multi-regional" in the sense that
-it contains many countries as well as 
+The CL-PFU database contains many countries as well as 
 continental and world aggregations.
 Technically speaking, 
-we create [matsindf][link-matsindf] data frames, 
+we create [matsindf][link-matsindf] data frames
+stored as `[pins][link-pins]` on a pinboard, 
 not SQL or similar databases.] 
 a new resource for the SEA community [@Marshall:2023aa]. 
 
@@ -201,7 +202,6 @@ all of which are generally useful and available on
 | [matsbyname][link-matsbyname] | Performs matrix mathematics that respects row and column names |
 | [matsindf][link-matsindf]     | Stores matrices in cells of data frames, thereby enabling analysis with [tidyverse][link-tidyverse] syntax |
 
-
 Broadly speaking, 
 four calculation steps are required to create a CL-PFU database. 
 Each step is assisted by functions in one or more new `R` packages.
@@ -263,7 +263,8 @@ pipeline uses the [Recca][link-recca] package extensively.
 Both [targets][link-targets] pipelines 
 (in the [PFUDatabase][link-pfudatabase] and
 [PFUAggDatabase][link-pfuaggdatabase] packages)
-benefit from the 
+produce data frames readable by the [pins][link-pins] package [@Silga:2023].
+Both pipelines benefit from the 
 [PFUSetup][link-pfusetup] [@Heun-PFUSetup:2023] and
 [PFUPipelineTools][link-pfupipelinetools] [@Heun-PFUPipelineTools:2023]
 packages. 
@@ -297,27 +298,32 @@ is restricted to those who have access to [IEA WEEB][link-ieaweeb] data.].
 
 ```r
 # (1) Purchase, download, and store IEA data in correct location.
-# (2) Download FAO and ILO data for muscle work calculations.
+# (2) Download FAO and ILO data for muscle work calculations
+# via the included script.
+# This download is needed only once and
+# the results are now stored in the repository. 
 source(file.path("ExampleFolder", "DownloadScripts", "download_mw_data.R"))
-# (3) Run the PFUDatabase pipeline
-targets::tar_make(script = file.path("ExampleFolder", "_targets_pfudatabase.R"), 
-                  reporter = "summary")
 ```
 
-```
-## queue | skip | start | built | error | warn | cancel | time       
-## 
-71    | 1    | 0     | 0     | 0     | 0    | 0      | 16:24 39.97
-0     | 156  | 0     | 0     | 0     | 0    | 0      | 16:24 40.10
-```
 
 ```r
+# (3) Run the PFUDatabase pipeline
+targets::tar_make(script = file.path("ExampleFolder", "_targets_pfudatabase.R"))
 # (4) Run the PFUAggDatabase pipeline
-# targets::tar_make(script = file.path("ExampleFolder", "_targets_pfuaggdatabase.R"))
+targets::tar_make_future(script = file.path("ExampleFolder", "_targets_pfuaggdatabase.R"),
+                         workers = 4)
+```
 
 
-# Look at the PSUT data frame
-psut <- targets::tar_read(PSUT)
+```r
+# (5) Review results using the saved pins
+# Establish the pinboard
+pinboard <- file.path("ExampleFolder", "OutputData", "PipelineReleases") |> 
+  pins::board_folder(versioned = TRUE)
+# Look at the psut data frame
+# created by the PFUDatabase pipeline
+psut <- pinboard |>
+  pins::pin_read("psut", version = "20230811T122618Z-3b7b3")
 head(psut)
 ```
 
@@ -340,146 +346,120 @@ head(psut)
 ```
 
 ```r
-# Each column of the psut data frame contains matrices
-psut$R[[1]]
+# Each column of the psut data frame contains matrices.
+# The data are stored as sparse matrices,
+# but easier to see as regular matrices.
+psut$R[[1]] |> 
+  as.matrix()
 ```
 
 ```
-## 9 x 10 sparse Matrix of class "dgCMatrix"
-```
-
-```
-##   [[ suppressing 10 column names 'Aviation gasoline', 'Crude oil', 'Electricity' ... ]]
-```
-
-```
-##                                                                             
-## Imports [of Aviation gasoline]                     44.7988     .      .     
-## Imports [of Crude oil]                              .      38359.8007 .     
-## Imports [of Kerosene type jet fuel excl. biofuels]  .          .      .     
-## Imports [of Lubricants]                             .          .      .     
-## Imports [of Other kerosene]                         .          .      .     
-## Resources [of Hydro]                                .          .      .     
-## Resources [of Primary solid biofuels]               .          .      .     
-## Statistical differences                             .          0.0001 0.0084
-## Stock changes [of Gas/diesel oil excl. biofuels]    .          .      .     
-##                                                                           
-## Imports [of Aviation gasoline]                     .        .          .  
-## Imports [of Crude oil]                             .        .          .  
-## Imports [of Kerosene type jet fuel excl. biofuels] .        .          .  
-## Imports [of Lubricants]                            .        .          .  
-## Imports [of Other kerosene]                        .        .          .  
-## Resources [of Hydro]                               .        .      10472.4
-## Resources [of Primary solid biofuels]              .        .          .  
-## Statistical differences                             1e-04 822.6979     .  
-## Stock changes [of Gas/diesel oil excl. biofuels]   .      476.2987     .  
-##                                                                             
-## Imports [of Aviation gasoline]                       .        .       .     
-## Imports [of Crude oil]                               .        .       .     
-## Imports [of Kerosene type jet fuel excl. biofuels] 892.0019   .       .     
-## Imports [of Lubricants]                              .      755.9979  .     
-## Imports [of Other kerosene]                          .        .      43.7981
-## Resources [of Hydro]                                 .        .       .     
-## Resources [of Primary solid biofuels]                .        .       .     
-## Statistical differences                              .        .       0.0042
-## Stock changes [of Gas/diesel oil excl. biofuels]     .        .       .     
-##                                                         
-## Imports [of Aviation gasoline]                         .
-## Imports [of Crude oil]                                 .
-## Imports [of Kerosene type jet fuel excl. biofuels]     .
-## Imports [of Lubricants]                                .
-## Imports [of Other kerosene]                            .
-## Resources [of Hydro]                                   .
-## Resources [of Primary solid biofuels]              87400
-## Statistical differences                                .
-## Stock changes [of Gas/diesel oil excl. biofuels]       .
+##                                                    Aviation gasoline  Crude oil
+## Imports [of Aviation gasoline]                               44.7988     0.0000
+## Imports [of Crude oil]                                        0.0000 38359.8007
+## Imports [of Kerosene type jet fuel excl. biofuels]            0.0000     0.0000
+## Imports [of Lubricants]                                       0.0000     0.0000
+## Imports [of Other kerosene]                                   0.0000     0.0000
+## Resources [of Hydro]                                          0.0000     0.0000
+## Resources [of Primary solid biofuels]                         0.0000     0.0000
+## Statistical differences                                       0.0000     0.0001
+## Stock changes [of Gas/diesel oil excl. biofuels]              0.0000     0.0000
+##                                                    Electricity Fuel oil
+## Imports [of Aviation gasoline]                          0.0000    0e+00
+## Imports [of Crude oil]                                  0.0000    0e+00
+## Imports [of Kerosene type jet fuel excl. biofuels]      0.0000    0e+00
+## Imports [of Lubricants]                                 0.0000    0e+00
+## Imports [of Other kerosene]                             0.0000    0e+00
+## Resources [of Hydro]                                    0.0000    0e+00
+## Resources [of Primary solid biofuels]                   0.0000    0e+00
+## Statistical differences                                 0.0084    1e-04
+## Stock changes [of Gas/diesel oil excl. biofuels]        0.0000    0e+00
+##                                                    Gas/diesel oil excl. biofuels
+## Imports [of Aviation gasoline]                                            0.0000
+## Imports [of Crude oil]                                                    0.0000
+## Imports [of Kerosene type jet fuel excl. biofuels]                        0.0000
+## Imports [of Lubricants]                                                   0.0000
+## Imports [of Other kerosene]                                               0.0000
+## Resources [of Hydro]                                                      0.0000
+## Resources [of Primary solid biofuels]                                     0.0000
+## Statistical differences                                                 822.6979
+## Stock changes [of Gas/diesel oil excl. biofuels]                        476.2987
+##                                                    Hydro [from Resources]
+## Imports [of Aviation gasoline]                                        0.0
+## Imports [of Crude oil]                                                0.0
+## Imports [of Kerosene type jet fuel excl. biofuels]                    0.0
+## Imports [of Lubricants]                                               0.0
+## Imports [of Other kerosene]                                           0.0
+## Resources [of Hydro]                                              10472.4
+## Resources [of Primary solid biofuels]                                 0.0
+## Statistical differences                                               0.0
+## Stock changes [of Gas/diesel oil excl. biofuels]                      0.0
+##                                                    Kerosene type jet fuel excl. biofuels
+## Imports [of Aviation gasoline]                                                    0.0000
+## Imports [of Crude oil]                                                            0.0000
+## Imports [of Kerosene type jet fuel excl. biofuels]                              892.0019
+## Imports [of Lubricants]                                                           0.0000
+## Imports [of Other kerosene]                                                       0.0000
+## Resources [of Hydro]                                                              0.0000
+## Resources [of Primary solid biofuels]                                             0.0000
+## Statistical differences                                                           0.0000
+## Stock changes [of Gas/diesel oil excl. biofuels]                                  0.0000
+##                                                    Lubricants Other kerosene
+## Imports [of Aviation gasoline]                         0.0000         0.0000
+## Imports [of Crude oil]                                 0.0000         0.0000
+## Imports [of Kerosene type jet fuel excl. biofuels]     0.0000         0.0000
+## Imports [of Lubricants]                              755.9979         0.0000
+## Imports [of Other kerosene]                            0.0000        43.7981
+## Resources [of Hydro]                                   0.0000         0.0000
+## Resources [of Primary solid biofuels]                  0.0000         0.0000
+## Statistical differences                                0.0000         0.0042
+## Stock changes [of Gas/diesel oil excl. biofuels]       0.0000         0.0000
+##                                                    Primary solid biofuels [from Resources]
+## Imports [of Aviation gasoline]                                                           0
+## Imports [of Crude oil]                                                                   0
+## Imports [of Kerosene type jet fuel excl. biofuels]                                       0
+## Imports [of Lubricants]                                                                  0
+## Imports [of Other kerosene]                                                              0
+## Resources [of Hydro]                                                                     0
+## Resources [of Primary solid biofuels]                                                87400
+## Statistical differences                                                                  0
+## Stock changes [of Gas/diesel oil excl. biofuels]                                         0
 ```
 
 ```r
-psut$Y[[1]]
+# Look at the aggregate PFU efficiency data frame
+# created by the PFUAggDatabase pipeline
+agg_eta_pfu <- pinboard |> 
+  pins::pin_read("agg_eta_pfu", version = "20230817T180346Z-45741")
+agg_eta_pfu |> 
+  # Filter and delete columns 
+  # to present a subset of exergy results in a data frame
+  dplyr::filter(Energy.type == "X", IEAMW == "Both", 
+                Product.aggregation == "Specified", 
+                Industry.aggregation == "Specified", 
+                GrossNet == "Net",
+                Country %in% c("GHA", "ZAF")) |> 
+  dplyr::mutate(
+    Method = NULL, 
+    Energy.type = NULL,
+    Product.aggregation = NULL,
+    Industry.aggregation = NULL,
+    IEAMW = NULL,
+    Chopped.mat = NULL, 
+    Chopped.var = NULL, 
+    GrossNet = NULL
+  )
 ```
 
 ```
-## 12 x 21 sparse Matrix of class "dgCMatrix"
+## # A tibble: 4 × 8
+##   Country  Year     EX.p     EX.f    EX.u eta_pf eta_fu eta_pu
+##   <chr>   <dbl>    <dbl>    <dbl>   <dbl>  <dbl>  <dbl>  <dbl>
+## 1 GHA      1971  179666.  139694.  16818.  0.778  0.120 0.0936
+## 2 GHA      2000  344825.  274173.  56685.  0.795  0.207 0.164 
+## 3 ZAF      1971 2138435. 1525335. 211631.  0.713  0.139 0.0990
+## 4 ZAF      2000 4957435. 2451131. 482493.  0.494  0.197 0.0973
 ```
-
-```
-##   [[ suppressing 21 column names 'Agriculture/forestry', 'Commercial and public services', 'Domestic navigation' ... ]]
-```
-
-```
-##                                                                                
-## Aviation gasoline                        .        .        .         .   .     
-## Charcoal                                 .        .        .         .   .     
-## Crude oil                                .        .        .         .   .     
-## Electricity                             97.2007 378.0011   .         .   .     
-## Fuel oil                                 .        .       80.3991 7437   .     
-## Gas/diesel oil excl. biofuels         1255.7009 389.6990 432.9989    .   .     
-## Kerosene type jet fuel excl. biofuels    .        .        .         .   .     
-## Liquefied petroleum gases (LPG)          .        .        .         .   .     
-## Lubricants                               .        .        .         .   .     
-## Motor gasoline excl. biofuels            .        .        .         . 179.1992
-## Other kerosene                           .        .        .         .   .     
-## Primary solid biofuels                   .        .        .         .   .     
-##                                                                         
-## Aviation gasoline                       .      44.7988    .       .     
-## Charcoal                                .       .         .       .     
-## Crude oil                               .       .         .       .     
-## Electricity                             .       .         .       .     
-## Fuel oil                                .       .         .     924.6004
-## Gas/diesel oil excl. biofuels           .       .         .       .     
-## Kerosene type jet fuel excl. biofuels   .       .      1828.602   .     
-## Liquefied petroleum gases (LPG)         .       .         .       .     
-## Lubricants                              .       .         .       .     
-## Motor gasoline excl. biofuels           .       .         .       .     
-## Other kerosene                        175.2008  .         .       .     
-## Primary solid biofuels                  .       .         .       .     
-##                                                                          
-## Aviation gasoline                        .        .       .        .     
-## Charcoal                                 .        .       .        .     
-## Crude oil                                .        .       .        .     
-## Electricity                              .      918.002 647.9994 698.4001
-## Fuel oil                                 .     3698.401   .        .     
-## Gas/diesel oil excl. biofuels         1212.401 1645.400   .        .     
-## Kerosene type jet fuel excl. biofuels    .        .       .        .     
-## Liquefied petroleum gases (LPG)          .        .       .        .     
-## Lubricants                               .        .       .        .     
-## Motor gasoline excl. biofuels            .        .       .        .     
-## Other kerosene                           .        .       .        .     
-## Primary solid biofuels                   .     6100.000   .        .     
-##                                                                            
-## Aviation gasoline                       .         .       .          .     
-## Charcoal                                .         .       .       4989.5980
-## Crude oil                               .         .       .          .     
-## Electricity                             .      7102.801   .        590.4016
-## Fuel oil                                .         .     200.9999     .     
-## Gas/diesel oil excl. biofuels           .         .     432.9989     .     
-## Kerosene type jet fuel excl. biofuels   .         .       .          .     
-## Liquefied petroleum gases (LPG)         .         .       .        141.8990
-## Lubricants                            755.9979    .       .          .     
-## Motor gasoline excl. biofuels           .         .       .          .     
-## Other kerosene                          .         .       .       3503.9999
-## Primary solid biofuels                  .         .       .      61299.9981
-##                                                                         
-## Aviation gasoline                        .       .        .       .     
-## Charcoal                                 .       .        .       .     
-## Crude oil                                .     852.4409   .       .     
-## Electricity                              .       .        .      61.1985
-## Fuel oil                                 .       .      321.6007  .     
-## Gas/diesel oil excl. biofuels         4979.499   .        .       .     
-## Kerosene type jet fuel excl. biofuels    .       .        .       .     
-## Liquefied petroleum gases (LPG)          .       .        .       .     
-## Lubricants                               .       .        .       .     
-## Motor gasoline excl. biofuels         8467.200   .        .       .     
-## Other kerosene                           .       .        .       .     
-## Primary solid biofuels                   .       .        .       .
-```
-
-Create a CL-PFU database from the GHA and ZAF data contained in the IEATools package.   
-Create the folder structure for the CL-PFU database.   
-Store all necessary data in this repository.   
-Execute the commands to produce the database, 
-albeit for only two countries and two years.
 
 
 # Conclusion

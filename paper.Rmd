@@ -31,14 +31,14 @@ output:
     keep_md: yes
 ---
 
-Max length: 250--1000 words. At the moment, we are at 1444 words.
-But I saw many JOSS papers are longer than 1000 words. 
-And our paper is describing many packages, whereas
-most JOSS papers describe only a single package.
-So I think we are going to be OK.
-I think we can own the issue in the cover letter, 
-saying that we are willing to consider splitting into
-two papers upon the editor's advice. 
+<!-- Max length: 250--1000 words. At the moment, we are at 1444 words. -->
+<!-- But I saw many JOSS papers are longer than 1000 words.  -->
+<!-- And our paper is describing many packages, whereas -->
+<!-- most JOSS papers describe only a single package. -->
+<!-- So I think we are going to be OK. -->
+<!-- I think we can own the issue in the cover letter,  -->
+<!-- saying that we are willing to consider splitting into -->
+<!-- two papers upon the editor's advice.  -->
 
 <!-- Define some macros to use later -->
 [link-cran]:             https://cran.r-project.org
@@ -263,7 +263,8 @@ pipeline uses the [Recca][link-recca] package extensively.
 Both [targets][link-targets] pipelines 
 (in the [PFUDatabase][link-pfudatabase] and
 [PFUAggDatabase][link-pfuaggdatabase] packages)
-benefit from the 
+produce data frames readable by the [pins][link-pins] package [@Silga:2023].
+Both pipelines benefit from the 
 [PFUSetup][link-pfusetup] [@Heun-PFUSetup:2023] and
 [PFUPipelineTools][link-pfupipelinetools] [@Heun-PFUPipelineTools:2023]
 packages. 
@@ -307,7 +308,6 @@ source(file.path("ExampleFolder", "DownloadScripts", "download_mw_data.R"))
 # (3) Run the PFUDatabase pipeline
 targets::tar_make(script = file.path("ExampleFolder", "_targets_pfudatabase.R"))
 # (4) Run the PFUAggDatabase pipeline
-# targets::tar_make(script = file.path("ExampleFolder", "_targets_pfuaggdatabase.R"), callr_function = NULL)
 targets::tar_make_future(script = file.path("ExampleFolder", "_targets_pfuaggdatabase.R"),
                          workers = 4)
 ```
@@ -331,8 +331,25 @@ psut$R[[1]] |>
 # Look at the aggregate PFU efficiency data frame
 # created by the PFUAggDatabase pipeline
 agg_eta_pfu <- pinboard |> 
-  pins::pin_read("agg_eta_pfu", version = "")
-head(agg_eta_pfu)
+  pins::pin_read("agg_eta_pfu", version = "20230817T180346Z-45741")
+agg_eta_pfu |> 
+  # Filter and delete columns 
+  # to present a subset of exergy results in a data frame
+  dplyr::filter(Energy.type == "X", IEAMW == "Both", 
+                Product.aggregation == "Specified", 
+                Industry.aggregation == "Specified", 
+                GrossNet == "Net",
+                Country %in% c("GHA", "ZAF")) |> 
+  dplyr::mutate(
+    Method = NULL, 
+    Energy.type = NULL,
+    Product.aggregation = NULL,
+    Industry.aggregation = NULL,
+    IEAMW = NULL,
+    Chopped.mat = NULL, 
+    Chopped.var = NULL, 
+    GrossNet = NULL
+  )
 ```
 
 
