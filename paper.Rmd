@@ -101,7 +101,7 @@ to the useful stage
 such as heat, motion, and light),
 and sometimes to energy services
 (such as thermal comfort, transport, and illumination).
-Societal _exergy_ analysis (SEA), 
+Societal _exergy_ analysis (SEA, @Ertesvaag:2001), 
 an extension of societal _energy_ analysis,
 quantifies ECCs in exergy terms^[Exergy is 
 the mechanical work potential of energy.
