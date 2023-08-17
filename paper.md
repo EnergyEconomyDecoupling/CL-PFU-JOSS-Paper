@@ -31,14 +31,31 @@ output:
     keep_md: yes
 ---
 
-<!-- Max length: 250--1000 words. At the moment, we are at 1444 words. -->
-<!-- But I saw many JOSS papers are longer than 1000 words.  -->
-<!-- And our paper is describing many packages, whereas -->
-<!-- most JOSS papers describe only a single package. -->
-<!-- So I think we are going to be OK. -->
-<!-- I think we can own the issue in the cover letter,  -->
-<!-- saying that we are willing to consider splitting into -->
-<!-- two papers upon the editor's advice.  -->
+<!-- Message to editors: -->
+
+<!-- This paper describes a suite of packages -->
+<!-- to assist SEA practitioners to analyze  -->
+<!-- energy movement through society.  -->
+<!-- The new packages enable analysis of any country in the world -->
+<!-- across timespans of decades or longer. -->
+<!-- In short, the packages enable, for the first time,  -->
+<!-- scalable Societal Exergy Analysis (SEA). -->
+
+<!-- In an email exchange in late July 2021,  -->
+<!-- editor Afron Smith recommended that we  -->
+<!-- create a separate repository for the paper,  -->
+<!-- mentioning all of the individual packages in the manuscript. -->
+<!-- Thus, the paper is slightly longer than 1000 words. -->
+<!-- That said, we are willing to consider splitting into -->
+<!-- two papers upon the editor's advice. -->
+
+<!-- No portion of this paper has been submitted or published -->
+<!-- in another peer-reviewed journal.  -->
+<!-- A paper with a very different focus  -->
+<!-- (efficiency results from the full CL-PFU database) -->
+<!-- is in preparation. -->
+<!-- Our desire is that the results paper will reference -->
+<!-- this JOSS paper. -->
 
 <!-- Define some macros to use later -->
 [link-cran]:             https://cran.r-project.org
@@ -85,8 +102,7 @@ an extension of societal _energy_ analysis,
 quantifies ECCs in exergy terms^[Exergy is 
 the mechanical work potential of energy.
 See any number of web references for an exergy primer,
-including @SciDirect:2023. 
-**** Do we have a better primer? ****].
+including @SciDirect:2023.].
 
 We created a suite of `R` packages 
 to assist SEA practitioners to analyze 
@@ -101,7 +117,7 @@ The CL-PFU database contains many countries as well as
 continental and world aggregations.
 Technically speaking, 
 we create [matsindf][link-matsindf] data frames
-stored as `[pins][link-pins]` on a pinboard, 
+stored as [pins][link-pins] on a pinboard, 
 not SQL or similar databases.] 
 a new resource for the SEA community [@Marshall:2023aa]. 
 
@@ -479,40 +495,8 @@ Energy Return On Investment for fossil fuels [@Aramendia:2023aa],
 for which the [ECCTools][link-ecctools] [@Aramendia:2022aa] and
 [EROITools][link-eroitools] [@Aramendia:2022ab] packages were developed, 
 expanding the software capabilities introduced here.^[Note
-that the [ECCTools][link-ecctools] and [EROITools][link-eroitools] packages were
-not reviewed for this paper.]
-
-
-
-
-
-<!-- # Mathematics -->
-
-<!-- Single dollars ($) are required for inline mathematics e.g. $f(x) = e^{\pi/x}$ -->
-
-<!-- Double dollars make self-standing equations: -->
-
-<!-- $$\Theta(x) = \left\{\begin{array}{l} -->
-<!-- 0\textrm{ if } x < 0\cr -->
-<!-- 1\textrm{ else} -->
-<!-- \end{array}\right.$$ -->
-
-<!-- You can also use plain \LaTeX for equations -->
-<!-- \begin{equation}\label{eq:fourier} -->
-<!-- \hat{f}(\omega) = \int_{-\infty}^{\infty} f(x) e^{i\omega x} dx -->
-<!-- \end{equation} -->
-<!-- and refer to \autoref{eq:fourier} from text. -->
-
-<!-- # Figures -->
-
-<!-- Figures can be included like this: -->
-
-<!-- ![Caption for example figure.\label{fig:example}](figure.png) -->
-<!-- and referenced from text using \autoref{fig:example}. -->
-
-<!-- Figure sizes can be customized by adding an optional second parameter: -->
-
-<!-- ![Caption for example figure.](figure.png){ width=20% } -->
+that the [ECCTools][link-ecctools] and [EROITools][link-eroitools] packages 
+are not the subject of this paper.]
 
 
 # Acknowledgements
