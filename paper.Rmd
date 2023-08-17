@@ -101,7 +101,7 @@ to the useful stage
 such as heat, motion, and light),
 and sometimes to energy services
 (such as thermal comfort, transport, and illumination).
-Societal _exergy_ analysis (SEA, @Ertesvaag:2001), 
+Societal _exergy_ analysis (SEA) [@Ertesvaag:2001], 
 an extension of societal _energy_ analysis,
 quantifies ECCs in exergy terms^[Exergy is 
 the mechanical work potential of energy.
@@ -224,8 +224,9 @@ all of which are generally useful and available on
 
 Broadly speaking, 
 four calculation steps are required to create a CL-PFU database. 
-Each step is assisted by functions in one or more new `R` packages.
-First, the IEA's primary- and final-stage WEEB data must be converted
+Each step is assisted by functions in one or more of the new `R` packages.
+First, the IEA's primary- and final-stage 
+World Extended Energy Balance (WEEB) data must be converted
 to RUVY matrices for each country and year, 
 a task accomplished by functions in the [IEATools][link-ieatools] package [@Heun-IEATools:2023]. 
 Second, human and animal muscle work must be calculated from 
@@ -240,11 +241,9 @@ must be extended to the useful stage by
 final-to-useful efficiency of each machine.
 This task is accomplished by functions in the
 [Recca][link-recca] [@Heun-Recca:2023]
-and 
-[PFUDatabase][link-pfudatabase] [@Heun-PFUDatabase:2023]
-packages.
+package.
 Fourth, ECCs must be converted from energy terms to exergy terms. 
-This step is performed by functions in the [Recca][link-recca] package.
+This step is also performed by functions in the [Recca][link-recca] package.
 
 The steps to create the PSUT matrices for each country and each year
 are accomplished by a
@@ -277,6 +276,8 @@ Low-, Medium-, and High-temperature heat, etc.),
 (c) by energy conversion machines (industries) and end use sectors
 (e.g., Residential, Transport, etc.), and
 (d) to primary, final, and useful (PFU) stages.
+In addition, the [PFUAggDatabase][link-pfuaggdatabase] pipeline 
+calculates aggregate efficiencies for each available region.
 The [PFUAggDatabase][link-pfuaggdatabase]
 pipeline uses the [Recca][link-recca] package extensively.
 
@@ -317,19 +318,22 @@ is restricted to those who have access to [IEA WEEB][link-ieaweeb] data.].
 
 ```{r, eval=FALSE}
 # (1) Purchase, download, and store IEA data in correct location.
-#     Sample data are provided at the correct location in the repository.
+#     Sample data are provided at the correct location in the repository
+#     for this paper.
 # (2) Download FAO and ILO data for muscle work calculations
 #     via the included script.
 #     This download step is needed only once and
-#     the data are stored in the repository.
+#     the data are stored in the repository 
+#     for this paper.
 source(file.path("ExampleFolder", "DownloadScripts", "download_mw_data.R"))
 ```
 
 ```{r, eval=FALSE}
 # (3) Run the PFUDatabase pipeline to create RUVY matrices.
-targets::tar_make(script = file.path("ExampleFolder", "_targets_pfudatabase.R"))
+targets::tar_make_future(script = file.path("ExampleFolder", "_targets_pfudatabase.R"), 
+                         workers = 4)
 # (4) Run the PFUAggDatabase pipeline to aggregate 
-#     energy and calculate efficiencies..
+#     energy and calculate efficiencies.
 targets::tar_make_future(script = file.path("ExampleFolder", "_targets_pfuaggdatabase.R"),
                          workers = 4)
 ```
