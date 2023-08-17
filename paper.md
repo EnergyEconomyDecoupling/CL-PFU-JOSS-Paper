@@ -34,12 +34,11 @@ output:
 <!-- Message to editors: -->
 
 <!-- This paper describes a suite of packages -->
-<!-- to assist SEA practitioners to analyze  -->
+<!-- to assist Societal Exergy Analysis practitioners to analyze  -->
 <!-- energy movement through society.  -->
 <!-- The new packages enable analysis of any country in the world -->
 <!-- across timespans of decades or longer. -->
-<!-- In short, the packages enable, for the first time,  -->
-<!-- scalable Societal Exergy Analysis (SEA). -->
+<!-- In short, the packages enable, for the first time, scalable SEA. -->
 
 <!-- In an email exchange in late July 2021,  -->
 <!-- editor Afron Smith recommended that we  -->
@@ -53,11 +52,16 @@ output:
 <!-- in another peer-reviewed journal.  -->
 <!-- A paper with a very different focus  -->
 <!-- (efficiency results from the full CL-PFU database) -->
-<!-- is in preparation. -->
-<!-- Our desire is that the results paper will reference -->
-<!-- this JOSS paper. -->
+<!-- is in preparation for the IOP journal -->
+<!-- Environmental Research: Energy. -->
+<!-- It is our desire that the Environmental Research: Energy -->
+<!-- paper will reference this JOSS paper. -->
 
-<!-- Define some macros to use later -->
+<!-- ---Matthew Kuperus Heun, 17 August 2023 -->
+
+
+
+<!-- Define some macros for later use -->
 [link-cran]:             https://cran.r-project.org
 [link-ecctools]:         https://github.com/earamendia/ECCTools
 [link-eroitools]:        https://github.com/earamendia/EROITools
