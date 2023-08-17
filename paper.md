@@ -500,7 +500,7 @@ for which the [ECCTools][link-ecctools] [@Aramendia:2022aa] and
 [EROITools][link-eroitools] [@Aramendia:2022ab] packages were developed, 
 expanding the software capabilities introduced here.^[Note
 that the [ECCTools][link-ecctools] and [EROITools][link-eroitools] packages 
-are not the subject of this paper.]
+are not the subject of this paper and were not peer reviewed.]
 
 
 # Acknowledgements
