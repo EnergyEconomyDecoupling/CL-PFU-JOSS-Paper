@@ -22,7 +22,7 @@ authors:
 affiliations:
 - name: Engineering Department, Calvin University
   index: 1
-- name: School of Earth and Environment, Leeds University
+- name: School of Earth and Environment, University of Leeds
   index: 2
 # date: "17 Aug 2023"
 bibliography: paper.bib
