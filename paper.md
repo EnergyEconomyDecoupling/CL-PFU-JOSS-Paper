@@ -57,6 +57,8 @@ output:
 <!-- It is our desire that the Environmental Research: Energy -->
 <!-- paper will reference this JOSS paper. -->
 
+<!-- Thank you for considering our paper. -->
+
 <!-- ---Matthew Kuperus Heun, 17 August 2023 -->
 
 
