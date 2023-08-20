@@ -91,7 +91,7 @@ output:
 Energy flowing through societal energy conversion chains (ECCs)
 enables economic activity and facilitates human flourishing.
 To understand economic growth and human well-being, 
-the field of societal energy analysis
+the field of societal energy analysis [@Common:1976wn]
 evaluates ECCs
 from the primary stage 
 (resources extracted from the environment, 
