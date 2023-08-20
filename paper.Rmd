@@ -209,7 +209,7 @@ Second,
 we wanted to be able to perform _matrix_ mathematics 
 as easily as _scalar_ mathematics
 in `R` data frames
-using the [tidyverse][link-tidyverse] syntax [@Wickham:2019]. 
+using [tidyverse][link-tidyverse] syntax [@Wickham:2019]. 
 We developed the [matsindf][link-matsindf] package [@Heun-matsindf:2023]
 to enable this functionality.
 Finally, manipulating row and column names proved to be a challenge, 
@@ -283,7 +283,7 @@ Low-, Medium-, and High-temperature heat, etc.),
 (d) to primary, final, and useful (PFU) stages.
 In addition, the [PFUAggDatabase][link-pfuaggdatabase] pipeline 
 calculates efficiencies for each country
-and all available aggregations.
+at all available aggregations.
 The [PFUAggDatabase][link-pfuaggdatabase]
 pipeline uses the [Recca][link-recca] package extensively.
 
@@ -318,7 +318,7 @@ with author [PEB](mailto:P.E.Brockway@leeds.ac.uk)^[Because the PFU Database con
 primary and final energy [IEA WEB][link-ieaweb] data, 
 use of the PFU Database
 is restricted to those who have access to [IEA][link-iea] [WEB][link-ieaweb] data.].
-Researchers with access to the 
+If desired, researchers with access to the 
 [IEA][link-iea]'s [WEB][link-ieaweb] 
 data can create their own CL-PFU database 
 following the example below.
