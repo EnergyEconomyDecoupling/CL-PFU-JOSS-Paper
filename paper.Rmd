@@ -67,8 +67,9 @@ output:
 [link-cran]:             https://cran.r-project.org
 [link-ecctools]:         https://github.com/earamendia/ECCTools
 [link-eroitools]:        https://github.com/earamendia/EROITools
+[link-iea]:              https://www.iea.org
 [link-ieatools]:         https://github.com/MatthewHeun/IEATools
-[link-ieaweeb]:          https://www.iea.org/data-and-statistics/data-product/world-energy-balances
+[link-ieaweb]:           https://www.iea.org/data-and-statistics/data-product/world-energy-balances
 [link-ilo]:              https://www.ilo.org/
 [link-fao]:              https://www.fao.org/
 [link-matsbyname]:       https://github.com/MatthewHeun/matsbyname
@@ -111,8 +112,7 @@ See any number of web references for an exergy primer,
 including @SciDirect:2023.].
 
 We created a suite of `R` packages 
-to assist SEA practitioners to analyze 
-energy movement through society. 
+to assist SEA practitioners to analyze ECCs. 
 The new packages enable analysis of any country in the world
 across timespans of decades or longer.
 In short, the new packages enable, for the first time, scalable SEA.
@@ -137,14 +137,15 @@ Historically, SEA practitioners have
 analyzed the ECCs of individual countries
 using linked spreadsheets,
 often starting with primary- and final-stage data 
-from the [IEA][link-ieaweeb]'s
-world energy balances
+from the [IEA][link-iea]'s
+world energy balances 
+([WEB][link-ieaweb]s)
 [@Ayres:2003ec; @Serrenho:2014aa; @Brockway:2014aa; @Brockway:2015aa]. 
 Data were stored in varying and inconsistent formats.
 An early SEA database [@De-Stercke:2014]
 estimated energy efficiencies 
 of end-use machines using the economic status of countries,
-thereby precluding its use for energy-economy studies.
+thereby precluding use for energy-economy studies.
 
 The authors of the current paper and others in the field
 wanted to expand SEA to cover all countries, but
@@ -173,7 +174,8 @@ processing stages
 ("industries" in PSUT terminology)
 and, ultimately, 
 to final demand
-in a way that is compatible with the IEA's world extended energy balances (WEEB)
+in a way that is compatible with the [IEA][link-iea]'s
+[WEB][link-ieaweb] data
 [@International-Energy-Agency:2023aa].
 We chose the PSUT framework as the data format for the new `R` packages, 
 because it succinctly describes an entire ECC
@@ -229,7 +231,7 @@ Broadly speaking,
 four calculation steps are required to create a CL-PFU database. 
 Each step is assisted by functions in one or more of the new `R` packages.
 First, the IEA's primary- and final-stage 
-WEEB data must be converted
+WEB data must be converted
 to RUVY matrices for each country and year, 
 a task accomplished by functions in the [IEATools][link-ieatools] package [@Heun-IEATools:2023]. 
 Second, human and animal muscle work must be calculated from 
@@ -302,7 +304,7 @@ The packages in the following table are available on GitHub.
 
 | Package | Purpose |
 |:--------|:--------|
-| [IEATools][link-ieatools]             | Converts [IEA WEEB][link-ieaweeb] data to RUVY matrices in [matsindf][link-matsindf] data frames |
+| [IEATools][link-ieatools]             | Converts [IEA WEB][link-ieaweb] data to RUVY matrices in [matsindf][link-matsindf] data frames |
 | [MWTools][link-mwtools]               | Converts [ILO][link-ilo] and [FAO][link-fao] data to RUVY matrices of human and animal muscle work in [matsindf][link-matsindf] data frames |
 | [Recca][link-recca]                   | Performs `R` energy conversion chain analysis |
 | [PFUSetup][link-pfusetup]             | Identifies input and output locations for the [PFUDatabase][link-pfudatabase] and [PFUAggDatabase][link-pfuaggdatabase] pipelines |
@@ -313,17 +315,19 @@ The packages in the following table are available on GitHub.
 Input data for the PFU database can be found in @Marshall:2023aa.
 Access to the full CL-PFU database can be obtained via correspondence 
 with author [PEB](mailto:P.E.Brockway@leeds.ac.uk)^[Because the PFU Database contains
-primary and final energy [IEA WEEB][link-ieaweeb] data, 
+primary and final energy [IEA WEB][link-ieaweb] data, 
 use of the PFU Database
-is restricted to those who have access to [IEA WEEB][link-ieaweeb] data.].
-Researchers with access to the [IEA WEEB][link-ieaweeb] data
-can create their own CL-PFU database by following the example below.
+is restricted to those who have access to [IEA][link-iea] [WEB][link-ieaweb] data.].
+Researchers with access to the 
+[IEA][link-iea]'s [WEB][link-ieaweb] 
+data can create their own CL-PFU database 
+by following the example below.
 
 
 # Example
 
 ```{r, eval=FALSE}
-# (1) Purchase, download, and store IEA WEEB data in the correct location.
+# (1) Purchase, download, and store IEA WEB data in the correct location.
 #     Sample data for two countries (Ghana and South Africa) 
 #     and two years (1971 and 2000) are included (with permission)
 #     at the correct location in the repository for this paper.
