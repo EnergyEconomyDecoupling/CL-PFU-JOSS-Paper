@@ -137,15 +137,14 @@ Historically, SEA practitioners have
 analyzed the ECCs of individual countries
 using linked spreadsheets,
 often starting with primary- and final-stage data 
-from the [IEA][link-iea]'s
-world energy balances 
-([WEB][link-ieaweb]s)
+from the [International Energy Agency][link-iea]'s (IEA's)
+[world energy balances][link-ieaweb] (WEBs)
 [@Ayres:2003ec; @Serrenho:2014aa; @Brockway:2014aa; @Brockway:2015aa]. 
 Data were stored in varying and inconsistent formats.
 An early SEA database [@De-Stercke:2014]
 estimated energy efficiencies 
 of end-use machines using the economic status of countries,
-thereby precluding use for energy-economy studies.
+thereby precluding use in energy-economy studies.
 
 The authors of the current paper and others in the field
 wanted to expand SEA to cover all countries, but
