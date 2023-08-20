@@ -33,7 +33,7 @@ output:
 
 <!-- Message to editors: -->
 
-<!-- This paper describes a suite of packages -->
+<!-- This paper describes a suite of open source R packages -->
 <!-- to assist Societal Exergy Analysis practitioners to analyze -->
 <!-- energy movement through society. -->
 <!-- The new packages enable analysis of any country in the world -->
