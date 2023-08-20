@@ -95,7 +95,7 @@ the field of societal energy analysis
 evaluates ECCs
 from the primary stage 
 (resources extracted from the environment, 
-such as coal, oil, natural gas, wind, and solar) 
+such as coal, oil, natural gas, wind, and solar),
 to the final stage
 (energy purchased by consumers, 
 such as refined petroleum and electricity),
