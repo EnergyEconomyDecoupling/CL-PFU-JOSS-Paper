@@ -282,7 +282,8 @@ Low-, Medium-, and High-temperature heat, etc.),
 (e.g., Residential, Transport, etc.), and
 (d) to primary, final, and useful (PFU) stages.
 In addition, the [PFUAggDatabase][link-pfuaggdatabase] pipeline 
-calculates aggregate efficiencies for each available region.
+calculates efficiencies for each country
+and all available aggregations.
 The [PFUAggDatabase][link-pfuaggdatabase]
 pipeline uses the [Recca][link-recca] package extensively.
 
@@ -320,7 +321,7 @@ is restricted to those who have access to [IEA][link-iea] [WEB][link-ieaweb] dat
 Researchers with access to the 
 [IEA][link-iea]'s [WEB][link-ieaweb] 
 data can create their own CL-PFU database 
-by following the example below.
+following the example below.
 
 
 # Example
@@ -400,13 +401,13 @@ agg_eta_pfu |>
 The new `R` packages described in this paper
 enable the creation of databases of primary, final, and useful
 energy and exergy conversion chains.
-Such databases will enable advances in the societal exergy analysis community
-and lead to greater insights 
+Such databases will enable advances in societal exergy analysis
+and lead to new insights 
 about the role of energy 
 in economic growth and human well-being.
 An example of early work using the CL-PFU database
 is the calculation of useful stage 
-Energy Return On Investment for fossil fuels [@Aramendia:2023aa], 
+Energy Return On Investment (EROI) for fossil fuels [@Aramendia:2023aa], 
 for which the [ECCTools][link-ecctools] [@Aramendia:2022aa] and
 [EROITools][link-eroitools] [@Aramendia:2022ab] packages were developed, 
 expanding the software capabilities introduced here^[Note
