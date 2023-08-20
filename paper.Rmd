@@ -31,8 +31,25 @@ output:
     keep_md: yes
 ---
 
-<!-- Message to editors: -->
+<!-- Title: -->
+<!-- CL-PFU: A suite of R packages for energy conversion chain analysis -->
 
+<!-- Software's GIT repository: -->
+<!-- https://github.com/EnergyEconomyDecoupling/CL-PFU-JOSS-Paper -->
+
+<!-- Name of git branch containing the paper, not the path: -->
+<!-- <<BLANK>> -->
+
+<!-- Software version: -->
+<!-- This submission covers several packages, each with its own current version. -->
+
+<!-- Type of submission: -->
+<!-- New submission -->
+
+<!-- Main subject of the paper: -->
+<!-- Software for societal exergy analysis -->
+
+<!-- Message to editors: -->
 <!-- This paper describes a suite of open source R packages -->
 <!-- to assist Societal Exergy Analysis (SEA) practitioners to analyze -->
 <!-- energy movement through society. -->
