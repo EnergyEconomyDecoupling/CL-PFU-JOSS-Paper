@@ -398,7 +398,7 @@ agg_eta_pfu |>
 
 # Conclusion
 
-The new `R` packages described in this paper
+The new open source `R` packages described in this paper
 enable the creation of databases of primary, final, and useful
 energy and exergy conversion chains.
 Such databases will enable advances in societal exergy analysis
