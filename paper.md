@@ -90,7 +90,7 @@ output:
 Energy flowing through societal energy conversion chains (ECCs)
 enables economic activity and facilitates human flourishing.
 To understand economic growth and human well-being, 
-the field of societal energy analysis (among other activities)
+the field of societal energy analysis
 evaluates ECCs
 from the primary stage 
 (resources extracted from the environment, 
@@ -115,7 +115,7 @@ to assist SEA practitioners to analyze
 energy movement through society. 
 The new packages enable analysis of any country in the world
 across timespans of decades or longer.
-In short, the packages enable, for the first time, scalable SEA.
+In short, the new packages enable, for the first time, scalable SEA.
 We used the new packages to create the CL-PFU database^["CL-PFU" 
 is an initialism for "Country-Level
 Primary, Final, and Useful."
@@ -173,7 +173,7 @@ processing stages
 ("industries" in PSUT terminology)
 and, ultimately, 
 to final demand
-in a way that is compatible with the IEA's world extended energy balances 
+in a way that is compatible with the IEA's world extended energy balances (WEEB)
 [@International-Energy-Agency:2023aa].
 We chose the PSUT framework as the data format for the new `R` packages, 
 because it succinctly describes an entire ECC
@@ -197,7 +197,8 @@ different countries and years
 have varying energy carriers (products) and
 varying energy conversion machines (industries),
 meaning that RUVY matrices 
-have differing row names, differing column names, and differing sizes.
+have differing row names, differing column names, and differing sizes
+from one country to another and for different years within the same country.
 To circumvent this challenge, we created the
 [matsbyname][link-matsbyname] package [@Heun-matsbyname:2023]
 which enables matrix mathematics 
@@ -222,13 +223,13 @@ all of which are generally useful and available on
 |:--------|:--------|
 | [RCLabels][link-rclabels]     | Manipulates matrix row and column names in [matsindf][link-matsindf] data frames |
 | [matsbyname][link-matsbyname] | Performs matrix mathematics that respects row and column names |
-| [matsindf][link-matsindf]     | Stores matrices in cells of data frames, thereby enabling analysis with [tidyverse][link-tidyverse] syntax |
+| [matsindf][link-matsindf]     | Stores matrices in cells of data frames, thereby enabling analyses with the [tidyverse][link-tidyverse] syntax |
 
 Broadly speaking, 
 four calculation steps are required to create a CL-PFU database. 
 Each step is assisted by functions in one or more of the new `R` packages.
 First, the IEA's primary- and final-stage 
-World Extended Energy Balance (WEEB) data must be converted
+WEEB data must be converted
 to RUVY matrices for each country and year, 
 a task accomplished by functions in the [IEATools][link-ieatools] package [@Heun-IEATools:2023]. 
 Second, human and animal muscle work must be calculated from 
@@ -255,7 +256,8 @@ available in the [PFUDatabase][link-pfudatabase]
 package.
 A unique feature of the
 [PFUDatabase][link-pfudatabase]
-pipeline is an innovative exemplar system that allows
+pipeline enabled by the [Recca][link-recca] package 
+is an innovative exemplar system that allows
 analyses to proceed when allocation or efficiency data are unavailable for a country.
 When allocations or efficiencies are missing,
 a string of exemplar countries or regions
@@ -309,24 +311,27 @@ The packages in the following table are available on GitHub.
 | [PFUAggDatabase][link-pfuaggdatabase] | Provides a [targets][link-targets] pipeline to aggregate RUVY matrices |
 
 Input data for the PFU database can be found in @Marshall:2023aa.
-Access to the PFU database can be obtained via correspondence 
+Access to the full CL-PFU database can be obtained via correspondence 
 with author [PEB](mailto:P.E.Brockway@leeds.ac.uk)^[Because the PFU Database contains
 primary and final energy [IEA WEEB][link-ieaweeb] data, 
 use of the PFU Database
 is restricted to those who have access to [IEA WEEB][link-ieaweeb] data.].
+Researchers with access to the [IEA WEEB][link-ieaweeb] data
+can create their own CL-PFU database by following the example below.
 
 
 # Example
 
 
 ```r
-# (1) Purchase, download, and store IEA data in correct location.
-#     Sample data are provided at the correct location in the repository
-#     for this paper.
+# (1) Purchase, download, and store IEA WEEB data in the correct location.
+#     Sample data for two countries (Ghana and South Africa) 
+#     and two years (1971 and 2000) are included (with permission)
+#     at the correct location in the repository for this paper.
 # (2) Download FAO and ILO data for muscle work calculations
 #     via the included script.
 #     This download step is needed only once and
-#     the data are stored in the repository 
+#     downloaded data are stored in the repository 
 #     for this paper.
 source(file.path("ExampleFolder", "DownloadScripts", "download_mw_data.R"))
 ```
@@ -344,7 +349,7 @@ targets::tar_make_future(script = file.path("ExampleFolder", "_targets_pfuaggdat
 
 
 ```r
-# (5) Review results using saved pins, which are stored in the repository.
+# (5) Review results using the pins package.
 #     Establish the pinboard.
 pinboard <- file.path("ExampleFolder", "OutputData", "PipelineReleases") |> 
   pins::board_folder(versioned = TRUE)
@@ -394,7 +399,7 @@ colnames(psut$R[[1]])
 ```
 
 ```r
-#     Show an example resource matrix.
+#     Show an example resource (R) matrix.
 psut$R[[1]]
 ```
 
@@ -504,9 +509,9 @@ is the calculation of useful stage
 Energy Return On Investment for fossil fuels [@Aramendia:2023aa], 
 for which the [ECCTools][link-ecctools] [@Aramendia:2022aa] and
 [EROITools][link-eroitools] [@Aramendia:2022ab] packages were developed, 
-expanding the software capabilities introduced here.^[Note
+expanding the software capabilities introduced here^[Note
 that the [ECCTools][link-ecctools] and [EROITools][link-eroitools] packages 
-are not the subject of this paper and were not peer reviewed.]
+are not the subject of this paper and were not peer reviewed.].
 
 
 # Acknowledgements
