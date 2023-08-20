@@ -111,7 +111,7 @@ the mechanical work potential of energy.
 See any number of internet references for an exergy primer,
 including @SciDirect:2023.].
 
-We created a suite of `R` packages 
+We created a suite of open-source `R` packages 
 to assist SEA practitioners to analyze ECCs. 
 The new packages enable analysis of any country in the world
 across timespans of decades or longer.
