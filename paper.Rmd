@@ -224,7 +224,7 @@ all of which are generally useful and available on
 |:--------|:--------|
 | [RCLabels][link-rclabels]     | Manipulates matrix row and column names in [matsindf][link-matsindf] data frames |
 | [matsbyname][link-matsbyname] | Performs matrix mathematics that respects row and column names |
-| [matsindf][link-matsindf]     | Stores matrices in cells of data frames, thereby enabling analyses with the [tidyverse][link-tidyverse] syntax |
+| [matsindf][link-matsindf]     | Stores matrices in cells of data frames, thereby enabling analyses with [tidyverse][link-tidyverse] syntax |
 
 Broadly speaking, 
 four calculation steps are required to create a CL-PFU database. 
@@ -333,7 +333,7 @@ following the example below.
 #     at the correct location in the repository for this paper.
 # (2) Download FAO and ILO data for muscle work calculations
 #     via the included script.
-#     This download step is needed only once and
+#     This download step is needed only once, and
 #     downloaded data are stored in the repository 
 #     for this paper.
 source(file.path("ExampleFolder", "DownloadScripts", "download_mw_data.R"))
