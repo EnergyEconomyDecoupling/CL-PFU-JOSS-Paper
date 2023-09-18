@@ -295,7 +295,7 @@ aggregates ECCs
 (b) by energy carrier (product) category 
 (e.g., Coal and coal products, 
 Low-, Medium-, and High-temperature heat, etc.), 
-(c) by energy conversion machines (industries) and end use sectors
+(c) by energy conversion machines (industries) and/or end use sectors
 (e.g., Residential, Transport, etc.), and
 (d) to primary, final, and useful (PFU) stages.
 In addition, the [PFUAggDatabase][link-pfuaggdatabase] pipeline 
