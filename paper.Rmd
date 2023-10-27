@@ -255,6 +255,7 @@ Second, human and animal muscle work must be calculated from
 [Food and Agriculture Organization][link-fao] (FAO) data,
 following the methodology of @Steenwyk:2022ww, 
 using functions in the [MWTools][link-mwtools] package [@Marshall:2023ab]. 
+The muscle work data must also be converted to RUVY matrices.
 Third, the IEA's primary- and final-stage ECC data 
 must be extended to the useful stage by
 (a) allocating final stage energy to end-use machines and
