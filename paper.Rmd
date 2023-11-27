@@ -359,12 +359,16 @@ source(file.path("ExampleFolder", "DownloadScripts", "download_mw_data.R"))
 
 ```{r, eval=FALSE}
 # (3) Run the PFUDatabase pipeline to create RUVY matrices.
-targets::tar_make_future(script = file.path("ExampleFolder", "_targets_pfudatabase.R"), 
-                         workers = 4)
+targets::tar_make_future(
+  script = file.path("ExampleFolder", "_targets_pfudatabase.R"), 
+  workers = 4
+)
 # (4) Run the PFUAggDatabase pipeline to aggregate 
 #     energy and calculate efficiencies.
-targets::tar_make_future(script = file.path("ExampleFolder", "_targets_pfuaggdatabase.R"),
-                         workers = 4)
+targets::tar_make_future(
+  script = file.path("ExampleFolder", "_targets_pfuaggdatabase.R"),
+  workers = 4
+)
 ```
 
 ```{r}
