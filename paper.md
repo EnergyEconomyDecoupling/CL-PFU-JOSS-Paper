@@ -383,7 +383,7 @@ pinboard <- file.path("ExampleFolder", "OutputData", "PipelineReleases") |>
 #     created by the PFUDatabase pipeline.
 psut <- pinboard |>
   pins::pin_read(name = "psut", version = "20230811T122618Z-3b7b3")
-head(psut)
+head(as.data.frame(psut))
 ```
 
 ```
@@ -391,17 +391,69 @@ head(psut)
 ```
 
 ```
-## # A tibble: 6 × 14
-##   Country Method Energy.type Last.stage  Year IEAMW R              
-##   <chr>   <chr>  <chr>       <chr>      <dbl> <chr> <list>         
-## 1 GHA     PCM    E           Final       1971 IEA   <dgCMatrx[,10]>
-## 2 GHA     PCM    E           Final       2000 IEA   <dgCMatrx[,13]>
-## 3 GHA     PCM    E           Useful      1971 IEA   <dgCMatrx[,10]>
-## 4 GHA     PCM    E           Useful      2000 IEA   <dgCMatrx[,13]>
-## 5 GHA     PCM    X           Final       1971 IEA   <dgCMatrx[,10]>
-## 6 GHA     PCM    X           Final       2000 IEA   <dgCMatrx[,13]>
-## # ℹ 7 more variables: U <list>, U_feed <list>, U_EIOU <list>, r_EIOU <list>,
-## #   V <list>, Y <list>, S_units <list>
+##   Country Method Energy.type Last.stage Year IEAMW
+## 1     GHA    PCM           E      Final 1971   IEA
+## 2     GHA    PCM           E      Final 2000   IEA
+## 3     GHA    PCM           E     Useful 1971   IEA
+## 4     GHA    PCM           E     Useful 2000   IEA
+## 5     GHA    PCM           X      Final 1971   IEA
+## 6     GHA    PCM           X      Final 2000   IEA
+##                                                        R
+## 1 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+## 2 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+## 3 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+## 4 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+## 5 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+## 6 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+##                                                        U
+## 1 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+## 2 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+## 3 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+## 4 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+## 5 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+## 6 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+##                                                   U_feed
+## 1 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+## 2 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+## 3 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+## 4 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+## 5 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+## 6 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+##                                                   U_EIOU
+## 1 <S4 class 'dgeMatrix' [package "Matrix"] with 4 slots>
+## 2 <S4 class 'dgeMatrix' [package "Matrix"] with 4 slots>
+## 3 <S4 class 'dgeMatrix' [package "Matrix"] with 4 slots>
+## 4 <S4 class 'dgeMatrix' [package "Matrix"] with 4 slots>
+## 5 <S4 class 'dgeMatrix' [package "Matrix"] with 4 slots>
+## 6 <S4 class 'dgeMatrix' [package "Matrix"] with 4 slots>
+##                                                   r_EIOU
+## 1 <S4 class 'dgeMatrix' [package "Matrix"] with 4 slots>
+## 2 <S4 class 'dgeMatrix' [package "Matrix"] with 4 slots>
+## 3 <S4 class 'dgeMatrix' [package "Matrix"] with 4 slots>
+## 4 <S4 class 'dgeMatrix' [package "Matrix"] with 4 slots>
+## 5 <S4 class 'dgeMatrix' [package "Matrix"] with 4 slots>
+## 6 <S4 class 'dgeMatrix' [package "Matrix"] with 4 slots>
+##                                                        V
+## 1 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+## 2 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+## 3 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+## 4 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+## 5 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+## 6 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+##                                                        Y
+## 1 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+## 2 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+## 3 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+## 4 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+## 5 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+## 6 <S4 class 'dgCMatrix' [package "Matrix"] with 6 slots>
+##                                                  S_units
+## 1 <S4 class 'dgeMatrix' [package "Matrix"] with 4 slots>
+## 2 <S4 class 'dgeMatrix' [package "Matrix"] with 4 slots>
+## 3 <S4 class 'dgeMatrix' [package "Matrix"] with 4 slots>
+## 4 <S4 class 'dgeMatrix' [package "Matrix"] with 4 slots>
+## 5 <S4 class 'dgeMatrix' [package "Matrix"] with 4 slots>
+## 6 <S4 class 'dgeMatrix' [package "Matrix"] with 4 slots>
 ```
 
 ```r

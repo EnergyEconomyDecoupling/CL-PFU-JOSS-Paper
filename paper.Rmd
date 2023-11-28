@@ -380,7 +380,7 @@ pinboard <- file.path("ExampleFolder", "OutputData", "PipelineReleases") |>
 #     created by the PFUDatabase pipeline.
 psut <- pinboard |>
   pins::pin_read(name = "psut", version = "20230811T122618Z-3b7b3")
-head(psut)
+head(as.data.frame(psut))
 #     Each column of the psut data frame contains sparse matrices, 
 #     the columns of which are suppressed on display.
 #     Show the column names here.
