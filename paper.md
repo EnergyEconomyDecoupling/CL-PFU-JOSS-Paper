@@ -1,5 +1,5 @@
 ---
-title: 'CL-PFU: A suite of R packages for energy conversion chain analysis'
+title: 'CLPFUDatabase: A suite of R packages for energy conversion chain analysis'
 tags:
 - energy
 - exergy
