@@ -332,9 +332,9 @@ The packages in the following table are available on GitHub.
 
 Input data for the PFU database can be found in @Marshall:2023aa.
 Access to the full CL-PFU database can be obtained via correspondence 
-with author [PEB](mailto:P.E.Brockway@leeds.ac.uk)^[Because the PFU Database contains
+with author [PEB](mailto:P.E.Brockway@leeds.ac.uk)^[Because the CL-PFU database contains
 primary and final energy [IEA EWEB][link-ieaeweb] data, 
-use of the PFU Database
+use of the CL-PFU database
 is restricted to those who have access to [IEA][link-iea] [EWEB][link-ieaeweb] data.].
 If desired, researchers with access to the 
 [IEA][link-iea]'s [EWEB][link-ieaeweb] 
