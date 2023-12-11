@@ -1,0 +1,91 @@
+---
+output: github_document
+bibliography: References.bib
+---
+
+<!-- *********** -->
+<!-- Note: README.md is generated from README.Rmd.   -->
+<!-- Be sure to edit README.Rmd and generate the README.md file by Cmd/Ctl-shift-K -->
+<!-- *********** -->
+
+
+<!-- Define some macros for later use -->
+[link-cran]:             https://cran.r-project.org
+[link-ecctools]:         https://github.com/earamendia/ECCTools
+[link-eroitools]:        https://github.com/earamendia/EROITools
+[link-iea]:              https://www.iea.org
+[link-ieatools]:         https://github.com/MatthewHeun/IEATools
+[link-ieaeweb]:          https://www.iea.org/data-and-statistics/data-product/world-energy-balances
+[link-ilo]:              https://www.ilo.org/
+[link-fao]:              https://www.fao.org/
+[link-matsbyname]:       https://github.com/MatthewHeun/matsbyname
+[link-matsindf]:         https://github.com/MatthewHeun/matsindf
+[link-mwtools]:          https://github.com/EnergyEconomyDecoupling/MWTools
+[link-pfusetup]:         https://github.com/EnergyEconomyDecoupling/PFUSetup
+[link-pfudatabase]:      https://github.com/EnergyEconomyDecoupling/PFUDatabase
+[link-pfuaggdatabase]:   https://github.com/EnergyEconomyDecoupling/PFUAggDatabase
+[link-pfupipelinetools]: https://github.com/EnergyEconomyDecoupling/PFUPipelineTools
+[link-pins]:             https://pins.rstudio.com
+[link-rclabels]:         https://github.com/MatthewHeun/RCLabels
+[link-recca]:            https://github.com/MatthewHeun/Recca
+[link-targets]:          https://docs.ropensci.org/targets
+[link-tidyverse]:        https://www.tidyverse.org
+
+
+## JOSS paper
+
+This repository contains a paper submitted to 
+the [Journal of Open Source Software (JOSS)](https://joss.theoj.org)
+covering the suite of `R` packages associated with the 
+CL-PFU database^["CL-PFU" 
+is an initialism for "Country-Level
+Primary, Final, and Useful."
+The CL-PFU database contains many countries as well as 
+continental and world aggregations.
+Technically speaking, 
+we create [matsindf][link-matsindf] data frames
+stored as [pins][link-pins] on a pinboard, 
+not SQL or similar databases.].
+
+
+## CL-PFU database
+
+We created a suite of `R` packages 
+to support the creation and use of the CL-PFU database.
+The CL-PFU database is a new resouce 
+for the Societal Exergy Analysis (SEA) research community and
+assists SEA practitioners 
+to analyze energy conversion chains (ECCs).
+The new packages enable, for the first time, scalable SEA.
+
+
+## `R` packages
+
+The `R` packages covered by this paper include
+three packages that support the PSUT framework of
+[Heun et al. [-@Heun:2018]](https://doi.org/10.1016/j.apenergy.2018.05.109).
+These packages are 
+generally useful and available on [CRAN][link-cran].
+
+| Package | Purpose |
+|:--------|:--------|
+| [RCLabels][link-rclabels]     | Manipulates matrix row and column names in [matsindf][link-matsindf] data frames |
+| [matsbyname][link-matsbyname] | Performs matrix mathematics that respects row and column names |
+| [matsindf][link-matsindf]     | Stores matrices in cells of data frames, thereby enabling analyses with [tidyverse][link-tidyverse] syntax |
+
+
+Several additional packages support the creation of the CL-PFU database. 
+The packages in the following table are available on GitHub.
+
+| Package | Purpose |
+|:--------|:--------|
+| [IEATools][link-ieatools]             | Converts [IEA EWEB][link-ieaeweb] data to RUVY matrices in [matsindf][link-matsindf] data frames |
+| [MWTools][link-mwtools]               | Converts [ILO][link-ilo] and [FAO][link-fao] data to RUVY matrices of human and animal muscle work in [matsindf][link-matsindf] data frames |
+| [Recca][link-recca]                   | Performs `R` energy conversion chain analysis |
+| [PFUSetup][link-pfusetup]             | Identifies input and output locations for the [PFUDatabase][link-pfudatabase] and [PFUAggDatabase][link-pfuaggdatabase] pipelines |
+| [PFUPipelineTools][link-pfupipelinetools] | Provides basic functionality for all PFU pipelines |
+| [PFUDatabase][link-pfudatabase]       | Provides a [targets][link-targets] pipeline to create a data frame of RUVY matrices |
+| [PFUAggDatabase][link-pfuaggdatabase] | Provides a [targets][link-targets] pipeline to aggregate RUVY matrices |
+
+
+## References
