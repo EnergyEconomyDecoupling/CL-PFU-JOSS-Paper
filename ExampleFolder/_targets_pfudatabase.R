@@ -44,7 +44,7 @@ apply_fixes <- TRUE
 
 # Should we do a release of the results to a pinboard?
 # A release has already been made and is available in the repository.
-release <- FALSE
+release <- TRUE
 
 # End user-adjustable parameters.
 

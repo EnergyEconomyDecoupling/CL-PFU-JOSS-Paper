@@ -356,9 +356,12 @@ following the example below.
 #     downloaded data are stored in the repository 
 #     for this paper.
 source(file.path("ExampleFolder", "DownloadScripts", "download_mw_data.R"))
-```
 
-```{r, eval=TRUE}
+# Steps (3) and (4) to construct the database are needed only once.
+# Results are stored in the targets cache 
+# located in the "_targets" folder
+# at the root level of this repository.
+
 # (3) Run the PFUDatabase pipeline to create RUVY matrices.
 targets::tar_make_future(
   script = file.path("ExampleFolder", "_targets_pfudatabase.R"), 
@@ -372,6 +375,7 @@ targets::tar_make_future(
 )
 ```
 
+
 ```{r}
 # (5) Review results using the pins package.
 #     Establish the pinboard.
@@ -380,7 +384,7 @@ pinboard <- file.path("ExampleFolder", "OutputData", "PipelineReleases") |>
 #     Look at the psut data frame
 #     created by the PFUDatabase pipeline.
 psut <- pinboard |>
-  pins::pin_read(name = "psut", version = "20230811T122618Z-3b7b3")
+  pins::pin_read(name = "psut", version = "20231211T161342Z-3e2fb")
 head(as.data.frame(psut), 2)
 #     Each column of the psut data frame contains sparse matrices, 
 #     the columns of which are suppressed on display.
@@ -392,7 +396,7 @@ psut$R[[1]]
 #     Review the aggregate PFU efficiency data frame
 #     created by the PFUAggDatabase pipeline.
 agg_eta_pfu <- pinboard |> 
-  pins::pin_read(name = "agg_eta_pfu", version = "20230817T180346Z-45741")
+  pins::pin_read(name = "agg_eta_pfu", version = "20231211T161827Z-8f5e7")
 agg_eta_pfu |> 
 #     Filter and delete columns 
 #     to present a subset of exergy results in a data frame.

@@ -1,0 +1,10 @@
+file: sector_agg_eta_fu.rds
+file_size: 22928
+pin_hash: fc2c1b93b118a58c
+type: rds
+title: 'sector_agg_eta_fu: a pinned 6108 x 14 data frame'
+description: ~
+tags: ~
+urls: ~
+created: 20231211T161838Z
+api_version: 1
