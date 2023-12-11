@@ -345,7 +345,7 @@ following the example below.
 
 # Example
 
-```{r, eval=FALSE}
+```{r, eval=TRUE}
 # (1) Purchase, download, and store IEA EWEB data in the correct location.
 #     Sample data for two countries (Ghana and South Africa) 
 #     and two years (1971 and 2000) are included (with permission)
@@ -358,7 +358,7 @@ following the example below.
 source(file.path("ExampleFolder", "DownloadScripts", "download_mw_data.R"))
 ```
 
-```{r, eval=FALSE}
+```{r, eval=TRUE}
 # (3) Run the PFUDatabase pipeline to create RUVY matrices.
 targets::tar_make_future(
   script = file.path("ExampleFolder", "_targets_pfudatabase.R"), 
