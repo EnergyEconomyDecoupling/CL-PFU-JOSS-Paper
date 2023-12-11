@@ -345,7 +345,7 @@ following the example below.
 
 # Example
 
-```{r, eval=TRUE}
+```{r, eval=FALSE}
 # (1) Purchase, download, and store IEA EWEB data in the correct location.
 #     Sample data for two countries (Ghana and South Africa) 
 #     and two years (1971 and 2000) are included (with permission)
