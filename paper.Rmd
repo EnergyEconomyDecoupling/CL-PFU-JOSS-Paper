@@ -232,7 +232,7 @@ to enable this functionality.
 Finally, manipulating row and column names proved to be a challenge, 
 especially for RUVY matrices in [matsindf][link-matsindf] data frames, so 
 we developed the [RCLabels][link-rclabels] package [@Heun-RCLabels:2023]
-to assist.
+to support the PSUT framework.
 The table below summarizes these packages, 
 all of which are generally useful and available on 
 [CRAN][link-cran].
@@ -318,7 +318,8 @@ for pipeline input and output data.
 [PFUPipelineTools][link-pfupipelinetools] provides functions and constants
 common to both pipelines. 
 
-The packages in the following table are available on GitHub.
+The packages in the following table support creation of the CL-PFU database
+are available on GitHub.
 
 | Package | Purpose |
 |:--------|:--------|
