@@ -13,11 +13,12 @@ Source Software (JOSS)](https://joss.theoj.org) covering the suite of
 
 ## CL-PFU database
 
-We created a suite of `R` packages to support the creation and use of
-the CL-PFU database. The CL-PFU database is a new resouce for the
-Societal Exergy Analysis (SEA) research community and assists SEA
-practitioners to analyze energy conversion chains (ECCs). The new
-packages enable, for the first time, scalable SEA.
+We created a suite of `R` packages and the metapackage `CLPFUDatabase`
+to support the creation and use of the CL-PFU database. The CL-PFU
+database is a new resouce for the Societal Exergy Analysis (SEA)
+research community and assists SEA practitioners to analyze energy
+conversion chains (ECCs). The new packages enable, for the first time,
+scalable SEA.
 
 ## `R` packages
 

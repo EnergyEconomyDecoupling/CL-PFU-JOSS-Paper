@@ -51,6 +51,7 @@ not SQL or similar databases.].
 ## CL-PFU database
 
 We created a suite of `R` packages 
+and the metapackage `CLPFUDatabase`
 to support the creation and use of the CL-PFU database.
 The CL-PFU database is a new resouce 
 for the Societal Exergy Analysis (SEA) research community and
