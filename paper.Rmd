@@ -96,6 +96,7 @@ output:
 [link-pfudatabase]:      https://github.com/EnergyEconomyDecoupling/PFUDatabase
 [link-pfuaggdatabase]:   https://github.com/EnergyEconomyDecoupling/PFUAggDatabase
 [link-pfupipelinetools]: https://github.com/EnergyEconomyDecoupling/PFUPipelineTools
+[link-clpfudatabase]:    https://github.com/EnergyEconomyDecoupling/CLPFUDatabase
 [link-pins]:             https://pins.rstudio.com
 [link-rclabels]:         https://github.com/MatthewHeun/RCLabels
 [link-recca]:            https://github.com/MatthewHeun/Recca
@@ -331,10 +332,11 @@ are available on GitHub.
 | [PFUPipelineTools][link-pfupipelinetools] | Provides basic functionality for all PFU pipelines |
 | [PFUDatabase][link-pfudatabase]       | Provides a [targets][link-targets] pipeline to create a data frame of RUVY matrices |
 | [PFUAggDatabase][link-pfuaggdatabase] | Provides a [targets][link-targets] pipeline to aggregate RUVY matrices |
+| [CLPFUDatabase][link-clpfudatabase]   | A metapackage (like `tidyverse`) to quickly load all packages for the CL-PFU database |
 
 Input data for the PFU database can be found in @Marshall:2023aa.
 Access to the full CL-PFU database can be obtained via correspondence 
-with author [PEB](mailto:P.E.Brockway@leeds.ac.uk)^[Because the CL-PFU database contains
+with author [P.E.B.](mailto:P.E.Brockway@leeds.ac.uk)^[Because the CL-PFU database contains
 primary and final energy [IEA EWEB][link-ieaeweb] data, 
 use of the CL-PFU database
 is restricted to those who have access to [IEA][link-iea] [EWEB][link-ieaeweb] data.].
