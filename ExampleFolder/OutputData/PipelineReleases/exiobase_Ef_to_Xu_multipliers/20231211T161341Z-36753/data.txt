@@ -1,0 +1,10 @@
+file: exiobase_Ef_to_Xu_multipliers.csv
+file_size: 23492
+pin_hash: 36753bfebb5045cd
+type: csv
+title: 'exiobase_Ef_to_Xu_multipliers: a pinned 195 x 4 data frame'
+description: ~
+tags: ~
+urls: ~
+created: 20231211T161341Z
+api_version: 1

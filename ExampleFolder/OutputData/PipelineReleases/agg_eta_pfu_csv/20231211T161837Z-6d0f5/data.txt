@@ -1,0 +1,10 @@
+file: agg_eta_pfu_csv.csv
+file_size: 171544
+pin_hash: 6d0f5a0c9c7983c6
+type: csv
+title: 'agg_eta_pfu_csv: a pinned 1440 x 13 data frame'
+description: ~
+tags: ~
+urls: ~
+created: 20231211T161837Z
+api_version: 1

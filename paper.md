@@ -233,7 +233,7 @@ to enable this functionality.
 Finally, manipulating row and column names proved to be a challenge, 
 especially for RUVY matrices in [matsindf][link-matsindf] data frames, so 
 we developed the [RCLabels][link-rclabels] package [@Heun-RCLabels:2023]
-to assist.
+to support the PSUT framework.
 The table below summarizes these packages, 
 all of which are generally useful and available on 
 [CRAN][link-cran].
@@ -319,7 +319,8 @@ for pipeline input and output data.
 [PFUPipelineTools][link-pfupipelinetools] provides functions and constants
 common to both pipelines. 
 
-The packages in the following table are available on GitHub.
+The packages in the following table support creation of the CL-PFU database
+are available on GitHub.
 
 | Package | Purpose |
 |:--------|:--------|
@@ -357,10 +358,12 @@ following the example below.
 #     downloaded data are stored in the repository 
 #     for this paper.
 source(file.path("ExampleFolder", "DownloadScripts", "download_mw_data.R"))
-```
 
+# Steps (3) and (4) to construct the database are needed only once.
+# Results are stored in the targets cache 
+# located in the "_targets" folder
+# at the root level of this repository.
 
-```r
 # (3) Run the PFUDatabase pipeline to create RUVY matrices.
 targets::tar_make_future(
   script = file.path("ExampleFolder", "_targets_pfudatabase.R"), 
@@ -375,6 +378,7 @@ targets::tar_make_future(
 ```
 
 
+
 ```r
 # (5) Review results using the pins package.
 #     Establish the pinboard.
@@ -383,7 +387,7 @@ pinboard <- file.path("ExampleFolder", "OutputData", "PipelineReleases") |>
 #     Look at the psut data frame
 #     created by the PFUDatabase pipeline.
 psut <- pinboard |>
-  pins::pin_read(name = "psut", version = "20230811T122618Z-3b7b3")
+  pins::pin_read(name = "psut", version = "20231211T161342Z-3e2fb")
 head(as.data.frame(psut), 2)
 ```
 
@@ -501,7 +505,7 @@ psut$R[[1]]
 #     Review the aggregate PFU efficiency data frame
 #     created by the PFUAggDatabase pipeline.
 agg_eta_pfu <- pinboard |> 
-  pins::pin_read(name = "agg_eta_pfu", version = "20230817T180346Z-45741")
+  pins::pin_read(name = "agg_eta_pfu", version = "20231211T161827Z-8f5e7")
 agg_eta_pfu |> 
 #     Filter and delete columns 
 #     to present a subset of exergy results in a data frame.
@@ -528,13 +532,17 @@ agg_eta_pfu |>
 ```
 
 ```
-## # A tibble: 4 × 8
-##   Country  Year     EX.p     EX.f    EX.u eta_pf eta_fu eta_pu
-##   <chr>   <dbl>    <dbl>    <dbl>   <dbl>  <dbl>  <dbl>  <dbl>
-## 1 GHA      1971  179666.  139694.  16818.  0.778  0.120 0.0936
-## 2 GHA      2000  344825.  274173.  56685.  0.795  0.207 0.164 
-## 3 ZAF      1971 2138435. 1525335. 211631.  0.713  0.139 0.0990
-## 4 ZAF      2000 4957435. 2451131. 482493.  0.494  0.197 0.0973
+## # A tibble: 8 × 9
+##   Country Last.stage  Year     EX.p     EX.f    EX.u eta_pf eta_fu eta_pu
+##   <chr>   <chr>      <dbl>    <dbl>    <dbl>   <dbl>  <dbl>  <dbl>  <dbl>
+## 1 GHA     Final       1971  179666.  139694.  16853.  0.778  0.121 0.0938
+## 2 GHA     Useful      1971  179666.  139694.  16853.  0.778  0.121 0.0938
+## 3 GHA     Final       2000  344825.  274173.  56749.  0.795  0.207 0.165 
+## 4 GHA     Useful      2000  344825.  274173.  56749.  0.795  0.207 0.165 
+## 5 ZAF     Final       1971 2138435. 1525335. 211670.  0.713  0.139 0.0990
+## 6 ZAF     Useful      1971 2138435. 1525335. 211670.  0.713  0.139 0.0990
+## 7 ZAF     Final       2000 4957435. 2451131. 482533.  0.494  0.197 0.0973
+## 8 ZAF     Useful      2000 4957435. 2451131. 482533.  0.494  0.197 0.0973
 ```
 
 

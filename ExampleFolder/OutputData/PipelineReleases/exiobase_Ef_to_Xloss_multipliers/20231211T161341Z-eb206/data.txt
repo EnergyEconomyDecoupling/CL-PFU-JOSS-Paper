@@ -1,0 +1,10 @@
+file: exiobase_Ef_to_Xloss_multipliers.csv
+file_size: 23453
+pin_hash: eb2067215cc2166c
+type: csv
+title: 'exiobase_Ef_to_Xloss_multipliers: a pinned 195 x 4 data frame'
+description: ~
+tags: ~
+urls: ~
+created: 20231211T161341Z
+api_version: 1

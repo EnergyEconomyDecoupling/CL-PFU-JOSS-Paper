@@ -1,0 +1,10 @@
+file: all_machine_data.rds
+file_size: 67323
+pin_hash: 05b45238bb21f643
+type: rds
+title: 'all_machine_data: a pinned 15412 x 9 data frame'
+description: ~
+tags: ~
+urls: ~
+created: 20231211T161340Z
+api_version: 1

@@ -1,9 +1,0 @@
-file: eta_fu_Y_eiou.rds
-file_size: 12137
-pin_hash: a5eceab654a58de2
-type: rds
-title: 'eta_fu_Y_eiou: a pinned 4 x 13 data frame'
-description: ~
-tags: ~
-created: 20230811T122618Z
-api_version: 1

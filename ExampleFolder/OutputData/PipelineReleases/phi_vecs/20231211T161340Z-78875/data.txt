@@ -1,0 +1,10 @@
+file: phi_vecs.rds
+file_size: 1559
+pin_hash: 78875942c0d1c488
+type: rds
+title: 'phi_vecs: a pinned 4 x 3 data frame'
+description: ~
+tags: ~
+urls: ~
+created: 20231211T161340Z
+api_version: 1

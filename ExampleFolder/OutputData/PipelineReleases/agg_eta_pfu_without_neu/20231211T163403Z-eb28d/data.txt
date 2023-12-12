@@ -1,0 +1,10 @@
+file: agg_eta_pfu_without_neu.rds
+file_size: 6746
+pin_hash: eb28df6c707e3676
+type: rds
+title: 'agg_eta_pfu_without_neu: a pinned 960 x 17 data frame'
+description: ~
+tags: ~
+urls: ~
+created: 20231211T163403Z
+api_version: 1

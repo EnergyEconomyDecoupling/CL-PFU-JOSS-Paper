@@ -1,6 +1,6 @@
 ---
 output: github_document
-bibliography: References.bib
+bibliography: paper.bib
 ---
 
 <!-- *********** -->
@@ -37,7 +37,7 @@ bibliography: References.bib
 This repository contains a paper submitted to 
 the [Journal of Open Source Software (JOSS)](https://joss.theoj.org)
 covering the suite of `R` packages associated with the 
-CL-PFU database^["CL-PFU" 
+CL-PFU^["CL-PFU" 
 is an initialism for "Country-Level
 Primary, Final, and Useful."
 The CL-PFU database contains many countries as well as 
@@ -45,7 +45,32 @@ continental and world aggregations.
 Technically speaking, 
 we create [matsindf][link-matsindf] data frames
 stored as [pins][link-pins] on a pinboard, 
-not SQL or similar databases.].
+not SQL or similar databases.] database.
+
+
+## Statement of need
+
+Historically, Societal Exergy Analysis (SEA)
+practitioners have analyzed the ECCs
+of individual countries using linked spreadsheets,
+often starting with primary- and final-stage data 
+from the [International Energy Agency][link-iea]'s (IEA's)
+[extended world energy balances][link-ieaeweb] (EWEBs)
+[@Ayres:2003ec; @Serrenho:2014aa; @Brockway:2014aa; @Brockway:2015aa]. 
+Data were stored in varying and inconsistent formats.
+An early SEA database [@De-Stercke:2014]
+estimated energy efficiencies 
+of end-use machines using the economic status of countries,
+thereby precluding use in energy-economy studies.
+
+The authors of the current paper and others in the field
+wanted to expand SEA to cover all countries, but
+the spreadsheet approach to SEA was
+deemed not scalable.
+A new approach to SEA was needed, 
+one that scaled across all countries 
+for many years without relying on economic data
+to estimate machine efficiencies. 
 
 
 ## CL-PFU database
@@ -54,7 +79,7 @@ We created a suite of `R` packages
 and the metapackage `CLPFUDatabase`
 to support the creation and use of the CL-PFU database.
 The CL-PFU database is a new resouce 
-for the Societal Exergy Analysis (SEA) research community and
+for the SEA research community and
 assists SEA practitioners 
 to analyze energy conversion chains (ECCs).
 The new packages enable, for the first time, scalable SEA.

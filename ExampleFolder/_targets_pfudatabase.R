@@ -16,6 +16,8 @@ pfu_setup <- PFUSetup::get_abs_paths(home_path = "", cloud_storage_path = "",
 # Custom parameters
 countries <- c("GHA", "ZAF")
 years <- c(1971, 2000)  
+years_exiobase <- 1995:2020
+
 
 # Additional exemplar countries are countries which aren't included in the workflow
 # as individual countries, but from which allocation or efficiency data may be 
@@ -42,7 +44,7 @@ apply_fixes <- TRUE
 
 # Should we do a release of the results to a pinboard?
 # A release has already been made and is available in the repository.
-release <- FALSE
+release <- TRUE
 
 # End user-adjustable parameters.
 
@@ -89,6 +91,8 @@ PFUDatabase::get_pipeline(countries = countries,
                           machine_data_path = pfu_setup[["machine_data_folder"]],
                           exemplar_table_path = pfu_setup[["exemplar_table_path"]],
                           fu_analysis_folder = pfu_setup[["fu_analysis_folder"]],
+                          exiobase_energy_flows_path = pfu_setup[["exiobase_energy_flows_path"]],
+                          years_exiobase = years_exiobase,
                           reports_source_folders = pfu_setup[["reports_source_folders"]],
                           reports_dest_folder = pfu_setup[["reports_dest_folder"]],
                           pipeline_releases_folder = pfu_setup[["pipeline_releases_folder"]],

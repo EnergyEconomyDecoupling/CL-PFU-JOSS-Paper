@@ -1,0 +1,10 @@
+file: completed_efficiency_tables.rds
+file_size: 2603
+pin_hash: 8687b314288d5a3a
+type: rds
+title: 'completed_efficiency_tables: a pinned 223 x 10 data frame'
+description: ~
+tags: ~
+urls: ~
+created: 20231211T161341Z
+api_version: 1

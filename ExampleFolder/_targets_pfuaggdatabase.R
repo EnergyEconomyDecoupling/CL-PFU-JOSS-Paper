@@ -19,7 +19,9 @@ do_chops <- FALSE
 
 # Set the release to be used for input.
 # This is a pre-made pins release available in the repository.
-psut_release <- "20230811T122618Z-3b7b3"
+psut_release <- "20231211T161342Z-3e2fb"  
+psut_without_neu_release <- "20231211T161342Z-bf294"
+phi_vecs_release <- "20231211T161340Z-78875"
 
 # Should we release the results?
 release <- TRUE
@@ -48,6 +50,8 @@ PFUAggDatabase::get_pipeline(countries = countries,
                              years = years,
                              do_chops = do_chops,
                              psut_release = psut_release,
+                             psut_without_neu_release = psut_without_neu_release,
+                             phi_vecs_release = phi_vecs_release,
                              aggregation_maps_path = pfu_setup[["aggregation_mapping_path"]],
                              pipeline_releases_folder = pfu_setup[["pipeline_releases_folder"]],
                              pipeline_caches_folder = pfu_setup[["pipeline_caches_folder"]],
