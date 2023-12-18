@@ -13,9 +13,6 @@ authors:
 - name: Zeke Marshall
   orcid: 0000-0001-9260-7827
   affiliation: 2
-# - name: Paul E. Brockway
-#   orcid: 0000-0001-6925-8040
-#   affiliation: 2
 - name: Emmanuel Aramendia
   orcid: 0000-0002-5964-6776
   affiliation: 2
@@ -571,14 +568,18 @@ are not the subject of this paper and were not peer reviewed.].
 
 # Acknowledgements
 
-MKH acknowledges the support of Calvin University for 
+M.K.H. acknowledges the support of Calvin University for 
 a sabbatical during which he developed the PSUT framework
 and course releases during which he wrote many of the `R` packages
 described in this paper.
-ZM's and PEB's time was funded by 
+Z.M.'s time was funded by 
 the UK Research Council under EPSRC Fellowship award EP/R024254/1.
-EA's time was funded by 
+E.A.'s time was funded by 
 the University of Leeds (School of Earth and Environment).
+M.K.H., Z.M., and E.A. are grateful for support and encouragement
+from Paul E. Brockway (University of Leeds).
+It is Paul's EPSRC fellowship that provided the need for the software
+described in this paper.
 
 
 # References
