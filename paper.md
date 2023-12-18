@@ -577,8 +577,8 @@ the UK Research Council under EPSRC Fellowship award EP/R024254/1.
 E.A.'s time was funded by 
 the University of Leeds (School of Earth and Environment).
 M.K.H., Z.M., and E.A. are grateful for support and encouragement
-from Paul E. Brockway (University of Leeds).
-It is Paul's EPSRC fellowship that provided the need for the software
+from Dr. Paul E. Brockway (University of Leeds).
+It was Dr. Brockway's EPSRC fellowship that provided the need for the software
 described in this paper.
 
 
