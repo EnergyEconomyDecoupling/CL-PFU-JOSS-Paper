@@ -13,9 +13,9 @@ authors:
 - name: Zeke Marshall
   orcid: 0000-0001-9260-7827
   affiliation: 2
-- name: Paul E. Brockway
-  orcid: 0000-0001-6925-8040
-  affiliation: 2
+# - name: Paul E. Brockway
+#   orcid: 0000-0001-6925-8040
+#   affiliation: 2
 - name: Emmanuel Aramendia
   orcid: 0000-0002-5964-6776
   affiliation: 2
