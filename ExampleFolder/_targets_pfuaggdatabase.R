@@ -19,8 +19,8 @@ do_chops <- FALSE
 
 # Set the release to be used for input.
 # This is a pre-made pins release available in the repository.
-psut_release <- "20231211T161342Z-3e2fb"  
-psut_without_neu_release <- "20231211T161342Z-bf294"
+psut_release <- "20231219T204403Z-2c3ce"  
+psut_without_neu_release <- "20231219T204408Z-6761d"
 phi_vecs_release <- "20231211T161340Z-78875"
 
 # Should we release the results?

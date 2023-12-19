@@ -345,7 +345,7 @@ following the example below.
 
 # Example
 
-```{r, eval=TRUE}
+```{r, eval=FALSE}
 library(devtools)
 # (0) Use the CLPFUDatabase metapackage to install all dependencies.
 #     This package installation step is needed only once.
@@ -389,7 +389,7 @@ pinboard <- file.path("ExampleFolder", "OutputData", "PipelineReleases") |>
 #     Look at the psut data frame
 #     created by the PFUDatabase pipeline.
 psut <- pinboard |>
-  pins::pin_read(name = "psut", version = "20231211T161342Z-3e2fb")
+  pins::pin_read(name = "psut", version = "20231219T204403Z-2c3ce")
 head(as.data.frame(psut), 2)
 #     Each column of the psut data frame contains sparse matrices, 
 #     the columns of which are suppressed on display.

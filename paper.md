@@ -348,7 +348,10 @@ following the example below.
 
 ```r
 library(devtools)
+# (0) Use the CLPFUDatabase metapackage to install all dependencies.
+#     This package installation step is needed only once.
 devtools::install_github("EnergyEconomyDecoupling/CLPFUDatabase")
+
 # (1) Purchase, download, and store IEA EWEB data in the correct location.
 #     Sample data for two countries (Ghana and South Africa) 
 #     and two years (1971 and 2000) are included (with permission)
@@ -388,7 +391,7 @@ pinboard <- file.path("ExampleFolder", "OutputData", "PipelineReleases") |>
 #     Look at the psut data frame
 #     created by the PFUDatabase pipeline.
 psut <- pinboard |>
-  pins::pin_read(name = "psut", version = "20231211T161342Z-3e2fb")
+  pins::pin_read(name = "psut", version = "20231219T204403Z-2c3ce")
 head(as.data.frame(psut), 2)
 ```
 
