@@ -347,7 +347,7 @@ following the example below.
 
 ```{r, eval=TRUE}
 library(devtools)
-# (0) Use the metapackage to install all dependencies.
+# (0) Use the CLPFUDatabase metapackage to install all dependencies.
 #     This package installation step is needed only once.
 devtools::install_github("EnergyEconomyDecoupling/CLPFUDatabase")
 
