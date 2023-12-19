@@ -329,7 +329,7 @@ are available on GitHub.
 | [PFUPipelineTools][link-pfupipelinetools] | Provides basic functionality for all PFU pipelines |
 | [PFUDatabase][link-pfudatabase]       | Provides a [targets][link-targets] pipeline to create a data frame of RUVY matrices |
 | [PFUAggDatabase][link-pfuaggdatabase] | Provides a [targets][link-targets] pipeline to aggregate RUVY matrices |
-| [CLPFUDatabase][link-clpfudatabase]   | A metapackage (like `tidyverse`) to quickly load all packages for the CL-PFU database |
+| [CLPFUDatabase][link-clpfudatabase]   | A metapackage (like `tidyverse`) to quickly load all package dependencies for the CL-PFU database |
 
 Input data for the PFU database can be found in @Marshall:2023aa.
 Access to the full CL-PFU database can be obtained via correspondence 
@@ -345,7 +345,12 @@ following the example below.
 
 # Example
 
-```{r, eval=FALSE}
+```{r, eval=TRUE}
+library(devtools)
+# (0) Use the metapackage to install all dependencies.
+#     This package installation step is needed only once.
+devtools::install_github("EnergyEconomyDecoupling/CLPFUDatabase")
+
 # (1) Purchase, download, and store IEA EWEB data in the correct location.
 #     Sample data for two countries (Ghana and South Africa) 
 #     and two years (1971 and 2000) are included (with permission)
