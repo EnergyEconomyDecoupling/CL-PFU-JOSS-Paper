@@ -1,0 +1,10 @@
+file: psut_without_neu.rds
+file_size: 108866
+pin_hash: 6761d11c090913db
+type: rds
+title: 'psut_without_neu: a pinned 48 x 15 data frame'
+description: ~
+tags: ~
+urls: ~
+created: 20231219T204408Z
+api_version: 1
