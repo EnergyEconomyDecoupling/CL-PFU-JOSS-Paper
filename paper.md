@@ -21,7 +21,6 @@ affiliations:
   index: 1
 - name: School of Earth and Environment, University of Leeds
   index: 2
-# date: "17 Aug 2023"
 bibliography: paper.bib
 output:
   html_document:
@@ -356,6 +355,7 @@ devtools::install_github("EnergyEconomyDecoupling/CLPFUDatabase")
 #     Sample data for two countries (Ghana and South Africa) 
 #     and two years (1971 and 2000) are included (with permission)
 #     at the correct location in the repository for this paper.
+
 # (2) Download FAO and ILO data for muscle work calculations
 #     via the included script.
 #     This download step is needed only once, and
@@ -373,6 +373,7 @@ targets::tar_make_future(
   script = file.path("ExampleFolder", "_targets_pfudatabase.R"), 
   workers = 4
 )
+
 # (4) Run the PFUAggDatabase pipeline to aggregate 
 #     energy and calculate efficiencies.
 targets::tar_make_future(
