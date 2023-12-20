@@ -46,7 +46,7 @@ targets::tar_option_set(
 )
 
 # Pull in the pipeline
-PFUAggDatabase::get_pipeline(countries = countries,
+PFUAggPipeline::get_pipeline(countries = countries,
                              years = years,
                              do_chops = do_chops,
                              psut_release = psut_release,

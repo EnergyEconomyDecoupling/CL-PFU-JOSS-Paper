@@ -273,7 +273,7 @@ available in the [PFUPipeline][link-pfupipeline]
 package.
 A unique feature of the
 [PFUPipeline][link-pfupipeline]
-pipeline enabled by the [Recca][link-recca] package 
+enabled by the [Recca][link-recca] package 
 is an innovative exemplar system that allows
 analyses to proceed when allocation or efficiency data are unavailable for a country.
 When allocations or efficiencies are missing,
@@ -297,11 +297,11 @@ Low-, Medium-, and High-temperature heat, etc.),
 (c) by energy conversion machines (industries) and/or end use sectors
 (e.g., Residential, Transport, etc.), and
 (d) to primary, final, and useful (PFU) stages.
-In addition, the [PFUAggDatabase][link-pfuaggdatabase] pipeline 
+In addition, the [PFUAggPipeline][link-pfuaggpipeline] 
 calculates efficiencies for each country
 at all available aggregations.
-The [PFUAggDatabase][link-pfuaggdatabase]
-pipeline uses the [Recca][link-recca] package extensively.
+The [PFUAggPipeline][link-pfuaggpipeline]
+uses the [Recca][link-recca] package extensively.
 
 Both [targets][link-targets] pipelines 
 (in the [PFUPipeline][link-pfupipeline] and
