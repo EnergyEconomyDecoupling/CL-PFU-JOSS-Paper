@@ -140,7 +140,7 @@ Technically speaking,
 we create [matsindf][link-matsindf] data frames
 stored as [pins][link-pins] on a pinboard, 
 not SQL or similar databases.],
-a new resource for the SEA community [@Marshall:2023aa]. 
+a new resource for the SEA community [@Marshall:2023aa; @Brockway:2024aa]. 
 
 This paper describes the design of the new packages and
 demonstrates briefly their use.
