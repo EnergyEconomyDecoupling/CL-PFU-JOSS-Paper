@@ -372,6 +372,7 @@ targets::tar_make_future(
   script = file.path("ExampleFolder", "_targets_pfudatabase.R"), 
   workers = 4
 )
+
 # (4) Run the PFUAggDatabase pipeline to aggregate 
 #     energy and calculate efficiencies.
 targets::tar_make_future(
