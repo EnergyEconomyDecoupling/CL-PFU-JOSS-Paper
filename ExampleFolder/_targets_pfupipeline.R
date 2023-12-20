@@ -2,12 +2,12 @@
 
 # Available from EnergyEconomyDecoupling on GitHub
 # with devtools::install_github("EnergyEconomyDecoupling/xxxxxx")
-library(PFUDatabase)
+library(PFUPipeline)
 library(PFUSetup)
 
 # Use the PFUSetup package to establish paths for the example
 # Create the pfu_setup object used in the targets scripts 
-# _targets_pfudatabase.R and _targets_pfuaggdatabase.R.
+# _targets_pfupipeline.R and _targets_pfuaggpipeline.R.
 pfu_setup <- PFUSetup::get_abs_paths(home_path = "", cloud_storage_path = "",
                                      project_path = "ExampleFolder",
                                      version = "v_example", 
@@ -70,7 +70,7 @@ targets::tar_option_set(
 )
 
 # Pull in the pipeline
-PFUDatabase::get_pipeline(countries = countries,
+PFUPipeline::get_pipeline(countries = countries,
                           additional_exemplar_countries = additional_exemplar_countries,
                           matrix_class = matrix_class,
                           specify_non_energy_flows = specify_non_energy_flows,

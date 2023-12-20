@@ -2,7 +2,7 @@ library(targets)
 
 # Use the PFUSetup package to establish paths for the example
 # Create the pfu_setup object used in the targets scripts 
-# _targets_pfudatabase.R and _targets_pfuaggdatabase.R.
+# _targets_pfupipeline.R and _targets_pfuaggpipeline.R.
 pfu_setup <- PFUSetup::get_abs_paths(home_path = "", cloud_storage_path = "",
                                      project_path = "ExampleFolder",
                                      version = "v_example", 
@@ -35,7 +35,7 @@ future::plan(future.callr::callr)
 
 # Set options for all targets.
 targets::tar_option_set(
-  packages = "PFUAggDatabase",
+  packages = "PFUAggPipeline",
   # Indicate that storage and retrieval of subtargets
   # should be done by the worker thread,
   # not the main thread.

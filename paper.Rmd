@@ -89,8 +89,8 @@ output:
 [link-matsindf]:         https://github.com/MatthewHeun/matsindf
 [link-mwtools]:          https://github.com/EnergyEconomyDecoupling/MWTools
 [link-pfusetup]:         https://github.com/EnergyEconomyDecoupling/PFUSetup
-[link-pfudatabase]:      https://github.com/EnergyEconomyDecoupling/PFUDatabase
-[link-pfuaggdatabase]:   https://github.com/EnergyEconomyDecoupling/PFUAggDatabase
+[link-pfupipeline]:      https://github.com/EnergyEconomyDecoupling/PFUPipeline
+[link-pfuaggpipeline]:   https://github.com/EnergyEconomyDecoupling/PFUAggPipeline
 [link-pfupipelinetools]: https://github.com/EnergyEconomyDecoupling/PFUPipelineTools
 [link-clpfudatabase]:    https://github.com/EnergyEconomyDecoupling/CLPFUDatabase
 [link-pins]:             https://pins.rstudio.com
@@ -269,10 +269,10 @@ The steps to create the PSUT matrices for each country and each year
 are accomplished by a
 [targets][link-targets] [@Landau:2021aa]
 computation pipeline
-available in the [PFUDatabase][link-pfudatabase]
+available in the [PFUPipeline][link-pfupipeline]
 package.
 A unique feature of the
-[PFUDatabase][link-pfudatabase]
+[PFUPipeline][link-pfupipeline]
 pipeline enabled by the [Recca][link-recca] package 
 is an innovative exemplar system that allows
 analyses to proceed when allocation or efficiency data are unavailable for a country.
@@ -281,13 +281,13 @@ a string of exemplar countries or regions
 are queried for the required information.
 For example, exemplars for Belgium are
 France, Europe, and ultimately, the World, in that order.
-The design of the calculation pipeline in the [PFUDatabase][link-pfudatabase] package 
+The design of the calculation pipeline in the [PFUPipeline][link-pfupipeline] package 
 allows allocation and efficiency data
 for any country or year to be added at a later date 
 to improve the database. 
 
 A second [targets][link-targets] pipeline 
-in the [PFUAggDatabase][link-pfuaggdatabase] package [@Heun-PFUAggDatabase:2023]
+in the [PFUAggPipeline][link-pfuaggpipeline] package [@Heun-PFUAggPipeline:2023]
 aggregates ECCs
 (a) by region 
 (e.g., continents and world),
@@ -304,8 +304,8 @@ The [PFUAggDatabase][link-pfuaggdatabase]
 pipeline uses the [Recca][link-recca] package extensively.
 
 Both [targets][link-targets] pipelines 
-(in the [PFUDatabase][link-pfudatabase] and
-[PFUAggDatabase][link-pfuaggdatabase] packages)
+(in the [PFUPipeline][link-pfupipeline] and
+[PFUAggPipeline][link-pfuaggpipeline] packages)
 produce data frames readable by the [pins][link-pins] package [@Silga:2023].
 Both pipelines benefit from the 
 [PFUSetup][link-pfusetup] [@Heun-PFUSetup:2023] and
@@ -324,10 +324,10 @@ are available on GitHub.
 | [IEATools][link-ieatools]             | Converts [IEA EWEB][link-ieaeweb] data to RUVY matrices in [matsindf][link-matsindf] data frames |
 | [MWTools][link-mwtools]               | Converts [ILO][link-ilo] and [FAO][link-fao] data to RUVY matrices of human and animal muscle work in [matsindf][link-matsindf] data frames |
 | [Recca][link-recca]                   | Performs `R` energy conversion chain analysis |
-| [PFUSetup][link-pfusetup]             | Identifies input and output locations for the [PFUDatabase][link-pfudatabase] and [PFUAggDatabase][link-pfuaggdatabase] pipelines |
+| [PFUSetup][link-pfusetup]             | Identifies input and output locations for the [PFUPipeline][link-pfupipeline] and [PFUAggPipeline][link-pfuaggpipeline] pipelines |
 | [PFUPipelineTools][link-pfupipelinetools] | Provides basic functionality for all PFU pipelines |
-| [PFUDatabase][link-pfudatabase]       | Provides a [targets][link-targets] pipeline to create a data frame of RUVY matrices |
-| [PFUAggDatabase][link-pfuaggdatabase] | Provides a [targets][link-targets] pipeline to aggregate RUVY matrices |
+| [PFUPipeline][link-pfupipeline]       | Provides a [targets][link-targets] pipeline to create a data frame of RUVY matrices |
+| [PFUAggPipeline][link-pfuaggpipeline] | Provides a [targets][link-targets] pipeline to aggregate RUVY matrices |
 | [CLPFUDatabase][link-clpfudatabase]   | A metapackage (like `tidyverse`) to quickly load all package dependencies for the CL-PFU database |
 
 Input data for the PFU database can be found in @Marshall:2023aa.
@@ -367,16 +367,16 @@ source(file.path("ExampleFolder", "DownloadScripts", "download_mw_data.R"))
 # located in the "_targets" folder
 # at the root level of this repository.
 
-# (3) Run the PFUDatabase pipeline to create RUVY matrices.
+# (3) Run the PFUPipeline to create RUVY matrices.
 targets::tar_make_future(
-  script = file.path("ExampleFolder", "_targets_pfudatabase.R"), 
+  script = file.path("ExampleFolder", "_targets_pfupipeline.R"), 
   workers = 4
 )
 
-# (4) Run the PFUAggDatabase pipeline to aggregate 
+# (4) Run the PFUAggPipeline to aggregate 
 #     energy and calculate efficiencies.
 targets::tar_make_future(
-  script = file.path("ExampleFolder", "_targets_pfuaggdatabase.R"),
+  script = file.path("ExampleFolder", "_targets_pfuaggpipeline.R"),
   workers = 4
 )
 ```
@@ -388,7 +388,7 @@ targets::tar_make_future(
 pinboard <- file.path("ExampleFolder", "OutputData", "PipelineReleases") |> 
   pins::board_folder(versioned = TRUE)
 #     Look at the psut data frame
-#     created by the PFUDatabase pipeline.
+#     created by the PFUPipeline.
 psut <- pinboard |>
   pins::pin_read(name = "psut", version = "20231219T204403Z-2c3ce")
 head(as.data.frame(psut), 2)
@@ -400,7 +400,7 @@ colnames(psut$R[[1]])
 psut$R[[1]]
 
 #     Review the aggregate PFU efficiency data frame
-#     created by the PFUAggDatabase pipeline.
+#     created by the PFUAggPipeline.
 agg_eta_pfu <- pinboard |> 
   pins::pin_read(name = "agg_eta_pfu", version = "20231211T161827Z-8f5e7")
 agg_eta_pfu |> 

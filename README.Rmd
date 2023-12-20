@@ -22,8 +22,8 @@ bibliography: paper.bib
 [link-matsindf]:         https://github.com/MatthewHeun/matsindf
 [link-mwtools]:          https://github.com/EnergyEconomyDecoupling/MWTools
 [link-pfusetup]:         https://github.com/EnergyEconomyDecoupling/PFUSetup
-[link-pfudatabase]:      https://github.com/EnergyEconomyDecoupling/PFUDatabase
-[link-pfuaggdatabase]:   https://github.com/EnergyEconomyDecoupling/PFUAggDatabase
+[link-pfupipeline]:      https://github.com/EnergyEconomyDecoupling/PFUPipeline
+[link-pfuaggpipeline]:   https://github.com/EnergyEconomyDecoupling/PFUAggPipeline
 [link-pfupipelinetools]: https://github.com/EnergyEconomyDecoupling/PFUPipelineTools
 [link-pins]:             https://pins.rstudio.com
 [link-rclabels]:         https://github.com/MatthewHeun/RCLabels
@@ -108,10 +108,10 @@ The packages in the following table are available on GitHub.
 | [IEATools][link-ieatools]             | Converts [IEA EWEB][link-ieaeweb] data to RUVY matrices in [matsindf][link-matsindf] data frames |
 | [MWTools][link-mwtools]               | Converts [ILO][link-ilo] and [FAO][link-fao] data to RUVY matrices of human and animal muscle work in [matsindf][link-matsindf] data frames |
 | [Recca][link-recca]                   | Performs `R` energy conversion chain analysis |
-| [PFUSetup][link-pfusetup]             | Identifies input and output locations for the [PFUDatabase][link-pfudatabase] and [PFUAggDatabase][link-pfuaggdatabase] pipelines |
+| [PFUSetup][link-pfusetup]             | Identifies input and output locations for the [PFUPipeline][link-pfupipeline] and [PFUAggPipeline][link-pfuaggpipeline] pipelines |
 | [PFUPipelineTools][link-pfupipelinetools] | Provides basic functionality for all PFU pipelines |
-| [PFUDatabase][link-pfudatabase]       | Provides a [targets][link-targets] pipeline to create a data frame of RUVY matrices |
-| [PFUAggDatabase][link-pfuaggdatabase] | Provides a [targets][link-targets] pipeline to aggregate RUVY matrices |
+| [PFUPipeline][link-pfupipeline]       | Provides a [targets][link-targets] pipeline to create a data frame of RUVY matrices |
+| [PFUAggPipeline][link-pfuaggpipeline] | Provides a [targets][link-targets] pipeline to aggregate RUVY matrices |
 
 
 ## References
