@@ -126,14 +126,14 @@ See any number of internet references for an exergy primer,
 including @SciDirect:2023.].
 
 We created a suite of open-source `R` packages 
-and the metapackage `CLPFUDatabase`
+and the metapackage [CLPFUDatabase][link-clpfudatabase] [@Heun-CLPFUDatabase:2023]
 to assist SEA practitioners to analyze ECCs. 
 The new packages enable analysis of any country in the world
 across timespans of decades or longer.
 In short, the new packages enable, for the first time, scalable SEA.
 We used the new packages to create the CL-PFU database^["CL-PFU" 
-is an initialism for "Country-Level
-Primary, Final, and Useful."
+is an initialism for 
+"Country-Level Primary, Final, and Useful."
 The CL-PFU database contains many countries as well as 
 continental and world aggregations.
 Technically speaking, 
