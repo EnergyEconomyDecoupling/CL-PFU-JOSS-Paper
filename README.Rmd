@@ -25,6 +25,7 @@ bibliography: paper.bib
 [link-pfupipeline]:      https://github.com/EnergyEconomyDecoupling/PFUPipeline
 [link-pfuaggpipeline]:   https://github.com/EnergyEconomyDecoupling/PFUAggPipeline
 [link-pfupipelinetools]: https://github.com/EnergyEconomyDecoupling/PFUPipelineTools
+[link-clpfudatabase]:    https://github.com/EnergyEconomyDecoupling/CLPFUDatabase
 [link-pins]:             https://pins.rstudio.com
 [link-rclabels]:         https://github.com/MatthewHeun/RCLabels
 [link-recca]:            https://github.com/MatthewHeun/Recca
@@ -112,6 +113,7 @@ The packages in the following table are available on GitHub.
 | [PFUPipelineTools][link-pfupipelinetools] | Provides basic functionality for all PFU pipelines |
 | [PFUPipeline][link-pfupipeline]       | Provides a [targets][link-targets] pipeline to create a data frame of RUVY matrices |
 | [PFUAggPipeline][link-pfuaggpipeline] | Provides a [targets][link-targets] pipeline to aggregate RUVY matrices |
+| [CLPFUDatabase][link-clpfudatabase]   | A metapackage (like `tidyverse`) to quickly load all package dependencies for the CL-PFU database |
 
 
 ## References

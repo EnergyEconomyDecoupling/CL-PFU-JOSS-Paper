@@ -64,6 +64,7 @@ The packages in the following table are available on GitHub.
 | [PFUPipelineTools](https://github.com/EnergyEconomyDecoupling/PFUPipelineTools) | Provides basic functionality for all PFU pipelines                                                                                                                                                            |
 | [PFUPipeline](https://github.com/EnergyEconomyDecoupling/PFUPipeline)           | Provides a [targets](https://docs.ropensci.org/targets) pipeline to create a data frame of RUVY matrices                                                                                                      |
 | [PFUAggPipeline](https://github.com/EnergyEconomyDecoupling/PFUAggPipeline)     | Provides a [targets](https://docs.ropensci.org/targets) pipeline to aggregate RUVY matrices                                                                                                                   |
+| [CLPFUDatabase](https://github.com/EnergyEconomyDecoupling/CLPFUDatabase)       | A metapackage (like `tidyverse`) to quickly load all package dependencies for the CL-PFU database                                                                                                             |
 
 ## References
 
