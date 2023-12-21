@@ -346,9 +346,8 @@ following the example below.
 
 
 ```r
-library(devtools)
 # (0) Use the CLPFUDatabase metapackage to install all dependencies.
-#     This package installation step is needed only once.
+#     This metapackage installation step is needed only once.
 devtools::install_github("EnergyEconomyDecoupling/CLPFUDatabase")
 
 # (1) Purchase, download, and store IEA EWEB data in the correct location.
