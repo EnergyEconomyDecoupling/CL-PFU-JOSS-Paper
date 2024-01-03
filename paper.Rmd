@@ -9,7 +9,7 @@ tags:
 authors:
 - name: Matthew Kuperus Heun
   orcid: 0000-0002-7438-214X
-  affiliation: 1,2
+  affiliation: "1,2"
 - name: Zeke Marshall
   orcid: 0000-0001-9260-7827
   affiliation: 2
