@@ -9,7 +9,7 @@ tags:
 authors:
 - name: Matthew Kuperus Heun
   orcid: 0000-0002-7438-214X
-  affiliation: "1,2"
+  affiliation: "1,2,3"
 - name: Zeke Marshall
   orcid: 0000-0001-9260-7827
   affiliation: 2
@@ -21,6 +21,8 @@ affiliations:
   index: 1
 - name: School of Earth and Environment, University of Leeds
   index: 2
+- name: School for Public Leadership, Stellenbosch University
+  index: 3
 bibliography: paper.bib
 output:
   html_document:
