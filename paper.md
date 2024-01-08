@@ -142,7 +142,7 @@ Technically speaking,
 we create [matsindf][link-matsindf] data frames
 stored as [pins][link-pins] on a pinboard, 
 not SQL or similar databases.],
-a new resource for the SEA community [@Marshall:2023aa; @Brockway:2024aa]. 
+a new resource for the SEA community [@Brockway:2024aa]. 
 
 This paper describes the design of the new packages and
 demonstrates briefly their use.
@@ -332,7 +332,9 @@ are available on GitHub.
 | [PFUAggPipeline][link-pfuaggpipeline] | Provides a [targets][link-targets] pipeline to aggregate RUVY matrices |
 | [CLPFUDatabase][link-clpfudatabase]   | A metapackage (like `tidyverse`) to quickly load all package dependencies for the CL-PFU database |
 
-Input data for the PFU database can be found in @Marshall:2023aa.
+Example input data for the CL-PFU database 
+(for two countries and two years) 
+can be found in the GitHub repository for this paper.
 Access to the full CL-PFU database can be obtained via correspondence 
 with author [P.E.B.](mailto:P.E.Brockway@leeds.ac.uk)^[Because the CL-PFU database contains
 primary and final energy [IEA EWEB][link-ieaeweb] data, 
