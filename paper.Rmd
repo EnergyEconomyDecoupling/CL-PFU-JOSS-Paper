@@ -332,7 +332,7 @@ are available on GitHub.
 | [PFUAggPipeline][link-pfuaggpipeline] | Provides a [targets][link-targets] pipeline to aggregate RUVY matrices |
 | [CLPFUDatabase][link-clpfudatabase]   | A metapackage (like `tidyverse`) to quickly load all package dependencies for the CL-PFU database |
 
-Input data for the PFU database can be found in @Marshall:2023aa.
+Input data for the CL-PFU database can be found in @Marshall:2023aa.
 Access to the full CL-PFU database can be obtained via correspondence 
 with author [P.E.B.](mailto:P.E.Brockway@leeds.ac.uk)^[Because the CL-PFU database contains
 primary and final energy [IEA EWEB][link-ieaeweb] data, 
