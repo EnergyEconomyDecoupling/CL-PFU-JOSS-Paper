@@ -262,8 +262,8 @@ must be extended to the useful stage by
 (b) multiplying allocated final energy by the 
 final-to-useful efficiency of each machine.
 This task is accomplished by functions in the
-[Recca][link-recca] [@Heun-Recca:2023]
-package.
+[Recca][link-recca]
+package [@Heun-Recca:2023].
 Fourth, ECCs must be converted from energy terms to exergy terms. 
 This step is also performed by functions in the [Recca][link-recca] package.
 
@@ -272,7 +272,7 @@ are accomplished by a
 [targets][link-targets] [@Landau:2021aa]
 computation pipeline
 available in the [PFUPipeline][link-pfupipeline]
-package.
+package [@Heun-PFUPipeline:2023].
 A unique feature of the
 [PFUPipeline][link-pfupipeline]
 enabled by the [Recca][link-recca] package 
@@ -318,7 +318,7 @@ for pipeline input and output data.
 [PFUPipelineTools][link-pfupipelinetools] provides functions and constants
 common to both pipelines. 
 
-The packages in the following table support creation of the CL-PFU database
+The packages in the following table support creation of the CL-PFU database and
 are available on GitHub.
 
 | Package | Purpose |
