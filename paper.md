@@ -155,7 +155,7 @@ analyzed the ECCs of individual countries
 using linked spreadsheets,
 often starting with primary- and final-stage data 
 from the [International Energy Agency][link-iea]'s (IEA's)
-[extended world energy balances][link-ieaeweb] (EWEBs)
+[Extended World Energy Balances][link-ieaeweb] (EWEBs)
 [@Ayres:2003ec; @Serrenho:2014aa; @Brockway:2014aa; @Brockway:2015aa]. 
 Data were stored in varying and inconsistent formats.
 An early SEA database [@De-Stercke:2014]
