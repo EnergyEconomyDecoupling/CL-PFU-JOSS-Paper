@@ -5,11 +5,14 @@
 <!-- *********** -->
 <!-- Define some macros for later use -->
 
+[![DOI](https://joss.theoj.org/papers/10.21105/joss.06057/status.svg)](https://doi.org/10.21105/joss.06057)
+
 ## JOSS paper
 
-This repository contains a paper submitted to the [Journal of Open
-Source Software (JOSS)](https://joss.theoj.org) covering the suite of
-`R` packages associated with the CL-PFU[^1] database.
+This repository contains a paper published in  
+the [Journal of Open Source Software (JOSS)](https://joss.theoj.org)
+covering the suite of `R` packages associated with the CL-PFU[^1]
+database.
 
 ## Statement of need
 
